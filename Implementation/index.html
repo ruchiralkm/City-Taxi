@@ -2,19 +2,184 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>City-Taxi</title>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="Sass/styles.min.css" />
+
+    <link rel="stylesheet" href="Sass/button.min.css" />
   </head>
-
-  <!--css file-->
-  <link rel="stylesheet" href="Sass/styles.min.css" />
-
   <body>
-    <h1>City-Taxi</h1>
+    <!-- Video header -->
+    <div class="videoContainer">
+      <video autoplay muted loop class="headerSec">
+        <source src="headerVideo.mp4" type="video/mp4" />
+      </video>
+      <h2 class="videoText">
+        Welcome to the
+        <span style="color: #06a700">City-Taxi</span>(pvt)<br /><span
+          class="sp1"
+          >We are Making every day better</span
+        >
+      </h2>
+    </div>
 
-    <a href="Admin/admin.html"><button>Admin</button></a>
-    <a href="CallOperator/callOperator.html"><button>Call Operator</button></a>
-    <a href="Drivers/drivers.html"><button>Drivers</button></a>
-    <a href="Passengers/passengers.html"><button>Passengers</button></a>
+    <!-- ************************************************************* -->
+    <!-- hero section -->
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <center>
+          <img src="City-Taxi.png" alt="" style="width: 220px; height: 150px" />
+        </center>
+      </div>
+
+      <!-- ------------------------------- -->
+      <!-- Driver -->
+      <div class="box-container">
+        <div class="box">
+          <img
+            src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/driver.jpg"
+            alt=""
+          />
+          <h3>Driver</h3>
+          <br />
+          <p>Safely operate the vehicles</p>
+
+          <!-- button -->
+          <button class="animated-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Take me to drive</span>
+            <span class="circle"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-1"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- ------------------------------- -->
+        <!-- Passenger -->
+        <div class="box">
+          <img
+            src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/passenger.jpg"
+            alt=""
+          />
+          <h3>Passenger</h3>
+          <br />
+          <p>Safely operate the vehicles</p>
+
+          <!-- button -->
+          <button class="animated-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Take me to ride</span>
+            <span class="circle"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-1"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- ------------------------------- -->
+        <!-- Call Operator -->
+        <div class="box">
+          <img
+            src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/calloperator.jpg"
+            alt=""
+          />
+          <h3>Call Operator</h3>
+          <br />
+          <p>Safely operate the vehicles</p>
+
+          <!-- button -->
+          <button class="animated-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Take me to drive</span>
+            <span class="circle"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-1"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- ------------------------------- -->
+        <!-- Admin -->
+        <div class="box">
+          <img
+            src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/admin.jpg"
+            alt=""
+          />
+          <h3>Administrator</h3>
+          <br />
+          <p>Safely operate the vehicles</p>
+
+          <!-- button -->
+          <button class="animated-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+            <span class="text">Take me to drive</span>
+            <span class="circle"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arr-1"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
