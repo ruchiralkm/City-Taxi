@@ -31,6 +31,7 @@
 
           <div class="col-md-6 right">
             <div class="input-box">
+              <form action="backend/callOperatorLogin.php" method="POST">
               <header>
                 Call Operator <br />
                 Login
@@ -40,13 +41,14 @@
                   type="text"
                   class="input"
                   id="email"
+                  name = "email"
                   required=""
                   autocomplete="off"
                 />
                 <label for="email">Email</label>
               </div>
               <div class="input-field">
-                <input type="password" class="input" id="pass" required="" />
+                <input type="password" class="input" id="pass" name="pass" required="" />
                 <label for="pass">Password</label>
               </div>
               <div class="input-field">
@@ -55,6 +57,7 @@
               <div class="signin">
                 <span>&copy; 2024 City-Taxi(pvt). All rights reserved.</span>
               </div>
+              </form>
             </div>
           </div>
         </div>

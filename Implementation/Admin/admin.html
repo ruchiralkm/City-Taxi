@@ -32,28 +32,33 @@
 
           <div class="col-md-6 right">
             <div class="input-box">
-              <header>
-                Administrator <br />
-                Login
-              </header>
-              <div class="input-field">
-                <input
-                  type="text"
-                  class="input"
-                  id="email"
-                  required=""
-                  autocomplete="off"
-                />
-                <label for="email">Email</label>
-              </div>
-              <div class="input-field">
-                <input type="password" class="input" id="pass" required="" />
-                <label for="pass">Password</label>
-              </div>
-              <div class="input-field">
-                <input type="submit" class="submit" value="Login" />
-              </div>
-              <div class="signin">
+              <form action="backend/adminLogin.php" method="POST">
+                <header>
+                  Administrator <br />
+                  Login
+                </header>
+                <div class="input-field">
+                  <input
+                    type="text"
+                    class="input"
+                    id="email"
+                    name = "email"
+                    required=""
+                    autocomplete="off"
+                  />
+                  <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                  <input type="password" class="input" id="pass" name ="pass" required="" />
+                  <label for="pass">Password</label>
+                </div>
+                <div class="input-field">
+                  <input type="submit" class="submit" value="Login" />
+                </div>
+                <div class="signin">
+
+              </form>
+             
                 <span>&copy; 2024 City-Taxi(pvt). All rights reserved.</span>
               </div>
             </div>
