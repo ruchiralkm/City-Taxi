@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["admin_logged_in"] = true;
         echo "Login successful!";
         // Redirect to admin dashboard or home page
-       // header("Location: adminDashboard.php");
-       // exit();
+       header("Location: gg.html");
+       exit();
     } else {
         echo "Invalid email or password.";
     }
