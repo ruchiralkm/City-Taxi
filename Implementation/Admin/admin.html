@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- loading scss file link -->
+    <link rel="stylesheet" href="../Sass/loading.min.css" />
+
+    <!-- NavBar scss file link  -->
+    <link rel="stylesheet" href="../NavBar/Scss/NavBar.min.css" />
+
+    <!-- Admin scss file link -->
     <link rel="stylesheet" href="Sass/admin.min.css" />
 
     <!-- footer scss file link  -->
@@ -14,11 +22,43 @@
       crossorigin="anonymous"
     />
 
+     <!--font awesome(for icons)-->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+   />
     <!-- title section -->
     <link rel="icon" href="../City-Taxi.png" type="image/x-icon" />
     <title>City-Taxi</title>
   </head>
   <body>
+    <!-- ************************************************************* -->
+    <!-- Body section -->
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+      <div class="loader"></div>
+      <div class="loading-text">Loading</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav">
+      <a href="../index.html" class="logo">
+        <img src="../City-Taxi.png" alt="" style="width: 85px; height: 60px; margin-left: 20px;" />
+      </a>
+
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
     <div class="wrapper">
       <div class="container main">
         <div class="row">
@@ -130,4 +170,7 @@
       <p>&copy; 2024 City-Taxi(pvt). All rights reserved.</p>
     </section>
   </body>
+
+  <script src="../NavBar/Js/NavBar.js"></script>
+  <script src="../Js/loading.js"></script>
 </html>
