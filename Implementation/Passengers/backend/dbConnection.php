@@ -4,7 +4,7 @@
 	$username = "root"; 
 	$password = ""; 
 
-	$database = "cityTaxi"; 
+	$database = "citytaxi"; 
 
 	// Create a connection 
 	$conn = mysqli_connect($servername, $username, $password, $database); 

@@ -22,17 +22,17 @@
       <div class="forms-container">
         <div class="signin-signup">
           <!-- SignIn -->
-          <form action="#" class="sign-in-form">
+          <form action="backend/passengerLogin.php" class="sign-in-form" method="post">
             <h2 class="title">Sign In</h2>
 
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="text" placeholder="Email" />
+              <input type="text" placeholder="Email" name = "email"/>
             </div>
 
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="pass"/>
             </div>
 
             <input type="submit" value="Login" class="btn solid" />
@@ -54,27 +54,32 @@
           </form>
 
           <!-- Sign Up -->
-          <form action="#" class="sign-up-form">
+          <form action="backend/passengerSignup.php" class="sign-up-form" method="POST">
             <h2 class="title">Sign Up</h2>
 
             <div class="input-field">
               <i class="fa fa-users"></i>
-              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Name" name="name" />
             </div>
 
             <div class="input-field">
               <i class="fa fa-phone"></i>
-              <input type="number" placeholder="Mobile Number" />
+              <input type="number" placeholder="Mobile Number" name="mobile"/>
             </div>
 
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" name="email" />
             </div>
 
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="pass" />
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Confirm Password" name="conPass" />
             </div>
 
             <input type="submit" class="btn" value="Sign up" />
