@@ -17,6 +17,9 @@
     <!-- Scroll btn scss file link  -->
     <link rel="stylesheet" href="Sass/scrollerbtn.min.css" />
 
+    <!-- loading scss file link -->
+    <link rel="stylesheet" href="Sass/loading.min.css" />
+
     <!-- chatbot scss file link  -->
     <link rel="stylesheet" href="chatbot/Sass/chat.min.css" />
     <link
@@ -34,7 +37,15 @@
     <link rel="icon" href="City-Taxi.png" type="image/x-icon" />
     <title>City-Taxi</title>
   </head>
-  <body>
+  <body style="overflow: hidden">
+    <!-- ************************************************************* -->
+    <!-- Body section -->
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+      <div class="loader"></div>
+      <div class="loading-text">Loading</div>
+    </div>
+
     <!-- Video header -->
     <div class="videoContainer">
       <video autoplay muted loop class="headerSec">
@@ -343,4 +354,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="chatbot/scripts/responses.js"></script>
   <script src="chatbot/scripts/chat.js"></script>
+  <script src="Js/loading.js"></script>
 </html>
