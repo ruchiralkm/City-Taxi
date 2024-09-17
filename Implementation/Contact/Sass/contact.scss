@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box; /* Changed from 'box-sizing: 0;' which was incorrect */
+}
+.conn {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  width: 55%; /* Adjust width as per your design requirements */
+  height: auto; /* Adjust to auto to contain the .contact-box properly */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px; /* Added padding around the container */
+}
+.contact-box {
+  width: 100%; /* Full width of the container */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  grid-gap: 20px; /* Gap between the columns */
+  justify-content: center;
+  align-items: start; /* Align items to start from top */
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 18px 5px rgba(0, 0, 0, 0.19);
+}
+.left iframe {
+  width: 100%;
+  height: 550px; /* Adjust height of the map */
+}
+.right {
+  padding: 25px 40px;
+}
+h2 {
+  position: relative;
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+}
+h2:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #27ae60;
+}
+.field {
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0);
+  outline: none;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 22px;
+  transition: 0.3s;
+}
+.field:hover {
+  background-color: #f7f7f7;
+}
+textarea {
+  min-height: 150px;
+}
+.btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #27ae60;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transform: 0.3s;
+}
+.btn:hover {
+  background: #0f0f0f;
+}
+.field:focus {
+  border: 2px solid #ccc;
+  background: #fff;
+}
+
+// ------- Cards Section -------- //
+.container-cards {
+  margin-top: -160px;
+  padding: 20px 9%;
+  padding-bottom: 100px;
+
+  .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 15px;
+
+    .box {
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      background: #fff;
+      text-align: center;
+      padding: 30px 20px;
+
+      img {
+        width: 10%;
+        object-fit: cover;
+        border-radius: 10px; /* Optional: to make the image corners rounded */
+        transition: 500ms ease;
+      }
+
+      h3 {
+        color: #444;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 0;
+      }
+
+      //   p {
+      //     color: #777;
+      //     font-size: 15px;
+      //     line-height: 1.8;
+      //   }
+
+      &:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        background-color: #ddffe6;
+      }
+    }
+  }
+
+  /*--------- Animation ---------*/
+  .box-container {
+    position: relative;
+    opacity: 0;
+    transform: translateY(40%);
+    animation: slideIn 3000ms forwards;
+    animation-delay: 1s;
+  }
+
+  .logo {
+    position: relative;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideIn 2000ms forwards;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .contact-box {
+    grid-template-columns: 1fr; /* One column on small screens */
+  }
+  .left,
+  .right {
+    padding: 10px; /* Reduced padding for small screens */
+  }
+  .left iframe {
+    height: 200px; /* Smaller map on small screens */
+  }
+}
