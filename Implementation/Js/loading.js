@@ -9,5 +9,5 @@ document.addEventListener("DOMContentLoaded", function () {
     loadingScreen.style.display = "none";
     // Show the actual content
     document.body.style.overflow = "auto";
-  }, 1000);
+  }, 2000);
 });
