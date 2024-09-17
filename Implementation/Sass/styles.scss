@@ -95,14 +95,14 @@ body {
     position: relative;
     opacity: 0;
     transform: translateY(40%);
-    animation: slideIn 1s forwards;
+    animation: slideIn 3000ms forwards;
   }
 
   .logo {
     position: relative;
     opacity: 0;
     transform: translateY(-100%);
-    animation: slideIn 1s forwards;
+    animation: slideIn 3000ms forwards;
   }
 }
 

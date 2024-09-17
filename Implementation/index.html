@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- NavBar scss file link  -->
+    <link rel="stylesheet" href="NavBar/Scss/NavBar.min.css" />
+
     <!-- custom scss file link  -->
     <link rel="stylesheet" href="Sass/styles.min.css" />
 
@@ -33,6 +36,12 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
 
+    <!--font awesome(for icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <!-- title section -->
     <link rel="icon" href="City-Taxi.png" type="image/x-icon" />
     <title>City-Taxi</title>
@@ -45,6 +54,25 @@
       <div class="loader"></div>
       <div class="loading-text">Loading</div>
     </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav">
+      <a href="#" class="logo">
+        <img src="City-Taxi.png" alt="" style="width: 85px; height: 60px" />
+      </a>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
 
     <!-- Video header -->
     <div class="videoContainer">
@@ -352,6 +380,7 @@
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="NavBar/Js/NavBar.js"></script>
   <script src="chatbot/scripts/responses.js"></script>
   <script src="chatbot/scripts/chat.js"></script>
   <script src="Js/loading.js"></script>
