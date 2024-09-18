@@ -26,7 +26,7 @@
     <!-- Navigation Bar -->
     <?php include 'NavBarPassenger.php'; ?>
 
-    <h1>Home Section</h1>
+    <h1>Ride Section</h1>
     
 
     <!--===== MAIN JS =====-->
