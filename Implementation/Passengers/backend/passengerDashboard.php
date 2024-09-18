@@ -75,7 +75,16 @@
               </li>
 
               <li class="nav__item">
-                <a href="#" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $_SESSION['name'] ?> </a>
+                <a href="#" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <?php
+                    session_start();
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo "Welcome, " . htmlspecialchars($_SESSION['name']);
+                    } else {
+                        echo '<a href="login.php" style="color: white;">Login</a>';
+                    }
+                  ?> 
+                </a>
               </li>
 
               <li class="nav__item">
