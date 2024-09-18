@@ -6,9 +6,9 @@
   --header-height: 3rem;
 
   /*===== Colors =====*/
-  --first-color: #5b65f5;
+  --first-color: #0b8c4c;
   --first-color-light: #c4c7f5;
-  --dark-color: #0e1026;
+  --dark-color: #fff;
   --white-color: #fbfbfb;
 
   /*===== Font and typography =====*/
@@ -49,6 +49,7 @@ ul {
 
 a {
   text-decoration: none;
+  font-weight: 400;
 }
 
 .bd-grid {
@@ -67,7 +68,7 @@ a {
   width: 100%;
   height: var(--header-height);
   padding: 0 1rem;
-  background-color: #fff;
+  background-color: #1a242f;
   z-index: var(--z-fixed);
   display: flex;
   justify-content: space-between;
@@ -90,7 +91,7 @@ a {
     position: fixed;
     top: 0;
     left: -100%;
-    background-color: var(--first-color);
+    background-color: #1a242f;
     width: 80%;
     height: 100vh;
     padding: 2rem 0;

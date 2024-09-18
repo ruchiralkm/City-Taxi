@@ -18,11 +18,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <title>Responsive menu dropdown</title>
+    <!-- title section -->
+    <link rel="icon" href="City-Taxi.png" type="image/x-icon" />
+    <title>City-Taxi</title>
   </head>
   <body>
     <header class="header">
-      <a href="#" class="header__logo">Clay</a>
+      <a href="#" class="header__logo">City-Taxi</a>
 
       <i class="bx bx-menu header__toggle" id="header-toggle"></i>
 
@@ -54,7 +56,7 @@
                   >Activities <i class="bx bx-chevron-down dropdown__icon"></i
                 ></a>
 
-                <ul class="dropdown__menu">
+                <ul class="dropdown__menu" style="background-color:#1a242f">
 
                   <li class="dropdown__item">
                     <a href="#" class="nav__link">Ongoing</a>
@@ -73,7 +75,7 @@
               </li>
 
               <li class="nav__item">
-                <a href="#" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                <a href="#" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $_SESSION['name'] ?> </a>
               </li>
 
               <li class="nav__item">
