@@ -136,15 +136,15 @@ form.sign-in-form {
   transition: 0.3s;
 
   &:hover {
-    color: #4481eb;
-    border-color: #4481eb;
+    color: #0b8c4c;
+    border-color: #0b8c4c;
   }
 }
 
 /*----------- Buttons------ */
 .btn {
   width: 150px;
-  background-color: #5995fd;
+  background-color: #0b8c4c;
   border: none;
   outline: none;
   height: 49px;
@@ -157,7 +157,7 @@ form.sign-in-form {
   transition: 0.5s;
 
   &:hover {
-    background-color: #4d84e2;
+    background-color: #1a242f;
   }
 }
 /*--- Transparent button ---*/
@@ -204,7 +204,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #0d78f3 0%, #ff2aff 100%);
+  background-image: linear-gradient(-45deg, #22db7f 0%, #06532d 100%);
   background-size: 200% 200%;
   animation: gradient-animation 5s ease infinite;
   transition: 1.8s ease-in-out;
@@ -275,7 +275,7 @@ form.sign-in-form {
   overflow: hidden;
   opacity: 0;
   animation: slideIn 1.4s forwards;
-  animation-delay: 0.5s;
+  animation-delay: 2s;
 }
 
 /*-- Slide in animation for title --*/
@@ -284,7 +284,7 @@ form.sign-in-form {
   opacity: 0;
   transform: translateX(-50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 0.5s;
+  animation-delay: 2s;
 }
 
 /*-- Slide in animation for input fields --*/
@@ -293,7 +293,7 @@ form.sign-in-form {
   opacity: 0;
   transform: translateX(50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 1s;
+  animation-delay: 2.3s;
 }
 
 /*-- Slide in animation for buttons --*/
@@ -302,7 +302,7 @@ form.sign-in-form {
   opacity: 0;
   transform: translateX(-50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 1.3s;
+  animation-delay: 3s;
 }
 
 /* --Slide in animation for social text --*/
@@ -311,7 +311,7 @@ form.sign-in-form {
   opacity: 0;
   transform: translateX(-50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 1.3s;
+  animation-delay: 3s;
 }
 
 /* --Slide in animation for social media icons-- */
@@ -320,7 +320,7 @@ form.sign-in-form {
   opacity: 0;
   transform: translateX(-50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 1.3s;
+  animation-delay: 3s;
 }
 
 /*-- Slide in animation for p,h3 --*/
@@ -330,7 +330,7 @@ h3 {
   opacity: 0;
   transform: translateX(-50%);
   animation: slideIn 1.4s forwards;
-  animation-delay: 1.3s;
+  animation-delay: 3s;
 }
 
 /*-- Keyframes for sliding --*/
