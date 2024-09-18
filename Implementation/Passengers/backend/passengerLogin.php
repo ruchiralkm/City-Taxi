@@ -1,4 +1,3 @@
-
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 echo "<h3>Login successful! Welcome, " . $_SESSION['name'] . ".</h3>";
                 // Redirect to the passenger dashboard or another page
-                 header("Location: passengerDashboard.php");
+                 header("Location: HomePassenger.php");
                 exit();
             } 
             else 

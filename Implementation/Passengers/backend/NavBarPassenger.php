@@ -10,7 +10,7 @@
     />
 
     <!-- ===== SCSS File ===== -->
-    <link rel="stylesheet" href="Sass/passengerDashboard.min.css" />
+    <link rel="stylesheet" href="Sass/NavBarPassenger.min.css" />
 
     <!--font awesome(for icons)-->
     <link
@@ -74,7 +74,7 @@
                 <a href="#" class="nav__link"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a>
               </li>
 
-              <li class="nav__item">
+              <li class="nav__item" style="margin-left:70px">
                 <a href="#" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i>
                   <?php
                     session_start();
@@ -87,8 +87,8 @@
                 </a>
               </li>
 
-              <li class="nav__item">
-                <a href="#" class="nav__link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+              <li class="nav__item" style="margin-left:-20px">
+                <a href="#" class="nav__link"> | <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
               </li>
 
             </ul>
@@ -98,7 +98,6 @@
     </header>
 
     <br><br>
-    <h1>Hello</h1>
     
 
     <!--===== MAIN JS =====-->
