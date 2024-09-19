@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- loading scss file link -->
+    <link rel="stylesheet" href="../Sass/loading.min.css" />
+
+    <!-- NavBar scss file link  -->
+    <link rel="stylesheet" href="../NavBar/Scss/NavBar.min.css" />
+
+    <!-- Main scss file link  -->
+    <link rel="stylesheet" href="Sass/driversSignup.min.css" />
+
+    <!-- footer scss file link  -->
+    <link rel="stylesheet" href="../Sass/footer.min.css" />
+  </head>
+  <body>
+    <!-- ************************************************************* -->
+    <!-- Body section -->
+    <!--* Loading Screen *-->
+    <div class="loading-screen">
+      <div class="loader"></div>
+      <div class="loading-text">Loading</div>
+    </div>
+
+    <!--* Navigation Bar *-->
+    <nav class="nav">
+      <a href="../index.html" class="logo">
+        <img
+          src="../City-Taxi.png"
+          alt=""
+          style="width: 85px; height: 60px; margin-left: 20px"
+        />
+      </a>
+
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!--* hero section *-->
+    <div class="signupContainer">
+      <!--* 1st Step *-->
+      <form action="" id="Form1">
+        <h3>Create Account</h3>
+        <h4>Personal Info</h4>
+        <input type="text" placeholder="Frist Name" required />
+        <input type="password" placeholder="Last Name" required />
+        <input type="number" placeholder="Mobile Number" required />
+        <input type="text" placeholder="Licence Number" required />
+        <input type="text" placeholder="Address" required />
+
+        <div class="btn-box">
+          <button type="button" class="nextBtn" id="Next1">Next</button>
+        </div>
+      </form>
+
+      <!--* 2nd Step *-->
+      <form action="" id="Form2">
+        <h4>Select your vehicle type</h4>
+
+        <div class="container">
+          <div class="radio-tile-group">
+            <div class="input-container">
+              <input id="bike" type="radio" name="radio" />
+              <div class="radio-tile">
+                <img
+                  style="width: 120px"
+                  src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/bike.png"
+                  alt=""
+                />
+                <label for="bike">Bike</label>
+              </div>
+            </div>
+
+            <div class="input-container">
+              <input id="threewheel" type="radio" name="radio" />
+              <div class="radio-tile">
+                <img
+                  style="width: 100px"
+                  src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/threew.png"
+                  alt=""
+                />
+                <label for="threewheel">Threewheel</label>
+              </div>
+            </div>
+
+            <div class="input-container">
+              <input id="car" type="radio" name="radio" />
+              <div class="radio-tile">
+                <img
+                  style="width: 110px"
+                  src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/car.png"
+                  alt=""
+                />
+                <label for="car">Car</label>
+              </div>
+            </div>
+
+            <div class="input-container">
+              <input id="van" type="radio" name="radio" />
+              <div class="radio-tile">
+                <img
+                  style="width: 120px"
+                  src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/van.png"
+                  alt=""
+                />
+                <label for="van">Van</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toggle between Part Time and Full Time -->
+        <h4 style="margin-bottom: 10px">Select your working type</h4>
+
+        <div class="toggle-container">
+          <input
+            type="radio"
+            id="partTime"
+            name="employment"
+            value="partTime"
+            checked
+          />
+          <input
+            type="radio"
+            id="fullTime"
+            name="employment"
+            value="fullTime"
+          />
+
+          <label for="partTime" class="option partTime">Part Time</label>
+          <label for="fullTime" class="option fullTime">Full Time</label>
+
+          <div class="toggle-slider">
+            <div class="slider"></div>
+          </div>
+        </div>
+
+        <div class="btn-box">
+          <button type="button" class="backBtn" id="Back1">Back</button>
+          <button type="button" class="nextBtn" id="Next2">Next</button>
+        </div>
+      </form>
+
+      <!--* 3rd Step *-->
+      <form action="" id="Form3">
+        <h4 style="margin-bottom: 16px">Security Info</h4>
+        <label style="font-weight: 500">Profile Picture </label>
+        <input
+          type="file"
+          id="real-file"
+          name="picture"
+          accept="image/*"
+          hidden="hidden"
+        />
+        <button class="gg" id="cutom-botton">Choose Photo</button>
+
+        <script>
+          const realFileBtn = document.getElementById("real-file");
+          const cutomBtn = document.getElementById("cutom-botton");
+
+          cutomBtn.addEventListener("click", function () {
+            realFileBtn.click();
+          });
+        </script>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+
+        <div class="btn-box">
+          <button type="button" class="backBtn" id="Back2">Back</button>
+          <button type="submit" class="nextBtn" id="Next3">Submit</button>
+        </div>
+
+        <center><p>© 2024 City-Taxi(pvt). All rights reserved.</p></center>
+      </form>
+
+      <div class="step-row">
+        <div id="progress"></div>
+        <div class="step-col"><small>Step 1</small></div>
+        <div class="step-col"><small>Step 2</small></div>
+        <div class="step-col"><small>Step 3</small></div>
+      </div>
+    </div>
+
+    <!-- ************************************************************* -->
+    <!-- footer section -->
+    <section class="footer">
+      <div class="footer-content">
+        <img
+          src="../City-Taxi.png"
+          alt=""
+          style="width: 220px; height: 150px"
+        />
+
+        <p>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          Kurunegala Road,Katugastota,Kandy.
+          <img
+            src="https://freepngdesign.com/content/uploads/images/sri-lanka-large-flag-3884.png"
+            alt=""
+            style="width: 25px; height: 20px"
+          />
+        </p>
+
+        <div class="icons">
+          <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+          <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <h4>About</h4>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+      </div>
+
+      <div class="footer-content">
+        <h4>Consumer</h4>
+        <li><a href="#">Passenger</a></li>
+        <li><a href="#">Driver</a></li>
+        <li><a href="#">Financial</a></li>
+        <li><a href="#">Offers</a></li>
+        <li><a href="#">What's next?</a></li>
+      </div>
+
+      <div class="footer-content">
+        <h4>Driver</h4>
+        <li><a href="#">Help centre</a></li>
+        <li><a href="#">Drive with us</a></li>
+        <li><a href="#">Driver centre</a></li>
+        <li><a href="#">City-Taxi Academy</a></li>
+      </div>
+
+      <div class="footer-content">
+        <h4>Quick Links</h4>
+        <li><a href="#">Help Centre</a></li>
+        <li><a href="#">Developer Portal</a></li>
+        <li><a href="#">Reserve</a></li>
+        <li><a href="#">Travel</a></li>
+      </div>
+
+      <p>&copy; 2024 City-Taxi(pvt). All rights reserved.</p>
+    </section>
+
+    <script>
+      var Form1 = document.getElementById("Form1");
+      var Form2 = document.getElementById("Form2");
+      var Form3 = document.getElementById("Form3");
+
+      var Next1 = document.getElementById("Next1");
+      var Next2 = document.getElementById("Next2");
+      var Back1 = document.getElementById("Back1");
+      var Back2 = document.getElementById("Back2");
+
+      var progress = document.getElementById("progress");
+
+      Next1.onclick = function () {
+        Form1.style.left = "-750px";
+        Form2.style.left = "40px";
+        progress.style.width = "520px";
+      };
+
+      Back1.onclick = function () {
+        Form1.style.left = "40px";
+        Form2.style.left = "750px";
+        progress.style.width = "260px";
+      };
+
+      Next2.onclick = function () {
+        Form2.style.left = "-750px";
+        Form3.style.left = "40px";
+        progress.style.width = "780px";
+      };
+
+      Back2.onclick = function () {
+        Form2.style.left = "40px";
+        Form3.style.left = "750px";
+        progress.style.width = "520px";
+      };
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+
+  <script src="../NavBar/Js/NavBar.js"></script>
+  <script src="../Js/loading.js"></script>
+</html>
