@@ -79,7 +79,7 @@
                   <?php
                     session_start();
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                        echo "Welcome, " . htmlspecialchars($_SESSION['name']);
+                        echo "Welcome, " . htmlspecialchars($_SESSION['firstName']);
                     } else {
                         echo '<a href="login.php" style="color: white;">Login</a>';
                     }
