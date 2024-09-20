@@ -52,28 +52,28 @@
     <!--* hero section *-->
     <div class="signupContainer">
       <!--* 1st Step *-->
-      <form action="" id="Form1">
+      <form action="backend/driversDetails.php" id="Form1" method="post" >
         <h3>Create Account</h3>
         <h4>Personal Info</h4>
-        <input type="text" placeholder="Frist Name" required />
-        <input type="password" placeholder="Last Name" required />
-        <input type="number" placeholder="Mobile Number" required />
-        <input type="text" placeholder="Licence Number" required />
-        <input type="text" placeholder="Address" required />
+        <input type="text" id="firstName" name="firstName" placeholder="Frist Name" required />
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+        <input type="number" id="mobile" name="mobile" placeholder="Mobile Number" required />
+        <input type="text" id="licenceNumber" name="licenceNumber" placeholder="Licence Number" required />
+        <input type="text" id="address" name="address" placeholder="Address" required />
 
         <div class="btn-box">
-          <button type="button" class="nextBtn" id="Next1">Next</button>
+          <button type="button" class="nextBtn" id="Next1" name="Next1">Next</button>
         </div>
       </form>
 
       <!--* 2nd Step *-->
-      <form action="" id="Form2">
+      <form action="backend/driversDetails.php" id="Form2" method="post" >
         <h4>Select your vehicle type</h4>
 
         <div class="container">
           <div class="radio-tile-group">
             <div class="input-container">
-              <input id="bike" type="radio" name="radio" />
+              <input id="bike" type="radio" name="vehicle" value="Bike"/>
               <div class="radio-tile">
                 <img
                   style="width: 120px"
@@ -85,7 +85,7 @@
             </div>
 
             <div class="input-container">
-              <input id="threewheel" type="radio" name="radio" />
+              <input id="threewheel" type="radio" name="vehicle" value="Threewheel" />
               <div class="radio-tile">
                 <img
                   style="width: 100px"
@@ -97,7 +97,7 @@
             </div>
 
             <div class="input-container">
-              <input id="car" type="radio" name="radio" />
+              <input id="car" type="radio" name="vehicle" value="Car" />
               <div class="radio-tile">
                 <img
                   style="width: 110px"
@@ -109,7 +109,7 @@
             </div>
 
             <div class="input-container">
-              <input id="van" type="radio" name="radio" />
+              <input id="van" type="radio" name="vehicle" value="Van"/>
               <div class="radio-tile">
                 <img
                   style="width: 120px"
@@ -147,21 +147,35 @@
             <div class="slider"></div>
           </div>
         </div>
+        
 
         <div class="btn-box">
           <button type="button" class="backBtn" id="Back1">Back</button>
-          <button type="button" class="nextBtn" id="Next2">Next</button>
+          <button type="button" class="nextBtn" id="Next2" name="Next2">Next</button>
         </div>
       </form>
 
       <!--* 3rd Step *-->
-      <form action="" id="Form3">
+      <form action="backend/driversDetails.php" id="Form3" method="POST" enctype="multipart/form-data">
+        
+            <!-- Hidden inputs for Step 1 (Personal Info) -->
+        <input type="hidden" id="hiddenFirstName" name="firstName" />
+        <input type="hidden" id="hiddenLastName" name="lastName" />
+        <input type="hidden" id="hiddenMobile" name="mobile" />
+        <input type="hidden" id="hiddenLicenceNumber" name="licenceNumber" />
+        <input type="hidden" id="hiddenAddress" name="address" />
+
+        <!-- Hidden inputs for Step 2 (Vehicle Info) -->
+        <input type="hidden" id="hiddenVehicle" name="vehicle" />
+        <input type="hidden" id="hiddenEmployment" name="employment" />
+        
+        <!--form 3 -->
         <h4 style="margin-bottom: 16px">Security Info</h4>
         <label style="font-weight: 500">Profile Picture </label>
         <input
           type="file"
           id="real-file"
-          name="picture"
+          name="profilePicture"
           accept="image/*"
           hidden="hidden"
         />
@@ -175,13 +189,13 @@
             realFileBtn.click();
           });
         </script>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <input type="password" placeholder="Confirm Password" required />
+        <input type="email" placeholder="Email" required name="email"/>
+        <input type="password" placeholder="Password" required name="password" />
+        <input type="password" placeholder="Confirm Password" required name="confPassword"/>
 
         <div class="btn-box">
           <button type="button" class="backBtn" id="Back2">Back</button>
-          <button type="submit" class="nextBtn" id="Next3">Submit</button>
+          <button type="submit" class="nextBtn" id="Next3" name="submit">Submit</button>
         </div>
 
         <center><p>© 2024 City-Taxi(pvt). All rights reserved.</p></center>
@@ -284,6 +298,24 @@
       };
 
       Next2.onclick = function () {
+
+          // Transfer data from Step 1
+        document.getElementById('hiddenFirstName').value = document.getElementById('firstName').value;
+        document.getElementById('hiddenLastName').value = document.getElementById('lastName').value;
+        document.getElementById('hiddenMobile').value = document.getElementById('mobile').value;
+        document.getElementById('hiddenLicenceNumber').value = document.getElementById('licenceNumber').value;
+        document.getElementById('hiddenAddress').value = document.getElementById('address').value;
+
+        // Transfer data from Step 2
+        let vehicle = document.querySelector('input[name="vehicle"]:checked');
+        if (vehicle) {
+            document.getElementById('hiddenVehicle').value = vehicle.value;
+        }
+
+        let employment = document.querySelector('input[name="employment"]:checked');
+        if (employment) {
+            document.getElementById('hiddenEmployment').value = employment.value;
+        }
         Form2.style.left = "-750px";
         Form3.style.left = "40px";
         progress.style.width = "780px";
