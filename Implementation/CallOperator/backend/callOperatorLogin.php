@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["operator_logged_in"] = true;
         echo "Login successful!";
         // Redirect to admin dashboard or home page
-       // header("Location: callOperatorDashboard.php");
+        header("Location: NavBarHome.php");
        // exit();
     } else {
         echo "Invalid email or password.";
