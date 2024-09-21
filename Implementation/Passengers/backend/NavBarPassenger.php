@@ -77,11 +77,11 @@
               <li class="nav__item" style="margin-left:70px">
                 <a href="ProfilePassenger.php" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i>
                   <?php
-                    session_start();
+                   session_start();
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                         echo "Welcome, " . htmlspecialchars($_SESSION['name']);
                     } else {
-                        echo '<a href="login.php" style="color: white;">Login</a>';
+                        echo '<a href="../passengers.html" style="color: white;">Login</a>';
                     }
                   ?> 
                 </a>
