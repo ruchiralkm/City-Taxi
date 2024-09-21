@@ -150,9 +150,9 @@
  
     }
     
- // Book Ride on Button Click
- /*
- document.getElementById('bookRideBtn').addEventListener('click', function() {
+        // Book Ride on Button Click
+        /*
+        document.getElementById('bookRideBtn').addEventListener('click', function() {
             const distance = document.getElementById('distance').value;
             const fare = document.getElementById('fare').value;
             const pickup = document.getElementById('pickupLocation').value;

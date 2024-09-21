@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
     if ($stmt->execute()) {
         echo'Driver registered successfully!';
-       // header("Location: ../driversSignup.html");
+       //header("Location: ../driversSignup.html");
     } else {
         echo 'Error: ' . $stmt->error;
         //header("Location: ../driversSignup.html");
