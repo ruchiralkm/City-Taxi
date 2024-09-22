@@ -57,7 +57,7 @@
     
       // Coordinates retrieved from the database (from your PHP script)
       const pickupCoords = [<?php echo $pickupLocation; ?>]; // Example: [79.8504201049708, 6.93305360305348]
-      const dropCoords = [<?php echo $dropLocation; ?>]; // Example: [79.89527478332383, 6.936887726202443]
+      const dropCoords = [<?php echo $dropLocation; ?>]; 
 
       // Initialize the map
       const map = new mapboxgl.Map({
