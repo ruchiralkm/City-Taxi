@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['email'] = $row['email'];
+                $_SESSION['passengerID']=$row['passengerID'];
 
                 echo "<h3>Login successful! Welcome, " . $_SESSION['name'] . ".</h3>";
                 // Redirect to the passenger dashboard or another page
