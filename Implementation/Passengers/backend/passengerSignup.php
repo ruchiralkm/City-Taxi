@@ -45,11 +45,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     include 'dbConnection.php';
 
     //get the input data
-    $pasName = $_POST["name"];
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+
     $mobile = $_POST["mobile"];
     $email = $_POST["email"];
     $password = $_POST["pass"];
     $conPassword = $_POST["conPass"];
+    
+    //password validation 
+    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
+
+   
 
     //email
    
@@ -57,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $body = "
         <html>
         <body>
-        <p>Dear $pasName,</p>
+        <p>Dear $firstName $lastName,</p>
         <p>We are thrilled to welcome you to City Taxi! Your registration has been successfully completed, and you are now ready to start booking rides with us.</p>
         <p>Here are your login details:</p>
         <p>Email: $email<br>Password: $password</p>
@@ -73,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     
-        if(($password == $conPassword)){
+        if(($password == $conPassword) && preg_match($pattern, $password)){
 
              // Check if the provided email already exists
                 $result = $conn->query("SELECT COUNT(*) AS count FROM passenger WHERE email = '$email'");
@@ -90,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 
-                $sql = "INSERT INTO passenger(name,mobile,email,password) values('$pasName', '$mobile', '$email', '$hash')";
+                $sql = "INSERT INTO passenger(firstName,lastName,mobile,email,password) values('$firstName','$lastName', '$mobile', '$email', '$hash')";
                 
                 
                 if(mysqli_query($conn, $sql)){

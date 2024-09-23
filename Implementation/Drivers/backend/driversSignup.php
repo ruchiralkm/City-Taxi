@@ -57,16 +57,21 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $confPassword = $_POST['confPassword'];
 
-
-
-
-    // Validate passwords
-    if ($password !== $confPassword) {
-        $_SESSION['error'] = "Passwords do not match!";
-       // echo 'wrong password';
-        //header("Location: ../driversSignup.html");
+    //password validation 
+    $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
+    if (!preg_match($pattern, $password)) {
+        $_SESSION['error'] = "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one number.";
+        header("Location: ../driversSignup.html");
         exit();
     }
+
+    // Validate that password and confirmation password match
+    if ($password !== $confPassword) {
+        $_SESSION['error'] = "Passwords do not match!";
+        header("Location: ../driversSignup.html");
+        exit();
+    }
+        
 
     // Check if the provided email already exists
     $result = $conn->query("SELECT COUNT(*) AS count FROM driver WHERE email = '$email'");
