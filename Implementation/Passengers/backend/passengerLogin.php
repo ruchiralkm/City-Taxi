@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Start the session and set session variables
                 session_start();
                 $_SESSION['loggedin'] = true;
-                $_SESSION['name'] = $row['name'];
+                $_SESSION['firstName'] = $row['firstName'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['passengerID']=$row['passengerID'];
 
-                echo "<h3>Login successful! Welcome, " . $_SESSION['name'] . ".</h3>";
+                echo "<h3>Login successful! Welcome, " . $_SESSION['firstName'] . ".</h3>";
                 // Redirect to the passenger dashboard or another page
                  header("Location: HomePassenger.php");
                 exit();
