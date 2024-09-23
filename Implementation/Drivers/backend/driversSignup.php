@@ -20,7 +20,19 @@ if (isset($_POST['submit'])) {
     // Validate passwords
     if ($password !== $confPassword) {
         $_SESSION['error'] = "Passwords do not match!";
-        header("Location: ../driversSignup.html");
+       // echo 'wrong password';
+        //header("Location: ../driversSignup.html");
+        exit();
+    }
+
+    // Check if the provided email already exists
+    $result = $conn->query("SELECT COUNT(*) AS count FROM driver WHERE email = '$email'");
+    $row = $result->fetch_assoc();
+
+    if ($row['count'] > 0) {
+        $_SESSION['error'] = "Email already exists!";
+        //echo'email already exist';
+        //header("Location: ../driversSignup.html");
         exit();
     }
 

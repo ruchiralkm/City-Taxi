@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     //get the input data
     $pasName = $_POST["name"];
     $mobile = $_POST["mobile"];
-    $emai = $_POST["email"];
+    $email = $_POST["email"];
     $password = $_POST["pass"];
     $conPassword = $_POST["conPass"];
 
@@ -18,10 +18,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if(($password == $conPassword)){
 
+             // Check if the provided email already exists
+                $result = $conn->query("SELECT COUNT(*) AS count FROM passenger WHERE email = '$email'");
+                $row = $result->fetch_assoc();
+
+                if ($row['count'] > 0) {
+                    $_SESSION['error'] = "Email already exists!";
+                    echo'email already exist';
+                    //header("Location: ../driversSignup.html");
+                    exit();
+                
+
+
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
 
-            $sql = "INSERT INTO passenger(name,mobile,email,password) values('$pasName', '$mobile', '$emai', '$hash')";
+            $sql = "INSERT INTO passenger(name,mobile,email,password) values('$pasName', '$mobile', '$email', '$hash')";
             
             if(mysqli_query($conn, $sql)){
                 echo "<h3>data stored in the database successfully.</h3>";
@@ -41,6 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_close($conn);
             
         }
+    }
         else{
                 echo "<h3>Password confirmation is fail</h3>";
                 // Redirect to the passenger dashboard or another page
