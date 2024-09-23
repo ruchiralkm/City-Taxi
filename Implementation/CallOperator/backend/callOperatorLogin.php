@@ -19,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        // exit();
     } else {
         echo "Invalid email or password.";
+        // Redirect to the passenger dashboard or another page
+        header("Location: ../SuccessError/error.html");
     }
 }
 ?>
