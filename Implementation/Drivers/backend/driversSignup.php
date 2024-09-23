@@ -1,18 +1,40 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+// Function to send email using PHPMailer
 function sendEmail($to, $subject, $body) {
-    $headers  = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $mail = new PHPMailer(true);
 
-   
-    $headers .= 'From: City Taxi <citytaxilk.pvtltd@gmail.com>' . "\r\n";
-    $headers .= 'Reply-To: no-reply@citytaxi.com' . "\r\n";
+    try {
+        //Server settings
+        $mail->isSMTP();                                            
+        $mail->Host       = 'smtp.gmail.com'; 
+        $mail->SMTPAuth   = true;                                   
+        $mail->Username   = 'citytaxilk.pvtltd@gmail.com';      
+        $mail->Password   = 'ekrz uuto juca tgdm';                   
+        $mail->SMTPSecure = 'tls';                                  
+        $mail->Port       = 587;                                    
 
-    // Send the email
-    if(mail($to, $subject, $body, $headers)) {
+        //Recipients
+        $mail->setFrom('citytaxilk.pvtltd@gmail.com', 'City Taxi');
+        $mail->addAddress($to);                                      // Add a recipient
+
+        // Content
+        $mail->isHTML(true);                                        // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->AltBody = strip_tags($body);                         // Fallback in case client does not support HTML
+
+        $mail->send();
         echo 'Email has been sent successfully!';
-    } else {
-        echo 'Failed to send email.';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
 
