@@ -37,12 +37,7 @@
 
     <div class="content">
         <div class="left">
-            <h2>hi</h2>
-        </div>
-
-        <div class="right">
-            <!-- Map Container -->
-            <div id="map"></div>
+            <h2>hi</h2><br>
             <!-- Ride Booking Form -->
             <form action="processRide.php" method="post" id="rideForm">
                     <div id="fareDetails">
@@ -67,6 +62,12 @@
                         <button type="submit" id="bookRideBtn">Book Ride</button>
                     </div>
             </form>
+        </div>
+
+        <div class="right">
+            <!-- Map Container -->
+            <div id="map"></div>
+            
             <script src="Js/map.js"></script>
         </div>
     </div>
