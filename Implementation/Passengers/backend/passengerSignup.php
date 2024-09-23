@@ -25,11 +25,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if(mysqli_query($conn, $sql)){
                 echo "<h3>data stored in the database successfully.</h3>";
+                // Redirect to the passenger dashboard or another page
+                header("Location: ../SuccessError/success.html");
+                exit();
             
             }
             else
             {
                 echo( "ERROR : Hush! SORRY $sql. ".mysqli_error($conn));
+                // Redirect to the passenger dashboard or another page
+                header("Location: ../SuccessError/error.html");
+                exit();
             
             }
             mysqli_close($conn);
@@ -37,6 +43,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else{
                 echo "<h3>Password confirmation is fail</h3>";
+                // Redirect to the passenger dashboard or another page
+                header("Location: ../SuccessError/error.html");
+                exit();
             }
     
 

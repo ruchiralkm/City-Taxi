@@ -39,11 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             else 
             {
                 echo "<h3>Incorrect password. Please try again.</h3>";
+                // Redirect to the passenger dashboard or another page
+                header("Location: ../SuccessError/error.html");
             }
         } 
         else 
         {
             echo "<h3>No account found with that email. Please sign up first.</h3>";
+            // Redirect to the passenger dashboard or another page
+            header("Location: ../SuccessError/error.html");
         }
         
         // Close the database connection
