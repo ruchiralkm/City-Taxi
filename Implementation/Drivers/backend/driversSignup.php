@@ -47,10 +47,12 @@ if (isset($_POST['submit'])) {
 
     if ($stmt->execute()) {
         echo'Driver registered successfully!';
-       //header("Location: ../driversSignup.html");
+       // Redirect to the passenger dashboard or another page
+       header("Location: ../SuccessError/success.html");
     } else {
         echo 'Error: ' . $stmt->error;
-        //header("Location: ../driversSignup.html");
+        // Redirect to the passenger dashboard or another page
+        header("Location: ../SuccessError/error.html");
     }
 
     $stmt->close();
