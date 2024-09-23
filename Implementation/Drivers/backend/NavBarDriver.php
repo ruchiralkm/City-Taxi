@@ -48,7 +48,7 @@
               </li>
 
               <li class="nav__item">
-                <a href="#" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
+                <a href="ride/mapShowLocationCus.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
               </li>
 
               <li class="nav__item dropdown">

@@ -26,6 +26,7 @@
     <title>City-Taxi Route Marking</title>
   </head>
   <body>
+    
 
     <h1>Ride Section</h1>
 
@@ -43,6 +44,15 @@
       <input type="text" id="dropLocationText" name="dropLocationText" readonly>
     </div>
 
+    <div class="form-group">
+      <label for="dropLocationText">Distance:</label>
+      <input type="text" id="distance" name="distance" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="dropLocationText">Fare:</label>
+      <input type="text" id="fare" name="fare" readonly>
+    </div>
     <!-- Button to Mark Route -->
     <button id="markRouteBtn">Mark Route</button>
 
@@ -58,6 +68,7 @@
       // Coordinates retrieved from the database (from your PHP script)
       const pickupCoords = [<?php echo $pickupLocation; ?>]; // Example: [79.8504201049708, 6.93305360305348]
       const dropCoords = [<?php echo $dropLocation; ?>]; 
+   
 
       // Initialize the map
       const map = new mapboxgl.Map({
@@ -94,6 +105,9 @@
           // Show coordinates in textboxes
           document.getElementById('pickupLocationText').value = 'Lat: ' + pickupCoords[1] + ', Lng: ' + pickupCoords[0];
           document.getElementById('dropLocationText').value = 'Lat: ' + dropCoords[1] + ', Lng: ' + dropCoords[0];
+          document.getElementById('distance').value= <?php echo $distance ?>;
+          document.getElementById('fare').value= <?php echo $fare ?>
+       
       });
 
     </script>
