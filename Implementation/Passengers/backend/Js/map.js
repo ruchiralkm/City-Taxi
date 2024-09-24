@@ -65,9 +65,18 @@ function setupMap(center) {
 
 // Fare calculation logic
 function calculateFare(distance) {
+  var totalFare;
   const baseFare = 2; // Base fare
-  const costPerKm = 1; // Cost per kilometer
-  const totalFare = baseFare + costPerKm * distance;
+  const fareFirst5Km = 75; // Cost per km for the first 5 km
+  const fareAfter5Km = 50; // Cost per km after 5 km
+  
+
+  // Calculate the fare
+  if (distance <= 5) {
+    totalFare = (distance * fareFirst5Km)+baseFare;
+  } else {
+    totalFare = (5 * fareFirst5Km) + ((distance - 5) * fareAfter5Km)+baseFare;
+  }
 
   document.getElementById("fareDisplay").innerText = totalFare.toFixed(2);
 

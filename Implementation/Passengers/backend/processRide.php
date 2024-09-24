@@ -10,24 +10,29 @@ $drop = ($_POST['dropLocation']);
 $distance = ($_POST['distance']);
 $fare = ($_POST['fare']);
 $passengerID = ($_POST['passengerID']);
+$driverID = intval($_POST['driverID']);
+
+
 
 // Validate input data
-if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($fare)) {
-    // Prepare an SQL statement to insert ride data
-    $stmt = $conn->prepare("INSERT INTO ride (pickupLocation, dropLocation, distance, fare,passengerID) VALUES (?, ?, ?, ?,?)");
+if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($fare) && !empty($driverID)) {
+    //validte passenger login
+    if(!empty($passengerID)){
+    $sql = "INSERT INTO ride (pickupLocation, dropLocation, distance, fare, passengerID, driverID) 
+    VALUES ('$pickup', '$drop', $distance, $fare, '$passengerID','$driverID')";
 
-    // Bind parameters to the statement (s for string, d for double)
-    $stmt->bind_param("ssdds", $pickup, $drop, $distance, $fare,$passengerID);
-
-    // Execute the statement and check if it was successful
-    if ($stmt->execute()) {
-        echo "New record created successfully";
+    if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
     } else {
-        echo "Error: " . $stmt->error;
+    echo "Error: " . $conn->error;
+    }
+    }
+    else
+    {
+        echo "You should Login to the system";
     }
 
-    // Close the statement
-    $stmt->close();
+ 
 } else {
     echo "Invalid input data. Please try again.";
 }
