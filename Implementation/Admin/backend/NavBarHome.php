@@ -126,7 +126,7 @@
         </ul>
 
         <div class="sidebar-footer">
-          <a href="#" class="sidebar-link">
+          <a href="../admin.html" class="sidebar-link">
             <i class="fas fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
