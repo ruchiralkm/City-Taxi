@@ -250,8 +250,9 @@
                     </div>
                   </label>
                 </div>
-                 
-                <button type="submit" id="bookRideBtn">Book Ride</button>
+                <hr>
+                <h2>Total Price: LKR 1150</h2>
+                <button class="bookbtn" type="submit" id="bookRideBtn">Book Ride</button>
             </form>
 
             <p class="footerP">© 2024 City-Taxi(pvt). All rights reserved.</p>
