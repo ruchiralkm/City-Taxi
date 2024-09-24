@@ -3,7 +3,7 @@
 include '../dbConnection.php';
 
 // SQL query to fetch pickup and drop location
-$sql = "SELECT * FROM ride WHERE rideID = 8"; // Adjust the WHERE clause as needed
+$sql = "SELECT * FROM ride WHERE rideID = 17"; // Adjust the WHERE clause as needed
 $result = $conn->query($sql);
 
 // Check if results are found

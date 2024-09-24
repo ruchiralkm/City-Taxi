@@ -29,6 +29,11 @@
     
 
     <h1>Ride Section</h1>
+    <?php
+      // Include the PHP backend to retrieve coordinates from the database
+      include 'requestedRides.php'; // This file should fetch $pickupLocation and $dropLocation from the database
+    ?>
+
 
     <!-- Map Container -->
     <div id="map"></div>
@@ -61,55 +66,52 @@
       include 'showProcess.php'; // This file should fetch $pickupLocation and $dropLocation from the database
     ?>
 
-    <script>
+<script>
       // Mapbox Access Token
       mapboxgl.accessToken = "pk.eyJ1IjoicnVjaGlyYWxrMjAwMiIsImEiOiJjbTE2bDZocmswbjBjMnZzOHFpYWhubDRyIn0.VR-eLFZQNviJBOVD_WfrmQ";
-    
-      // Coordinates retrieved from the database (from your PHP script)
+
+      // Coordinates from the database (PHP output)
       const pickupCoords = [<?php echo $pickupLocation; ?>]; // Example: [79.8504201049708, 6.93305360305348]
-      const dropCoords = [<?php echo $dropLocation; ?>]; 
-   
+      const dropCoords = [<?php echo $dropLocation; ?>];
+      const distance = <?php echo $distance; ?>;
+      const fare = <?php echo $fare; ?>;
 
       // Initialize the map
       const map = new mapboxgl.Map({
-          container: "map",
-          style: "mapbox://styles/mapbox/streets-v11",
-          center: pickupCoords, // Center on the pickup location
-          zoom: 12
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: pickupCoords, // Center on the pickup location
+        zoom: 12,
       });
 
-      // Create markers for pickup and drop locations
-      const pickupMarker = new mapboxgl.Marker()
-          .setLngLat(pickupCoords)
-          .addTo(map);
-      const dropMarker = new mapboxgl.Marker()
-          .setLngLat(dropCoords)
-          .addTo(map);
+      // Markers for pickup and drop locations
+      const pickupMarker = new mapboxgl.Marker().setLngLat(pickupCoords).addTo(map);
+      const dropMarker = new mapboxgl.Marker().setLngLat(dropCoords).addTo(map);
 
-      // Add Mapbox Directions control but keep it hidden initially
+      // Directions control, hidden initially
       const directions = new MapboxDirections({
-          accessToken: mapboxgl.accessToken,
-          unit: 'metric',
-          profile: 'mapbox/driving'
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving',
       });
 
-      // Add event listener for "Mark Route" button
-      document.getElementById('markRouteBtn').addEventListener('click', function() {
-          // Add the directions control to the map
-          map.addControl(directions, "top-left");
+      // Event listener for "Mark Route" button
+      document.getElementById('markRouteBtn').addEventListener('click', function () {
+        // Add the directions control to the map
+        map.addControl(directions, 'top-left');
 
-          // Set the pickup and drop points
-          directions.setOrigin(pickupCoords);  // Set the starting point
-          directions.setDestination(dropCoords);  // Set the destination
+        // Set the pickup and drop points
+        directions.setOrigin(pickupCoords);
+        directions.setDestination(dropCoords);
 
-          // Show coordinates in textboxes
-          document.getElementById('pickupLocationText').value = 'Lat: ' + pickupCoords[1] + ', Lng: ' + pickupCoords[0];
-          document.getElementById('dropLocationText').value = 'Lat: ' + dropCoords[1] + ', Lng: ' + dropCoords[0];
-          document.getElementById('distance').value= <?php echo $distance ?>;
-          document.getElementById('fare').value= <?php echo $fare ?>
-       
+        // Show coordinates and other ride details in textboxes
+        document.getElementById('pickupLocationText').value = `Lat: ${pickupCoords[1]}, Lng: ${pickupCoords[0]}`;
+        document.getElementById('dropLocationText').value = `Lat: ${dropCoords[1]}, Lng: ${dropCoords[0]}`;
+        document.getElementById('distance').value = distance + ' km';
+        document.getElementById('fare').value = fare + ' LKR';
       });
 
+      
     </script>
 
   </body>
