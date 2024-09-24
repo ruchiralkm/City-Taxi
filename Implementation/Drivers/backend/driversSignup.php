@@ -106,6 +106,7 @@ if (isset($_POST['submit'])) {
      VALUES ('$firstName', '$lastName', '$mobile', '$licenceNumber', '$address', '$vehicleType', '$employmentType', '$picture', '$email', '$hashedPassword')");
 
     if ($stmt->execute()) {
+
         $subject = "Welcome to City Taxi - Driver Registration Successful!";
         $body = "
             <html>
@@ -118,7 +119,7 @@ if (isset($_POST['submit'])) {
             </body>
             </html>
         ";
-        sendEmail($email, $subject, $body);
+       sendEmail($email, $subject, $body);
         echo'Driver registered successfully!';
        // Redirect to the passenger dashboard or another page
        header("Location: ../SuccessError/success.html");

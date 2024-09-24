@@ -51,6 +51,10 @@
                 <a href="ride/mapShowLocationCus.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
               </li>
 
+              <li class="nav__item">
+                <a href="statusList/statusDriver.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Status</a>
+              </li>
+
               <li class="nav__item dropdown">
                 <a href="#" class="nav__link dropdown__link"
                   >Activities <i class="bx bx-chevron-down dropdown__icon"></i

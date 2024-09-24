@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Start the session and set session variables
                 session_start();
                 $_SESSION['loggedin'] = true;
+                $_SESSION['driverID'] = $row['driverID'];
                 $_SESSION['firstName'] = $row['firstName'];
                 $_SESSION['email'] = $row['email'];
 
