@@ -66,3 +66,69 @@ button {
 button:hover {
   background-color: #1a242f;
 }
+
+/*============ Toggle Container ============*/
+/* Toggle Switch Base Styles */
+.toggle-container {
+  margin-left: 30%;
+  position: relative;
+  display: inline-block;
+  width: 220px; /* Increased width to accommodate longer text */
+  height: 45px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-container .option {
+  position: absolute;
+  width: 110px; /* Increased width for text fitting */
+  height: 100%; /* Full height to vertically center text */
+  line-height: 45px; /* Same as container height for vertical centering */
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease;
+  color: #666; /* Default color */
+}
+
+.toggle-container .oneWay {
+  left: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.toggle-container .returnTrip {
+  right: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.toggle-container .slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 110px; /* Adjusted for the new width */
+  bottom: 2px;
+  background-color: #1a242f; /* Toggle color */
+  border-radius: 7px;
+  transition: all 0.3s ease;
+}
+
+/* Move slider when 'Full Time' is selected */
+#returnTrip:checked ~ .toggle-slider .slider {
+  left: 110px; /* Move slider to right */
+  right: 2px;
+}
+
+/* Change text color on selection */
+#oneWay:checked ~ .oneWay,
+#returnTrip:checked ~ .returnTrip {
+  color: white; /* White text when active */
+}

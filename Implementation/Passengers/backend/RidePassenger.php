@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- =====RidePassenger SCSS File ===== -->
@@ -15,8 +18,7 @@
     <!-- =====Driver Card SCSS File ===== -->
     <link rel="stylesheet" href="DriverCardSass/DriverCardSass.min.css" />
 
-    <!-- Font Awesome (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
 
     <!-- Title section -->
     <link rel="icon" href="../../City-Taxi.png" type="image/x-icon" />
@@ -58,6 +60,31 @@
                         ?>">
                 </div>
 
+                <br>
+
+                <!-- Toggle between OneWay and ReturnTrip -->
+                <div class="toggle-container">
+                  <input
+                    type="radio"
+                    id="oneWay"
+                    name="employment"
+                    value="One Way"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    id="returnTrip"
+                    name="employment"
+                    value="Return Trip"
+                  />
+
+                  <label for="oneWay" class="option oneWay">One way</label>
+                  <label for="returnTrip" class="option returnTrip">Return trip</label>
+
+                  <div class="toggle-slider">
+                    <div class="slider"></div>
+                  </div>
+                </div>
 
                 <!-- select vehicle -->
                 <h2>Select your vehicle</h2>
@@ -74,7 +101,11 @@
                           alt=""
                         />
                         <label for="bike">Bike</label>
+                        <label for="bike"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                        </svg> 1</label>
                         <label for="bike">LKR 200</label>
+
                       </div>
                     </div>   
                     
@@ -92,8 +123,11 @@
                           src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/threew.png"
                           alt=""
                         />
-                        <label for="threewheel">Threewheel</label>
-                        <label for="bike">LKR 200</label>
+                        <label for="threewheel" style="margin-top:18px;">Threewheel</label>
+                        <label for="threewheel"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                        </svg> 3</label>
+                        <label for="threewheel">LKR 200</label>
                       </div>
                     </div>
 
@@ -107,6 +141,9 @@
                           alt=""
                         />
                         <label for="car">Car</label>
+                        <label for="car"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                        </svg> 4</label>
                         <label for="bike">LKR 200</label>
                       </div>
                     </div>
@@ -121,6 +158,9 @@
                           alt=""
                         />
                         <label for="van">Van</label>
+                        <label for="van"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                        </svg> 10</label>
                         <label for="bike">LKR 200</label>
                       </div>
                     </div>
@@ -211,7 +251,6 @@
                   </label>
                 </div>
                  
-
                 <button type="submit" id="bookRideBtn">Book Ride</button>
             </form>
 
