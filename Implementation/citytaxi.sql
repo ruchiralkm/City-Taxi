@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2024 at 06:29 AM
+-- Generation Time: Sep 25, 2024 at 06:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,15 +46,31 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `mobile`, `licenceNumber`, `address`, `vehicle`, `employment`, `profilePicture`, `email`, `password`) VALUES
-(1, '', '', '', '', '', '', '', '', '', '$2y$10$OQQwP4zlxAziIbNnW7knKeblE6svoAqgdfBwo1y7b.JGdv/DHN.2a'),
-(2, '', '', '', '', '', '', '', '', '', '$2y$10$G/L8K1qbBj4.2R0BRU5LGOq36qrMbSO2mukFWi1iDU/BUYki8gCOq'),
-(3, '', '', '', '', '', '', '', '', '', '$2y$10$bfJPLbFVdSvnTXQy0e8y/euXUAwYU4t5U4/b87ChekTgwWeAcJigy'),
-(4, '', '', '', '', '', '', '', '', 'asd@gmail.com', '$2y$10$AoKus74x/bL0Bx.W26qJfO.nyeEvOq2ulz4/tdNuz/q3oPHbpONQy'),
-(5, '', '', '', '', '', '', '', '', 'asd@gmail.com', '$2y$10$TAiWpLL1s9XckG1/Zw1j4OFOG0PlCdqppnugaENAzByAF9kohzlbi'),
-(6, 'ta', 'h', '979', '879', 'asd', 'Threewheel', 'fullTime', '', 'tanz@e.com', '$2y$10$xjFhO2k4k61WByJKi/YAI.j8ZXxMJK0vMYD63M9WEDkLM/FKCUvr.'),
-(7, 'yy', 'kk', '898899', '9090009', 'asdf', 'Threewheel', 'fullTime', 'upload/CVRfx2.png', 'tanz@gmail.com', '$2y$10$jGR1Jct1k/3wJSWMlzt0zeA7ZTUfVKjc2YH8XFQNiRqGnSwVNlkUe'),
-(8, 'hh', 'jk', '78787', '897878676', 'sfdgfh', 'Threewheel', 'fullTime', 'upload/PngItem_4246197.png', 'tanz@e.com', '$2y$10$6B.ZJLIBq0veC7D0ZMZrA.zx6WOxL65EqvLp8cScWU..KQbV898Ra'),
-(9, 'TahaniHareeth', 'hareeth', '678976', '77645454', 'Badulla', 'Car', 'fullTime', 'upload/—Pngtree—self driving car vector_7031243.png', 'tani@qwe.com', '$2y$10$b7JCpeMKikGHPaMDrWuEouYopUvHfXda6RAC3pPQ700cwg/NoKnkW');
+(17, 'tahani', 'hareeth', '4546576', '0954321', 'badulla', 'Bike', 'fullTime', '', 'hareethg12@gmail.com', '$2y$10$jjIkmmEBrMyQPUFCAVZEpuigB9ExSsOj6z5jmGDtWzL.Ep8vg1gaG'),
+(18, 'tani', 'Hareeth', '1234567890', '0987654321', 'kandy', 'Van', 'fullTime', '', 'hareethtahani@gmail.com', '$2y$10$Zegi1o5LsvW4nvcENByUxuxR3pb7LFQL0BTuU0wwU0dieQpdgU.fi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `driverstatuslist`
+--
+
+CREATE TABLE `driverstatuslist` (
+  `statusID` int(11) NOT NULL,
+  `driverID` int(11) NOT NULL,
+  `latitude` float NOT NULL,
+  `longitude` float NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `driverstatuslist`
+--
+
+INSERT INTO `driverstatuslist` (`statusID`, `driverID`, `latitude`, `longitude`, `status`, `updatedAt`) VALUES
+(1, 0, 7, 80, 'available', '2024-09-23 20:40:39'),
+(2, 17, 6.9354, 79.8981, 'available', '2024-09-23 20:49:48');
 
 -- --------------------------------------------------------
 
@@ -64,7 +80,8 @@ INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `mobile`, `licenceNum
 
 CREATE TABLE `passenger` (
   `passengerID` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL,
+  `firstName` varchar(150) NOT NULL,
+  `lastName` varchar(150) NOT NULL,
   `mobile` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(100) NOT NULL
@@ -74,10 +91,9 @@ CREATE TABLE `passenger` (
 -- Dumping data for table `passenger`
 --
 
-INSERT INTO `passenger` (`passengerID`, `name`, `mobile`, `email`, `password`) VALUES
-(1, 'tanz', 2147483647, 'tanz@e.com', '$2y$10$5Z7viFvRmnrn9wIlsu.ceepmPqMJe4ZruYTc0Vn2X/0'),
-(2, 'SAM', 1236547890, 'SAM@RAT.COM', '$2y$10$xfRpo/8gb2.xiVc57XLjO.LCMHelN5z80SwOnb4Cy2s'),
-(3, 'asd', 2147483647, 'asd@gmail.com', '$2y$10$HrQAhkJv/iB4dd3quMjP0.U.eBVj5ictcr0eMOfta6Rd.JlgkOQ6W');
+INSERT INTO `passenger` (`passengerID`, `firstName`, `lastName`, `mobile`, `email`, `password`) VALUES
+(1, '', '', 123456, 'hareethtahani@gmail.com', '$2y$10$x8Ul1SAV02zfNi0ega.lt.nyCLrV36/r06Y6z0NVoUyS2BkThy4vq'),
+(2, 'tani', 'Hareeth', 1234567890, 'hareethg12@gmail.com', '$2y$10$MzeIqWqw9CRRT9AYOkOY/OCFBcvQn4hdIPmetmk2c2HM0UuS7Dv2G');
 
 -- --------------------------------------------------------
 
@@ -91,24 +107,25 @@ CREATE TABLE `ride` (
   `dropLocation` varchar(255) NOT NULL,
   `distance` float NOT NULL,
   `fare` float NOT NULL,
-  `passengerID` int(11) NOT NULL
+  `passengerID` int(11) NOT NULL,
+  `driverID` int(11) NOT NULL,
+  `requestAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `rideStatus` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ride`
 --
 
-INSERT INTO `ride` (`rideID`, `pickupLocation`, `dropLocation`, `distance`, `fare`, `passengerID`) VALUES
-(1, '79.854174,6.938961', '80.635015,7.293021', 0, 0, 0),
-(2, '79.854174,6.938961', '80.635015,7.293021', 141.05, 143.05, 0),
-(3, '79.995076,7.092644', '81.057063,6.989852', 206.33, 208.33, 0),
-(4, '80.635001,7.293024', '80.624531,7.321946', 4.5, 6.5, 0),
-(5, '80.625889,7.295167', '80.570342,7.163625', 20.37, 22.37, 0),
-(6, '80.629117,7.295495', '80.635015,7.293021', 0.98, 2.98, 0),
-(7, '80.625889,7.295167', '80.009274,9.665051', 318.03, 320.03, 0),
-(8, '80.635001,7.293024', '81.12428,6.124793', 246.76, 248.76, 0),
-(9, '80.635001,7.293024', '81.057063,6.989852', 115.84, 117.84, 0),
-(10, '80.625889,7.295167', '80.364928,7.487083', 40.89, 42.89, 3);
+INSERT INTO `ride` (`rideID`, `pickupLocation`, `dropLocation`, `distance`, `fare`, `passengerID`, `driverID`, `requestAt`, `rideStatus`) VALUES
+(13, '79.854174,6.938961', '80.635015,7.293021', 141.05, 143.05, 2, 18, '2024-09-24 19:05:56', ''),
+(15, '80.625889,7.295167', '80.63307,7.302162', 2.34, 4.34, 2, 18, '2024-09-24 19:05:56', ''),
+(16, '80.625889,7.295167', '80.684483,7.280455', 10.09, 12.09, 2, 17, '2024-09-24 19:05:56', ''),
+(17, '81.057063,6.989852', '80.635015,7.293021', 115.75, 117.75, 2, 17, '2024-09-24 19:06:41', ''),
+(18, '80.366943,7.486254', '80.635015,7.293021', 41.97, 2225.38, 0, 17, '2024-09-24 19:25:58', ''),
+(19, '80.635001,7.293024', '81.057063,6.989852', 115.84, 5919.17, 2, 18, '2024-09-24 19:46:06', ''),
+(20, '80.635001,7.293024', '80.624956,7.322206', 4.35, 328.03, 2, 18, '2024-09-24 20:43:57', 'Pending'),
+(21, '80.625889,7.295167', '79.854174,6.938961', 131.86, 6720.17, 2, 17, '2024-09-25 16:22:14', 'Pending');
 
 --
 -- Indexes for dumped tables
@@ -119,6 +136,12 @@ INSERT INTO `ride` (`rideID`, `pickupLocation`, `dropLocation`, `distance`, `far
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`driverID`);
+
+--
+-- Indexes for table `driverstatuslist`
+--
+ALTER TABLE `driverstatuslist`
+  ADD PRIMARY KEY (`statusID`);
 
 --
 -- Indexes for table `passenger`
@@ -140,19 +163,25 @@ ALTER TABLE `ride`
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `driverID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `driverID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `driverstatuslist`
+--
+ALTER TABLE `driverstatuslist`
+  MODIFY `statusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `passengerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `passengerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ride`
 --
 ALTER TABLE `ride`
-  MODIFY `rideID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `rideID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
