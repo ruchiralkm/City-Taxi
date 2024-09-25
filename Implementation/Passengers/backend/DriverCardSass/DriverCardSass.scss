@@ -12,7 +12,7 @@
 
 .driver-item {
   text-align: center;
-  border: 1px solid #ccc;
+  border: 2px solid #fff;
   border-radius: 10px;
   padding: 20px;
   width: 150px;
@@ -21,12 +21,12 @@
 }
 
 .driver-item:hover {
-  border-color: green;
+  border-color: rgb(0, 146, 56);
 }
 
 .driver-item.selected {
-  background-color: green;
-  color: white;
+  background-color: rgb(141, 255, 169);
+  color: #000;
   border-color: green;
 }
 
@@ -38,19 +38,4 @@
 
 .driver-item p {
   margin: 5px 0;
-}
-
-/* New CSS for star rating */
-.star-rating {
-  display: flex;
-  margin-top: 5px;
-}
-
-.star {
-  font-size: 14px;
-  color: #ccc; /* default color for unfilled stars */
-}
-
-.star.filled {
-  color: gold; /* color for filled stars */
 }

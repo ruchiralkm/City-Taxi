@@ -11,7 +11,7 @@
 
 	
 	if($conn) { 
-		echo "connection is success"; 
+		echo ""; 
 	} 
 	else { 
 		die("Error". mysqli_connect_error()); 

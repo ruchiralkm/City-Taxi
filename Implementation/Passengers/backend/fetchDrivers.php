@@ -16,7 +16,7 @@ if (empty($vehicleType)) {
 
 // Debugging - Check the vehicle type value
 // Remove this after debugging
-echo "Vehicle Type: " . htmlspecialchars($vehicleType) . "<br>";
+//echo "Vehicle Type: " . htmlspecialchars($vehicleType) . "<br>";
 
 $sql = "SELECT * FROM driver WHERE vehicle = ?";
 $stmt = $conn->prepare($sql);
@@ -34,16 +34,17 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '<div class="driver-item" onclick="selectDriver(this)" style="cursor: pointer;">';
         echo '<input type="radio" id="driver_' . htmlspecialchars($row["driverID"]) . '" name="selectedDriver" value="' . htmlspecialchars($row["driverID"]) . '" style="display:none;">'; 
-        echo '<img src="https://cdn.aarp.net/content/dam/aarp/auto/2021/03/1140-man-driving-a-car.imgcache.revf9c4f44f3b585ea7b920f79e4f144bd6.jpg" style="width:100px; height:100px" alt="Driver Image">'; // Replace with dynamic image paths
+        echo '<img src="https://cdn.aarp.net/content/dam/aarp/auto/2021/03/1140-man-driving-a-car.imgcache.revf9c4f44f3b585ea7b920f79e4f144bd6.jpg" style="width:100px; height:100px; border-radius:50%; object-fit: cover;" alt="Driver Image">'; // Replace with dynamic image paths
         echo '<p><strong>' . htmlspecialchars($row["firstName"]) . '</strong></p>';
-        echo '<p><i class="fas fa-phone"></i> ' . htmlspecialchars($row["mobile"]) . '</p>';
-        echo '<p><i class="fas fa-car"></i> ' . htmlspecialchars($row["vehicle"]) . '</p>';
-        echo '<p>LKR 200</p>';  // Replace with dynamic price if needed
+        echo '<p>☎️ ' . htmlspecialchars($row["mobile"]) . '</p>';
+        echo '<p>🚕 ' . htmlspecialchars($row["vehicle"]) . '</p>';
+        echo '<p>LKR 200</p>';
+        echo '<p>⭐⭐⭐⭐⭐</p>';  // Add the star ratiings
         echo '</div>';
     }
     echo '</div>';
 } else {
-    echo "No Drivers found for this vehicle type.";
+    echo "<center>No Drivers found for this vehicle type.</center>";
 }
 
 
