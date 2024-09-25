@@ -27,6 +27,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '<div class="driver-item" style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px;">';
         echo '<input type="radio" id="driver_' . htmlspecialchars($row["driverID"]) . '" name="selectedDriver" value="' . htmlspecialchars($row["driverID"]) . '">'; 
+        echo '<img src="../../Drivers/backend/' . htmlspecialchars($row["profilePicture"]) . '" alt="Profile Picture" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;"><br>';
         echo '<strong>Name:</strong> ' . htmlspecialchars($row["firstName"]) . '<br>';
         echo '<strong>Mobile:</strong> ' . htmlspecialchars($row["mobile"]) . '<br>';
         echo '<strong>Vehicle:</strong> ' . htmlspecialchars($row["vehicle"]) . '<br>';
