@@ -69,6 +69,7 @@
                             }
                         ?>">
                     <input type="hidden" id="driverID" name="driverID">
+                    <input type="hidden" id="totalAmount" name ="totalAmount" value="0">
                 </div>
 
                 <br>
@@ -187,7 +188,7 @@
                 <h2 style="margin-top:-70px;">Select your driver</h2>
                 <div class="driverList" id="driverList"> driver list</div>
                 <hr>
-                <h2>Total Price: LKR 1150</h2>
+                <h2 class="totalPrice">Total Price: LKR 0</h2>
                 <button class="bookbtn" type="submit" id="bookRideBtn">Book Ride</button>
             </form>
 
@@ -208,6 +209,32 @@
       
     </script>
     <script>
+
+
+    // Define vehicle prices
+    const vehiclePrices = {
+        'Bike': 200,
+        'Threewheel': 300,
+        'Car': 400,
+        'Van': 500
+    };
+
+    // Function to calculate and display the total price
+    function calculateTotalPrice() {
+        // Get the selected vehicle type
+        const selectedVehicle = document.querySelector('input[name="vehicle"]:checked');
+        const vehiclePrice = selectedVehicle ? vehiclePrices[selectedVehicle.value] : 0;
+
+        // Get the fare value (ensure fare input is correctly populated)
+        const fare = parseFloat(document.getElementById('fare').value) || 0;
+
+        // Calculate the total amount
+        const totalAmount = vehiclePrice + fare;
+
+        // Display the total amount on the page
+        document.getElementById('totalAmount').value = totalAmount;
+        document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+    }
         function showDrivers(filter) 
         {
             const driverList = document.getElementById('driverList');
@@ -225,23 +252,10 @@
                     document.getElementById('driverID').value = this.value;
                 });
             });
-
+            calculateTotalPrice();
                 }
             }
             xhr.send();
-        }
-
-
-          // Driver Box Selecting
-        function selectDriver(element) {
-          // Deselect previously selected drivers
-          const items = document.querySelectorAll('.driver-item');
-          items.forEach(item => {
-              item.classList.remove('selected');
-          });
-
-          // Select the clicked driver
-          element.classList.add('selected');
         }
 
       </script>

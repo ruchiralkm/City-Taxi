@@ -18,8 +18,8 @@ $driverID = intval($_POST['driverID']);
 if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($fare) && !empty($driverID)) {
     //validte passenger login
     if(!empty($passengerID)){
-    $sql = "INSERT INTO ride (pickupLocation, dropLocation, distance, fare, passengerID, driverID) 
-    VALUES ('$pickup', '$drop', $distance, $fare, '$passengerID','$driverID')";
+    $sql = "INSERT INTO ride (pickupLocation, dropLocation, distance, fare, passengerID, driverID, rideStatus) 
+    VALUES ('$pickup', '$drop', $distance, $fare, '$passengerID','$driverID','Pending')";
 
     if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
