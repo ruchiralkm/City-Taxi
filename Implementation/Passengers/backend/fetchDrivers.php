@@ -32,16 +32,20 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     echo '<div class="driver-list">'; // Container for driver cards
     while ($row = $result->fetch_assoc()) {
-        echo '<div class="driver-item" style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px;">';
-        echo '<input type="radio" id="driver_' . htmlspecialchars($row["driverID"]) . '" name="selectedDriver" value="' . htmlspecialchars($row["driverID"]) . '">'; 
-        echo '<strong>Name:</strong> ' . htmlspecialchars($row["firstName"]) . '<br>';
-        echo '<strong>Mobile:</strong> ' . htmlspecialchars($row["mobile"]) . '<br>';
-        echo '<strong>Vehicle:</strong> ' . htmlspecialchars($row["vehicle"]) . '<br>';
-        echo '</div><hr>';
+        echo '<div class="driver-item" onclick="selectDriver(this)" style="cursor: pointer;">';
+        echo '<input type="radio" id="driver_' . htmlspecialchars($row["driverID"]) . '" name="selectedDriver" value="' . htmlspecialchars($row["driverID"]) . '" style="display:none;">'; 
+        echo '<img src="https://cdn.aarp.net/content/dam/aarp/auto/2021/03/1140-man-driving-a-car.imgcache.revf9c4f44f3b585ea7b920f79e4f144bd6.jpg" style="width:100px; height:100px" alt="Driver Image">'; // Replace with dynamic image paths
+        echo '<p><strong>' . htmlspecialchars($row["firstName"]) . '</strong></p>';
+        echo '<p><i class="fas fa-phone"></i> ' . htmlspecialchars($row["mobile"]) . '</p>';
+        echo '<p><i class="fas fa-car"></i> ' . htmlspecialchars($row["vehicle"]) . '</p>';
+        echo '<p>LKR 200</p>';  // Replace with dynamic price if needed
+        echo '</div>';
     }
+    echo '</div>';
 } else {
     echo "No Drivers found for this vehicle type.";
 }
+
 
 // Debugging: Check if result is empty
 if (!$result) {

@@ -231,6 +231,19 @@
             xhr.send();
         }
 
+
+          // Driver Box Selecting
+        function selectDriver(element) {
+          // Deselect previously selected drivers
+          const items = document.querySelectorAll('.driver-item');
+          items.forEach(item => {
+              item.classList.remove('selected');
+          });
+
+          // Select the clicked driver
+          element.classList.add('selected');
+        }
+
       </script>
    
 </body>
