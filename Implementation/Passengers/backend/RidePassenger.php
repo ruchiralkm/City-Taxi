@@ -228,13 +228,32 @@
         // Get the fare value (ensure fare input is correctly populated)
         const fare = parseFloat(document.getElementById('fare').value) || 0;
 
-        // Calculate the total amount
-        const totalAmount = vehiclePrice + fare;
+        let totalAmount;
+        const tripType = document.querySelector('input[name="employment"]:checked')?.value;
+
+        if (tripType === 'Return Trip') {
+            totalAmount = (vehiclePrice + fare) * 2;
+            document.getElementById('totalAmount').value = totalAmount;
+            document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+        } else {
+            totalAmount = vehiclePrice + fare;
+            document.getElementById('totalAmount').value = totalAmount;
+            document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+        }
+
 
         // Display the total amount on the page
-        document.getElementById('totalAmount').value = totalAmount;
-        document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+
     }
+    document.querySelectorAll('input[name="vehicle"]').forEach(vehicleRadio => {
+        vehicleRadio.addEventListener('change', calculateTotalPrice);
+    });
+
+    document.querySelectorAll('input[name="employment"]').forEach(tripRadio => {
+        tripRadio.addEventListener('change', calculateTotalPrice);
+    });
+  
+
         function showDrivers(filter) 
         {
             const driverList = document.getElementById('driverList');
