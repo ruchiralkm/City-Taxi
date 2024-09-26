@@ -107,6 +107,12 @@ include '../dbConnection.php';
     <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
     </form>
 
+    <Form method="post" action = "rejectRide.php">
+    <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
+    <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
+    <button id="rejectRideBtn" name="rejectRideBtn" >Reject Ride</button>
+    </form>
+
     <!-- JavaScript for Mapbox Integration -->
     <script>
       // Mapbox Access Token
