@@ -25,7 +25,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     echo '<div class="driver-list">'; // Container for driver cards
     while ($row = $result->fetch_assoc()) {
-        echo '<div class="driver-item" style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px;">';
+        echo '<div class="driver-item" style="border: 2px solid #ccc; padding: 20px; margin: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">';
         echo '<input type="radio" id="driver_' . htmlspecialchars($row["driverID"]) . '" name="selectedDriver" value="' . htmlspecialchars($row["driverID"]) . '">'; 
         echo '<img src="../../Drivers/backend/' . htmlspecialchars($row["profilePicture"]) . '" alt="Profile Picture" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;"><br>';
         echo '<strong>Name:</strong> ' . htmlspecialchars($row["firstName"]) . '<br>';
