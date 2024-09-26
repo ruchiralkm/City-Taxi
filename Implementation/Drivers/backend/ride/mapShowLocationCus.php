@@ -63,13 +63,49 @@
 
     <!-- Button to Mark Route -->
     <button id="markRouteBtn">Mark Route</button>
-    <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
+
+   
+
 
 
     <?php
+    // Database connection
+include '../dbConnection.php';
       // Fetch ride details for the selected ride ID
-     include 'showProcess.php';
+      if (isset($_GET['rideID'])) {
+        $rideID = htmlspecialchars($_GET['rideID']);
+    
+        // SQL query to fetch ride details based on the rideID
+        $sql = "SELECT * FROM ride WHERE rideID = '$rideID'";
+        $result = $conn->query($sql);
+    
+        // Check if the ride exists
+        if ($result->num_rows > 0) {
+            // Fetch the ride details
+            $row = $result->fetch_assoc();
+            $pickupLocation = $row['pickupLocation'];
+            $dropLocation = $row['dropLocation'];
+            $distance = $row['distance'];
+            $fare = $row['fare'];
+            $passengerID = $row['passengerID'];
+    
+            // Add a button to show the map with this rideID
+           // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+        } else {
+            echo "Ride not found.";
+        }
+    } else {
+        echo "No ride ID provided.";
+    }
+    $conn->close();
     ?>
+
+     <!--Button to update the status -->
+     <Form method="post" action = "acceptRide.php">
+    <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
+    <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
+    <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
+    </form>
 
     <!-- JavaScript for Mapbox Integration -->
     <script>
