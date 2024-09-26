@@ -3,37 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <title>City-Taxi Route Marking</title>
+
+    <!-- Mapbox CSS and JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet" />
+
+    <!-- Inline CSS -->
     <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-        .form-group {
-            margin: 20px 0;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+      .form-group {
+        margin: 20px 0;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
     </style>
-    <title>City-Taxi Route Marking</title>
   </head>
   <body>
-    
-
     <h1>Ride Section</h1>
-    <?php
-      // Include the PHP backend to retrieve coordinates from the database
-      include 'requestedRides.php'; // This file should fetch $pickupLocation and $dropLocation from the database
-    ?>
 
+    
 
     <!-- Map Container -->
     <div id="map"></div>
@@ -41,54 +43,58 @@
     <!-- Text Boxes for Pickup and Drop Locations -->
     <div class="form-group">
       <label for="pickupLocationText">Pickup Location:</label>
-      <input type="text" id="pickupLocationText" name="pickupLocationText" readonly>
+      <input type="text" id="pickupLocationText" name="pickupLocationText" readonly />
     </div>
 
     <div class="form-group">
       <label for="dropLocationText">Drop Location:</label>
-      <input type="text" id="dropLocationText" name="dropLocationText" readonly>
+      <input type="text" id="dropLocationText" name="dropLocationText" readonly />
     </div>
 
     <div class="form-group">
-      <label for="dropLocationText">Distance:</label>
-      <input type="text" id="distance" name="distance" readonly>
+      <label for="distance">Distance:</label>
+      <input type="text" id="distance" name="distance" readonly />
     </div>
 
     <div class="form-group">
-      <label for="dropLocationText">Fare:</label>
-      <input type="text" id="fare" name="fare" readonly>
+      <label for="fare">Fare:</label>
+      <input type="text" id="fare" name="fare" readonly />
     </div>
+
     <!-- Button to Mark Route -->
     <button id="markRouteBtn">Mark Route</button>
+    <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
+
 
     <?php
-      // Include the PHP backend to retrieve coordinates from the database
-      include 'showProcess.php'; // This file should fetch $pickupLocation and $dropLocation from the database
+      // Fetch ride details for the selected ride ID
+     include 'showProcess.php';
     ?>
 
-<script>
+    <!-- JavaScript for Mapbox Integration -->
+    <script>
       // Mapbox Access Token
       mapboxgl.accessToken = "pk.eyJ1IjoicnVjaGlyYWxrMjAwMiIsImEiOiJjbTE2bDZocmswbjBjMnZzOHFpYWhubDRyIn0.VR-eLFZQNviJBOVD_WfrmQ";
 
-      // Coordinates from the database (PHP output)
-      const pickupCoords = [<?php echo $pickupLocation; ?>]; // Example: [79.8504201049708, 6.93305360305348]
-      const dropCoords = [<?php echo $dropLocation; ?>];
-      const distance = <?php echo $distance; ?>;
-      const fare = <?php echo $fare; ?>;
+      // Coordinates and ride data from the backend (PHP)
+      const pickupCoords = [<?php echo $pickupLocation; ?>]; // Pickup coordinates
+      const dropCoords = [<?php echo $dropLocation; ?>]; // Drop coordinates
+      const distance = <?php echo $distance; ?>; // Distance in km
+      const fare = <?php echo $fare; ?>; // Fare in LKR
 
       // Initialize the map
       const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: pickupCoords, // Center on the pickup location
-        zoom: 12,
+        container: "map", // Map container ID
+        style: "mapbox://styles/mapbox/streets-v11", // Map style
+        center: pickupCoords, // Initial map center (pickup location)
+        zoom: 12, // Zoom level
       });
 
-      // Markers for pickup and drop locations
-      const pickupMarker = new mapboxgl.Marker().setLngLat(pickupCoords).addTo(map);
-      const dropMarker = new mapboxgl.Marker().setLngLat(dropCoords).addTo(map);
+      // Add markers for pickup and drop locations
+      new mapboxgl.Marker({ color: 'green' }).setLngLat(pickupCoords).addTo(map);
+      new mapboxgl.Marker({ color: 'red' }).setLngLat(dropCoords).addTo(map);
 
-      // Directions control, hidden initially
+      // Initialize directions plugin (hidden initially)
       const directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
@@ -96,23 +102,20 @@
       });
 
       // Event listener for "Mark Route" button
-      document.getElementById('markRouteBtn').addEventListener('click', function () {
+      document.getElementById("markRouteBtn").addEventListener("click", function () {
         // Add the directions control to the map
-        map.addControl(directions, 'top-left');
+        map.addControl(directions, "top-left");
 
-        // Set the pickup and drop points
+        // Set pickup and drop points for route calculation
         directions.setOrigin(pickupCoords);
         directions.setDestination(dropCoords);
 
-        // Show coordinates and other ride details in textboxes
-        document.getElementById('pickupLocationText').value = `Lat: ${pickupCoords[1]}, Lng: ${pickupCoords[0]}`;
-        document.getElementById('dropLocationText').value = `Lat: ${dropCoords[1]}, Lng: ${dropCoords[0]}`;
-        document.getElementById('distance').value = distance + ' km';
-        document.getElementById('fare').value = fare + ' LKR';
+        // Display coordinates and ride details in text fields
+        document.getElementById("pickupLocationText").value = `Lat: ${pickupCoords[1]}, Lng: ${pickupCoords[0]}`;
+        document.getElementById("dropLocationText").value = `Lat: ${dropCoords[1]}, Lng: ${dropCoords[0]}`;
+        document.getElementById("distance").value = distance + " km";
+        document.getElementById("fare").value = fare + " LKR";
       });
-
-      
     </script>
-
   </body>
 </html>

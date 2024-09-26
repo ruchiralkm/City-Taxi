@@ -48,11 +48,11 @@
               </li>
 
               <li class="nav__item">
-                <a href="ride/mapShowLocationCus.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
+                <a href="ride/requestedRides.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
               </li>
 
               <li class="nav__item">
-                <a href="statusList/statusDriver.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Status</a>
+                <a href="statusDriver.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Status</a>
               </li>
 
               <li class="nav__item dropdown">

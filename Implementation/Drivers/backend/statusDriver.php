@@ -26,8 +26,8 @@
 <!-- Form -->
 <form method="POST" action="driverStatusUpdate.php">
     <label for="driver_id">Driver ID:</label>
-    <input type="number" id="driverID" name="driverID" required 
-        value="<?php session_start(); if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { echo htmlspecialchars($_SESSION['driverID']); } ?>">
+    <input type="text" id="driverID" name="driverID" readonly  
+        value="<?php session_start(); if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {echo htmlspecialchars($_SESSION['driverID']); } ?>">
   
     <label for="latitude">Latitude:</label>
     <input type="text" id="latitude" name="latitude" readonly required>
@@ -84,6 +84,7 @@ map.on('click', function (e) {
     // Update form fields with clicked location
     document.getElementById('latitude').value = latitude;
     document.getElementById('longitude').value = longitude;
+    
 
     // Add a marker to the map at the clicked location
     new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);

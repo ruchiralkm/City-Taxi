@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include '../dbConnection.php';
+include 'dbConnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $driverID = $_POST['driverID'];
