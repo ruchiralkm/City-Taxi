@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
         echo '<strong>Pickup Location:</strong> ' . htmlspecialchars($row["pickupLocation"]) . '<br>';
         echo '<strong>Drop Location:</strong> ' . htmlspecialchars($row["dropLocation"]) . '<br>';
         echo '<strong>Distance:</strong> ' . htmlspecialchars($row["distance"]) . ' km<br>';
+        echo'<strong>Requested At:</strong>' .htmlspecialchars($row["requestAt"]);
         echo '</div><hr>';
     }
 

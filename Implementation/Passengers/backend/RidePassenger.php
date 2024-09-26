@@ -244,15 +244,15 @@
 
         // Display the total amount on the page
 
-    }
-    document.querySelectorAll('input[name="vehicle"]').forEach(vehicleRadio => {
-        vehicleRadio.addEventListener('change', calculateTotalPrice);
-    });
+      }
+        document.querySelectorAll('input[name="vehicle"]').forEach(vehicleRadio => {
+            vehicleRadio.addEventListener('change', calculateTotalPrice);
+        });
 
-    document.querySelectorAll('input[name="employment"]').forEach(tripRadio => {
-        tripRadio.addEventListener('change', calculateTotalPrice);
-    });
-  
+        document.querySelectorAll('input[name="employment"]').forEach(tripRadio => {
+            tripRadio.addEventListener('change', calculateTotalPrice);
+        });
+      
 
         function showDrivers(filter) 
         {

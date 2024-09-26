@@ -25,18 +25,15 @@
 
 <!-- Form -->
 <form method="POST" action="driverStatusUpdate.php">
-    
-<label for="driver_id">Driver ID:</label>
+    <label for="driver_id">Driver ID:</label>
     <input type="number" id="driverID" name="driverID" required 
         value="<?php session_start(); if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { echo htmlspecialchars($_SESSION['driverID']); } ?>">
   
-
     <label for="latitude">Latitude:</label>
     <input type="text" id="latitude" name="latitude" readonly required>
 
     <label for="longitude">Longitude:</label>
     <input type="text" id="longitude" name="longitude" readonly required>
-
 
     <label for="status">Status:</label>
     <select id="status" name="status">
@@ -57,7 +54,29 @@ const map = new mapboxgl.Map({
     zoom: 12 // Starting zoom level
 });
 
-// Add click event to map to select location
+// Automatically collect user's current location
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Update form fields with the current location
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
+
+        // Center the map on the current location
+        map.setCenter([longitude, latitude]);
+
+        // Add a marker at the current location
+        new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map);
+    }, function() {
+        alert('Unable to retrieve your location.');
+    });
+} else {
+    alert('Geolocation is not supported by your browser.');
+}
+
+// Add click event to map to select location manually
 map.on('click', function (e) {
     const latitude = e.lngLat.lat;
     const longitude = e.lngLat.lng;
