@@ -6,11 +6,13 @@
     <title>City-Taxi</title>
 
     <!-- ===== SCSS File ===== -->
-    <link rel="stylesheet" href="Sass/callOperatorHome.min.css" />
-
+    <link rel="stylesheet" href="Sass/callOperarorRide.min.css" />
 
   </head>
   <body>
-    <h1>Hello CallOperator Home</h1>
+    <h1>Hello CallOperator Ride</h1>
+
+    <br>
+    
   </body>
 </html>

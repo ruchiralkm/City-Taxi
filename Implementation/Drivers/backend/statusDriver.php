@@ -6,36 +6,30 @@
     <title>Update Driver Location</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body { font-family: Arial, sans-serif; }
-        #map { width: 100%; height: 400px; margin-bottom: 20px; }
-        form { max-width: 600px; margin: 0 auto; }
-        label { display: block; margin-bottom: 8px; }
-        input[type="text"], input[type="number"], select { width: 100%; padding: 8px; margin-bottom: 16px; }
-        input[type="submit"] { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        input[type="submit"]:hover { background-color: #45a049; }
-    </style>
+    
+    <!-- StatusDriver SCSS -->
+    <link rel="stylesheet" href="Sass/statusDriver.min.css">
 </head>
 <body>
-
-<h2>Update Driver Location</h2>
+    <!-- Navigation Bar -->
+    <?php include 'NavBarDriver.php'; ?>
 
 <!-- Map Container -->
 <div id="map"></div>
 
 <!-- Form -->
 <form method="POST" action="driverStatusUpdate.php">
-    <label for="driver_id">Driver ID:</label>
+    <label for="driver_id">Driver ID</label>
     <input type="text" id="driverID" name="driverID" readonly  
-        value="<?php session_start(); if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {echo htmlspecialchars($_SESSION['driverID']); } ?>">
+        value="<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {echo htmlspecialchars($_SESSION['driverID']); } ?>">
   
-    <label for="latitude">Latitude:</label>
+    <label for="latitude">Latitude</label>
     <input type="text" id="latitude" name="latitude" readonly required>
 
-    <label for="longitude">Longitude:</label>
+    <label for="longitude">Longitude</label>
     <input type="text" id="longitude" name="longitude" readonly required>
 
-    <label for="status">Status:</label>
+    <label for="status">Status</label>
     <select id="status" name="status">
         <option value="available">Available</option>
         <option value="not_available">Busy</option>

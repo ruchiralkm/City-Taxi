@@ -44,15 +44,15 @@
             <ul class="nav__list">
 
               <li class="nav__item">
-                <a href="HomeDriver.php" class="nav__link"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                <a href="HomeDriver.php" class="nav__link">Home</a>
               </li>
 
               <li class="nav__item">
-                <a href="ride/requestedRides.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
+                <a href="ride/requestedRides.php" class="nav__link">Ride</a>
               </li>
 
               <li class="nav__item">
-                <a href="statusDriver.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Status</a>
+                <a href="statusDriver.php" class="nav__link">Status</a>
               </li>
 
               <li class="nav__item dropdown">
@@ -75,11 +75,11 @@
               </li>
 
               <li class="nav__item">
-                <a href="NotificationDriver.php" class="nav__link"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a>
+                <a href="NotificationDriver.php" class="nav__link">Notifications</a>
               </li>
 
               <li class="nav__item" style="margin-left:70px">
-                <a href="ProfileDriver.php" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                <a href="ProfileDriver.php" class="nav__link">
                   <?php
                     session_start();
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {

@@ -26,6 +26,7 @@
     <!-- Navigation Bar -->
     <?php include 'NavBarDriver.php'; ?>
 
+
     <h1>Home Section</h1>
     
 

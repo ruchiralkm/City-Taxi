@@ -22,8 +22,8 @@
     <!--NavBarHome scss file-->
     <link rel="stylesheet" href="Sass/NavBarHome.min.css" />
 
-    <!--CallOperator Home scss file-->
-    <link rel="stylesheet" href="pages/Sass/callOperatorHome.min.css" />
+    <!--CallOperator Ride scss file-->
+    <link rel="stylesheet" href="pages/Sass/callOperarorRide.min.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -40,13 +40,13 @@
 
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="NavBarHome.php" class="sidebar-link">
               <i class="fas fa-home"></i>
               <span>Home</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="NavBarRide.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
@@ -151,7 +151,7 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <?php include 'pages/callOperarorHome.php'; ?>
+        <?php include 'pages/callOperarorRide.php'; ?>
       </div>
     </div>
 
