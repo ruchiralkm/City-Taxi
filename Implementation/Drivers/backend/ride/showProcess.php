@@ -31,7 +31,9 @@ if (isset($_GET['rideID'])) {
     <!--=== Correct Content ===-->
     <!--* hero section *-->
     <div class="conn">
+      
       <div class="container">
+      <br><br><br><br><br><br><br><br><br><br>
         <div class="header">
           <img
             src="https://img.icons8.com/?size=100&id=a4l6bA9mSmBh&format=png&color=40C057"
@@ -46,6 +48,8 @@ if (isset($_GET['rideID'])) {
         <br />
         <a href="requestedRides.php"><button class="backbtn">Back</button></a>
         <?php echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '"><button class="loginbtn">Show Map</button></a>';?>
+        <br><br>
+        <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
       </div>
     </div>
 
