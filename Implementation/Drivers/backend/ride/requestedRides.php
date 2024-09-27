@@ -32,6 +32,7 @@ if ($result->num_rows > 0) {
         echo '<strong>Distance:</strong> ' . htmlspecialchars($row["distance"]) . ' km<br>';
         echo '<strong>Requested At:</strong> ' . htmlspecialchars($row["requestAt"]) . '<br>';
         
+        
         echo '</div><hr>';
     }
 

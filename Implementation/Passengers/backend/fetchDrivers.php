@@ -11,7 +11,12 @@ if (empty($vehicleType)) {
 
 
 
-$sql = "SELECT * FROM driver WHERE vehicle = ?";
+$sql = "SELECT driver.*, driverstatuslist.status 
+        FROM driver 
+        INNER JOIN driverstatuslist ON driver.driverID = driverstatuslist.driverID 
+        WHERE driver.vehicle = ? 
+        AND driverstatuslist.status = 'Available'";
+
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
