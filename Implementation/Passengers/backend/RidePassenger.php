@@ -53,7 +53,7 @@
             <form action="processRide.php" method="post" id="rideForm">
                 <div id="fareDetails" class="fareDetails">
                     <h2 class="distance">Total Distance : <span id="distanceDisplay"></span></h2>
-                    <!-- <p><strong>Price:</strong> LKR<span id="fareDisplay"></span></p> -->
+                    <p style="display: none;"><strong>Price:</strong> LKR<span id="fareDisplay"></span></p>
 
                     <!-- Hidden Inputs to Store Ride Details -->
                     <input type="hidden" id="distance" name="distance">
