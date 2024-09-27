@@ -12,25 +12,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet" />
 
     <!-- Inline CSS -->
-    <style>
-      #map {
-        height: 500px;
-        width: 100%;
-      }
-      .form-group {
-        margin: 20px 0;
-      }
-      button {
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-    </style>
+    <link rel="stylesheet" href="Sass/mapShowLocationCus.min.css">
   </head>
   <body>
     <h1>Ride Section</h1>
