@@ -55,7 +55,7 @@
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-user"></i>
-              <span>Customers</span>
+              <span>Passengers</span>
             </a>
           </li>
 
