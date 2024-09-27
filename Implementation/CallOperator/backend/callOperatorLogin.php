@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["pass"];
 
     // admin credentials (stored securely in the database in real-world apps)
-    $adminEmail = "operator@citytaxy.lk";
+    $adminEmail = "operator@citytaxi.lk";
     $adminPasswordHash = password_hash("operator123", PASSWORD_DEFAULT);
 
     // Check if the input matches the credentials
