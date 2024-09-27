@@ -11,89 +11,204 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet" />
 
-    <!-- Inline CSS -->
-    <link rel="stylesheet" href="Sass/mapShowLocationCus.min.css">
+
+    <!-- ===== NavBar SCSS File ===== -->
+    <link rel="stylesheet" href="../Sass/NavBarDriver.min.css" />
+
+     <!-- mapShowLocationCus SCSS -->
+     <link rel="stylesheet" href="Sass/mapShowLocationCus.min.css">
+
+    <!-- boxicons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!--font awesome(for icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Ride Section</h1>
+     <!--====== Navigation Bar ======-->
+     <header class="header">
+      <a href="#" class="header__logo">City-Taxi</a>
+
+      <i class="bx bx-menu header__toggle" id="header-toggle"></i>
+
+      <nav class="nav" id="nav-menu">
+        <div class="nav__content bd-grid">
+          <a href="" class="nav__perfil">
+            <div class="nav__img">
+              <img src="assets/img/perfil.jpg" alt="" />
+            </div>
+
+            <div>
+            <img src="../../../City-Taxi.png" alt="" style="width: 85px; height: 60px" />
+            </div>
+          </a>
+
+          <div class="nav__menu">
+            <ul class="nav__list">
+
+              <li class="nav__item">
+                <a href="../HomeDriver.php" class="nav__link">Home</a>
+              </li>
+
+              <li class="nav__item">
+                <a href="#" class="nav__link">Ride</a>
+              </li>
+
+              <li class="nav__item">
+                <a href="../statusDriver.php" class="nav__link">Status</a>
+              </li>
+
+              <li class="nav__item dropdown">
+                <a href="#" class="nav__link dropdown__link"
+                  >Activities <i class="bx bx-chevron-down dropdown__icon"></i
+                ></a>
+
+                <ul class="dropdown__menu" style="background-color:#1a242f">
+
+                  <li class="dropdown__item">
+                    <a href="#" class="nav__link">Ongoing</a>
+                  </li>
+
+                  <li class="dropdown__item">
+                    <a href="#" class="nav__link">Completed</a>
+                  </li>
+
+
+                </ul>
+              </li>
+
+              <li class="nav__item">
+                <a href="NotificationDriver.php" class="nav__link">Notifications</a>
+              </li>
+
+              <li class="nav__item" style="margin-left:70px">
+                <a href="ProfileDriver.php" class="nav__link">
+                  <?php
+                    session_start();
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                        echo "Welcome, " . htmlspecialchars($_SESSION['firstName']);
+                    } else {
+                        echo '<a href="login.php" style="color: white;">Login</a>';
+                    }
+                  ?> 
+                </a>
+              </li>
+
+              <li class="nav__item" style="margin-left:-20px">
+                <a href="../driversLogin.html" class="nav__link"> | <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <br><br><br>
+    <!--===== MAIN JS =====-->
+    <script src="../Js/main.js"></script>
+
+    <!--===== END NAV BAR =====-->
+
+
+
+
+    <!--===== Hero Section =====-->
+    <div class="content">
+      <!--=== left section ===-->
+      <div class="left">
+        <!-- Text Boxes for Pickup and Drop Locations -->
+          <div class="box">
+            <div class="form-group">
+              <label for="pickupLocationText">Pickup Location</label>
+              <input type="text" id="pickupLocationText" name="pickupLocationText" readonly />
+            </div>
+            <div class="form-group">
+              <label for="dropLocationText">Drop Location</label>
+              <input type="text" id="dropLocationText" name="dropLocationText" readonly />
+            </div>
+            <div class="form-group">
+              <label for="distance">Distance(KM)</label>
+              <input type="text" id="distance" name="distance" readonly />
+            </div>
+            <div class="form-group">
+              <label for="fare">Price(LKR)</label>
+              <input type="text" id="fare" name="fare" readonly />
+            </div>
+          </div>
+
+        <!-- Button to Mark Route -->
+        <div class="container">
+          <button id="markRouteBtn">Mark Route</button>
+          <!--Button to update the status -->
+          <Form method="post" action = "acceptRide.php">
+            <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
+            <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
+            <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
+          </form>
+
+          <Form method="post" action = "rejectRide.php">
+            <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
+            <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
+            <button id="rejectRideBtn" name="rejectRideBtn" >Reject Ride</button>
+          </form>
+        </div>
+
+        <center><p style="color:#ccc; margin-top:60px; font-weight:400;">© 2024 City-Taxi(pvt)ltd | All rights reserved.</p></center>
+      </div>
+
+
+
+      <!--=== Right section ===-->
+      <div class="right">
+        <!-- Map Container -->
+        <div id="map"></div>
+      </div>
+
+    </div>
 
     
-
-    <!-- Map Container -->
-    <div id="map"></div>
-
-    <!-- Text Boxes for Pickup and Drop Locations -->
-    <div class="form-group">
-      <label for="pickupLocationText">Pickup Location:</label>
-      <input type="text" id="pickupLocationText" name="pickupLocationText" readonly />
-    </div>
-
-    <div class="form-group">
-      <label for="dropLocationText">Drop Location:</label>
-      <input type="text" id="dropLocationText" name="dropLocationText" readonly />
-    </div>
-
-    <div class="form-group">
-      <label for="distance">Distance:</label>
-      <input type="text" id="distance" name="distance" readonly />
-    </div>
-
-    <div class="form-group">
-      <label for="fare">Fare:</label>
-      <input type="text" id="fare" name="fare" readonly />
-    </div>
-
-    <!-- Button to Mark Route -->
-    <button id="markRouteBtn">Mark Route</button>
-
-   
-
 
 
     <?php
-    // Database connection
-include '../dbConnection.php';
-      // Fetch ride details for the selected ride ID
-      if (isset($_GET['rideID'])) {
-        $rideID = htmlspecialchars($_GET['rideID']);
-    
-        // SQL query to fetch ride details based on the rideID
-        $sql = "SELECT * FROM ride WHERE rideID = '$rideID'";
-        $result = $conn->query($sql);
-    
-        // Check if the ride exists
-        if ($result->num_rows > 0) {
-            // Fetch the ride details
-            $row = $result->fetch_assoc();
-            $pickupLocation = $row['pickupLocation'];
-            $dropLocation = $row['dropLocation'];
-            $distance = $row['distance'];
-            $fare = $row['fare'];
-            $passengerID = $row['passengerID'];
-    
-            // Add a button to show the map with this rideID
-           // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
-        } else {
-            echo "Ride not found.";
-        }
-    } else {
-        echo "No ride ID provided.";
-    }
-    $conn->close();
+      // Database connection
+      include '../dbConnection.php';
+        // Fetch ride details for the selected ride ID
+        if (isset($_GET['rideID'])) {
+          $rideID = htmlspecialchars($_GET['rideID']);
+      
+          // SQL query to fetch ride details based on the rideID
+          $sql = "SELECT * FROM ride WHERE rideID = '$rideID'";
+          $result = $conn->query($sql);
+      
+          // Check if the ride exists
+          if ($result->num_rows > 0) {
+              // Fetch the ride details
+              $row = $result->fetch_assoc();
+              $pickupLocation = $row['pickupLocation'];
+              $dropLocation = $row['dropLocation'];
+              $distance = $row['distance'];
+              $fare = $row['fare'];
+              $passengerID = $row['passengerID'];
+      
+              // Add a button to show the map with this rideID
+            // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+          } else {
+              echo "Ride not found.";
+          }
+      } else {
+          echo "No ride ID provided.";
+      }
+      $conn->close();
     ?>
 
-     <!--Button to update the status -->
-     <Form method="post" action = "acceptRide.php">
-    <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
-    <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
-    <button id="acceptRideBtn" name="acceptRideBtn" >Accept Ride</button>
-    </form>
-
-    <Form method="post" action = "rejectRide.php">
-    <input type="hidden" id="rideID" name="rideID" value="<?php echo $rideID; ?>" />
-    <input type="hidden" id="passengerID" name="passengerID" value="<?php echo $passengerID; ?>" />
-    <button id="rejectRideBtn" name="rejectRideBtn" >Reject Ride</button>
-    </form>
+     
 
     <!-- JavaScript for Mapbox Integration -->
     <script>
