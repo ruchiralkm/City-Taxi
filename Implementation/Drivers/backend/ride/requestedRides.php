@@ -53,7 +53,7 @@
               </li>
 
               <li class="nav__item">
-                <a href="statusDriver.php" class="nav__link">Status</a>
+                <a href="../statusDriver.php" class="nav__link">Status</a>
               </li>
 
               <li class="nav__item dropdown">
