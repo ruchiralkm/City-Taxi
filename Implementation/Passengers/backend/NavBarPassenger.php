@@ -58,7 +58,7 @@
                 <ul class="dropdown__menu" style="background-color:#1a242f">
 
                   <li class="dropdown__item">
-                    <a href="#" class="nav__link">Ongoing</a>
+                    <a href="ongoing.php" class="nav__link">Ongoing</a>
                   </li>
 
                   <li class="dropdown__item">
