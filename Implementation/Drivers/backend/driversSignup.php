@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confPassword = $_POST['confPassword'];
+    $regNo = $_POST['regNo'];
 
     //password validation 
     $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
@@ -102,8 +103,8 @@ if (isset($_POST['submit'])) {
 
     // Rest of your file handling and SQL insertion...
 
-    $stmt = $conn->prepare("INSERT INTO driver (firstName, lastName, mobile, licenceNumber, address, vehicle, employment, profilePicture, email, password)
-     VALUES ('$firstName', '$lastName', '$mobile', '$licenceNumber', '$address', '$vehicleType', '$employmentType', '$picture', '$email', '$hashedPassword')");
+    $stmt = $conn->prepare("INSERT INTO driver (firstName, lastName, mobile, licenceNumber, address, vehicle, employment, profilePicture, email, password, regNo)
+     VALUES ('$firstName', '$lastName', '$mobile', '$licenceNumber', '$address', '$vehicleType', '$employmentType', '$picture', '$email', '$hashedPassword','$regNo')");
 
     if ($stmt->execute()) {
 

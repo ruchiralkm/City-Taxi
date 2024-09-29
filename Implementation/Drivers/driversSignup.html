@@ -167,6 +167,14 @@
           </div>
         </div>
 
+        <input
+          type="text"
+          id="regNo"
+          name="regNo"
+          placeholder="Vehicle Registration Number"
+          required
+        />
+
         <!-- Toggle between Part Time and Full Time -->
         <h4 style="margin-bottom: 10px">Select your working type</h4>
 
@@ -218,6 +226,8 @@
         <!-- Hidden inputs for Step 2 (Vehicle Info) -->
         <input type="hidden" id="hiddenVehicle" name="vehicle" />
         <input type="hidden" id="hiddenEmployment" name="employment" />
+        <input type="hidden" id="hiddenRegNo" name="regNo" />
+
 
         <!--form 3 -->
         <h4 style="margin-bottom: 16px">Security Info</h4>
@@ -373,6 +383,9 @@
           document.getElementById("address").value;
 
         // Transfer data from Step 2
+        document.getElementById("hiddenRegNo").value =
+          document.getElementById("regNo").value;
+
         let vehicle = document.querySelector('input[name="vehicle"]:checked');
         if (vehicle) {
           document.getElementById("hiddenVehicle").value = vehicle.value;

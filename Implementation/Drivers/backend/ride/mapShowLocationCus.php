@@ -142,6 +142,38 @@
               <input type="text" id="fare" name="fare" readonly />
             </div>
           </div>
+          
+    <?php
+      // Database connection
+      include '../dbConnection.php';
+        // Fetch ride details for the selected ride ID
+        if (isset($_GET['rideID'])) {
+          $rideID = htmlspecialchars($_GET['rideID']);
+      
+          // SQL query to fetch ride details based on the rideID
+          $sql = "SELECT * FROM ride WHERE rideID = '$rideID'";
+          $result = $conn->query($sql);
+      
+          // Check if the ride exists
+          if ($result->num_rows > 0) {
+              // Fetch the ride details
+              $row = $result->fetch_assoc();
+              $pickupLocation = $row['pickupLocation'];
+              $dropLocation = $row['dropLocation'];
+              $distance = $row['distance'];
+              $fare = $row['fare'];
+              $passengerID = $row['passengerID'];
+      
+              // Add a button to show the map with this rideID
+            // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+          } else {
+              echo "Ride not found.";
+          }
+      } else {
+          echo "No ride ID provided.";
+      }
+      $conn->close();
+    ?>
 
         <!-- Button to Mark Route -->
         <div class="container">
@@ -176,37 +208,6 @@
     
 
 
-    <?php
-      // Database connection
-      include '../dbConnection.php';
-        // Fetch ride details for the selected ride ID
-        if (isset($_GET['rideID'])) {
-          $rideID = htmlspecialchars($_GET['rideID']);
-      
-          // SQL query to fetch ride details based on the rideID
-          $sql = "SELECT * FROM ride WHERE rideID = '$rideID'";
-          $result = $conn->query($sql);
-      
-          // Check if the ride exists
-          if ($result->num_rows > 0) {
-              // Fetch the ride details
-              $row = $result->fetch_assoc();
-              $pickupLocation = $row['pickupLocation'];
-              $dropLocation = $row['dropLocation'];
-              $distance = $row['distance'];
-              $fare = $row['fare'];
-              $passengerID = $row['passengerID'];
-      
-              // Add a button to show the map with this rideID
-            // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
-          } else {
-              echo "Ride not found.";
-          }
-      } else {
-          echo "No ride ID provided.";
-      }
-      $conn->close();
-    ?>
 
      
 

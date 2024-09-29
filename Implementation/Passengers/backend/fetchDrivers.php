@@ -36,6 +36,7 @@ if ($result->num_rows > 0) {
         echo '<strong>Name:</strong> ' . htmlspecialchars($row["firstName"]) . '<br>';
         echo '<strong>Mobile:</strong> ' . htmlspecialchars($row["mobile"]) . '<br>';
         echo '<strong>Vehicle:</strong> ' . htmlspecialchars($row["vehicle"]) . '<br>';
+        echo '<strong>Vehicle Reg No:</strong> ' . htmlspecialchars($row["regNo"]) . '<br>';
         echo '</div><hr>';
     }
 } else {

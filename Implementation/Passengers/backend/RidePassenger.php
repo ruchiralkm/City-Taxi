@@ -67,9 +67,19 @@
                             } else {
                                 echo ''; 
                             }
-                        ?>">
+                        ?>"/>
+
                     <input type="hidden" id="driverID" name="driverID">
                     <input type="hidden" id="totalAmount" name ="totalAmount" value="0">
+
+                    <input type="hidden" id="mobileNum" name="mobileNum"
+                        value="<?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                                echo htmlspecialchars($_SESSION['mobile']);
+                            } else {
+                                echo ''; 
+                            }
+                        ?>"/>
                 </div>
 
                 <br>

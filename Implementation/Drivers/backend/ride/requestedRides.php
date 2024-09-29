@@ -136,7 +136,7 @@ if ($result->num_rows > 0) {
 
     // Loop through the results
     while ($row = $result->fetch_assoc()) {
-        
+      $rideID =  htmlspecialchars($row["rideID"]);
         echo '<div class="ride-request-item" onclick="selectRide(this)">';
         echo '<input type="radio" name="rideID" value="' . htmlspecialchars($row["rideID"]) . '">';
         echo '<span style="font-weight: 900;">Ride ID:</span> ' . htmlspecialchars($row["rideID"]) . '<br>';
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
     }
 
     
-    //echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+    echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
     echo '</div>'; // Close the ride request list container
     echo '<button type="submit">Select Ride</button>'; // Submit button
     echo '</form>';

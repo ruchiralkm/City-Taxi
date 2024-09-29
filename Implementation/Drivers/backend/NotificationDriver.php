@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $passengerID = htmlspecialchars($_SESSION['passengerID']);
+} else {
+    echo 'Please login to view notifications.';
+    exit;
+}
+
+// Include the database connection
+include '../dbConnection.php';
+
+// Fetch unread notifications for the passenger
+$sql = "SELECT * FROM notifications WHERE recipientType = 'passenger' AND recipientID = '$passengerID' AND status = 0 ORDER BY timeStamp DESC";
+$result = $conn->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,9 +47,51 @@
     <?php include 'NavBarDriver.php'; ?>
 
     <h1>Notification Section</h1>
+
+    <div class="notification-container">
+        <h2>Your Notifications</h2>
+        <div class="notification-list">
+            <?php
+            if ($result->num_rows > 0) {
+                // Output data of each notification
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="notification-item">';
+                    echo '<p>' . htmlspecialchars($row['Message']) . '</p>';
+                    echo '<p class="timestamp">' . htmlspecialchars($row['timeStamp']) . '</p>';
+                    echo '<button class="mark-read-btn" data-id="' . $row['id'] . '">Mark as Read</button>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<p>No new notifications.</p>';
+            }
+            ?>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to mark notifications as read
+        $(document).on('click', '.mark-read-btn', function() {
+            var notificationID = $(this).data('id');
+            $.ajax({
+                url: 'markNotificationRead.php',
+                type: 'POST',
+                data: { id: notificationID },
+                success: function(response) {
+                    if (response === 'success') {
+                        location.reload(); // Reload the page to reflect the changes
+                    } else {
+                        alert('Failed to mark notification as read.');
+                    }
+                }
+            });
+        });
+    </script>
     
 
     <!--===== MAIN JS =====-->
     <script src="Js/main.js"></script>
   </body>
 </html>
+<?php
+$conn->close();
+?>

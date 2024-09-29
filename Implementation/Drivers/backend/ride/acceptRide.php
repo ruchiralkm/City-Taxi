@@ -39,7 +39,7 @@ if (isset($_POST['acceptRideBtn'])) {
                 $recipientType = 'passenger'; // Set the recipient type
                 $status = 0; // Assuming 0 means unread based on your table structure
                 
-                $sql_notify = "INSERT INTO motifications (recipientType, recipientID, Message, status, timeStamp) 
+                $sql_notify = "INSERT INTO notifications (recipientType, recipientID, Message, status, timeStamp) 
                                VALUES ('$recipientType', '$passengerID', '$notification_message', '$status', CURRENT_TIMESTAMP)";
                 
                 if ($conn->query($sql_notify) === TRUE) {

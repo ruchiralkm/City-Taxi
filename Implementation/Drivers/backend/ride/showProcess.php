@@ -26,7 +26,7 @@ if (isset($_GET['rideID'])) {
     // Check if the ride exists
     if ($result->num_rows > 0) {
         // Add a button to show the map with this rideID
-        // echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+        echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
         ?>
     <!--=== Correct Content ===-->
     <!--* hero section *-->
