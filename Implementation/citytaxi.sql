@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2024 at 04:27 PM
+-- Generation Time: Sep 29, 2024 at 04:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,21 +36,25 @@ CREATE TABLE `driver` (
   `address` varchar(255) NOT NULL,
   `vehicle` varchar(255) NOT NULL,
   `employment` varchar(255) NOT NULL,
+  `regNo` varchar(255) NOT NULL,
+  `vehicleBrand` varchar(255) NOT NULL,
+  `vehicleModel` varchar(255) NOT NULL,
+  `vYear` int(11) NOT NULL,
+  `vColor` varchar(255) NOT NULL,
   `profilePicture` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `regNo` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `mobile`, `licenceNumber`, `address`, `vehicle`, `employment`, `profilePicture`, `email`, `password`, `regNo`) VALUES
-(17, 'tahani', 'hareeth', '4546576', '0954321', 'badulla', 'Bike', 'fullTime', '', 'hareethg12@gmail.com', '$2y$10$jjIkmmEBrMyQPUFCAVZEpuigB9ExSsOj6z5jmGDtWzL.Ep8vg1gaG', '0'),
-(18, 'tani', 'Hareeth', '1234567890', '0987654321', 'kandy', 'Van', 'fullTime', '', 'hareethtahani@gmail.com', '$2y$10$Zegi1o5LsvW4nvcENByUxuxR3pb7LFQL0BTuU0wwU0dieQpdgU.fi', '0'),
-(19, 'kalani', 'samarakoon', '09887654321', '12567890', 'gampola, Kandy', 'Car', 'fullTime', 'upload/—Pngtree—self driving car vector_7031243.png', 'kalanisamarakoon13@gmail.com', '$2y$10$fKCPeiAftlGU3d8OgtTljen9cCJnWSe4XhaewVVajZgsWOVsawCXO', '0'),
-(20, 'Nirmani', 'Dhanasekara', '0713867679', '0987654321', 'Gampola, Kandy', 'Car', 'fullTime', 'upload/client-1295901_1280.png', 'duckyzam13@gmail.com', '$2y$10$8B4w6L6yjFNsq4BE3BPFZ.bfMOlJQKSDC8sNDYRq0vqfE40akxA3C', 'AAA-1211');
+INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `mobile`, `licenceNumber`, `address`, `vehicle`, `employment`, `regNo`, `vehicleBrand`, `vehicleModel`, `vYear`, `vColor`, `profilePicture`, `email`, `password`) VALUES
+(17, 'tahani', 'hareeth', '4546576', '0954321', 'badulla', 'Bike', 'fullTime', '0', '', '', 0, '', '', 'hareethg12@gmail.com', '$2y$10$jjIkmmEBrMyQPUFCAVZEpuigB9ExSsOj6z5jmGDtWzL.Ep8vg1gaG'),
+(18, 'tani', 'Hareeth', '1234567890', '0987654321', 'kandy', 'Van', 'fullTime', '0', '', '', 0, '', '', 'hareethtahani@gmail.com', '$2y$10$Zegi1o5LsvW4nvcENByUxuxR3pb7LFQL0BTuU0wwU0dieQpdgU.fi'),
+(19, 'kalani', 'samarakoon', '09887654321', '12567890', 'gampola, Kandy', 'Car', 'fullTime', '0', '', '', 0, '', 'upload/—Pngtree—self driving car vector_7031243.png', 'kalanisamarakoon13@gmail.com', '$2y$10$fKCPeiAftlGU3d8OgtTljen9cCJnWSe4XhaewVVajZgsWOVsawCXO'),
+(20, 'Nirmani', 'Dhanasekara', '0713867679', '0987654321', 'Gampola, Kandy', 'Car', 'fullTime', 'AAA-1211', '', '', 0, '', 'upload/client-1295901_1280.png', 'duckyzam13@gmail.com', '$2y$10$8B4w6L6yjFNsq4BE3BPFZ.bfMOlJQKSDC8sNDYRq0vqfE40akxA3C');
 
 -- --------------------------------------------------------
 
