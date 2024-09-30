@@ -200,17 +200,17 @@
 
             <p class="footerP">© 2024 City-Taxi(pvt). All rights reserved.</p>
 
-            <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const radioButtons = document.querySelectorAll('.driver-item input[type="radio"]');
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', function() {
-            // This will trigger when a radio button is selected
-            // The CSS will handle the background color change
-        });
-    });
-});
-</script>
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const radioButtons = document.querySelectorAll('.driver-item input[type="radio"]');
+                    radioButtons.forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            // This will trigger when a radio button is selected
+                            // The CSS will handle the background color change
+                        });
+                    });
+                });
+              </script>
         </div>
 
         <!-- Right section -->
