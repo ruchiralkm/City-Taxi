@@ -43,17 +43,16 @@
             <ul class="nav__list">
 
               <li class="nav__item">
-                <a href="HomePassenger.php" class="nav__link"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                <a href="HomePassenger.php" class="nav__link"></i>Home</a>
               </li>
 
               <li class="nav__item">
-                <a href="RidePassenger.php" class="nav__link"><i class="fa fa-taxi" aria-hidden="true"></i> Ride</a>
+                <a href="RidePassenger.php" class="nav__link">Ride</a>
               </li>
 
               <li class="nav__item dropdown">
                 <a href="#" class="nav__link dropdown__link"
-                  >Activities <i class="bx bx-chevron-down dropdown__icon"></i
-                ></a>
+                  >Activities</a>
 
                 <ul class="dropdown__menu" style="background-color:#1a242f">
 
@@ -70,11 +69,11 @@
               </li>
 
               <li class="nav__item">
-                <a href="NotificationPassenger.php" class="nav__link"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a>
+                <a href="NotificationPassenger.php" class="nav__link">Notifications</a>
               </li>
 
               <li class="nav__item" style="margin-left:70px">
-                <a href="ProfilePassenger.php" class="nav__link"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                <a href="ProfilePassenger.php" class="nav__link">
                   <?php
                    session_start();
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -87,7 +86,7 @@
               </li>
 
               <li class="nav__item" style="margin-left:-20px">
-                <a href="../passengers.html" class="nav__link"> | <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                <a href="../passengers.html" class="nav__link"> |  Logout</a>
               </li>
 
             </ul>

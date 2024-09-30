@@ -6,17 +6,17 @@
 
 .driver-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
 .driver-item {
   text-align: center;
-  border: 2px solid #fff;
+  border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  width: 150px;
-  cursor: pointer;
+  width: 200px;
   transition: all 0.3s ease;
 }
 
@@ -24,15 +24,28 @@
   border-color: rgb(0, 146, 56);
 }
 
-.driver-item.selected {
+.driver-item input[type="radio"] {
+  display: none;
+}
+
+.driver-item input[type="radio"]:checked + label {
   background-color: rgb(141, 255, 169);
   color: #000;
   border-color: green;
 }
 
+.driver-item label {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .driver-item img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
   margin-bottom: 10px;
 }
 
