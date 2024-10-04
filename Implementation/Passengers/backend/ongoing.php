@@ -3,41 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ongoing Rides</title>
+    <link rel="icon" href="../../City-Taxi.png" type="image/x-icon" />
+    <title>City-Taxi - Your Ongoing Rides</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        #rides {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
         .ride-container {
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ride-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
         }
         .ride-container h2 {
-            color: #333;
+            color: #3498db;
             margin-top: 0;
+            font-size: 1.5em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
         .ride-details {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            line-height: 1.4;
         }
         .ride-details strong {
-            color: #333;
+            color: #2c3e50;
+            font-weight: 600;
         }
         button {
-            background-color: #28a745;
+            background-color: #2ecc71;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #27ae60;
         }
         button:disabled {
-            background-color: #ccc;
+            background-color: #95a5a6;
             cursor: not-allowed;
         }
         #ratingPopup {
@@ -47,35 +86,71 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
         .popup-content {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .popup-content h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        #ratingForm label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #ratingForm input[type="radio"] {
+            display: none;
+        }
+        #ratingForm .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+        }
+        #ratingForm .rating > label {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            font-size: 2em;
+            color: #ddd;
+            cursor: pointer;
+        }
+        #ratingForm .rating > label:hover,
+        #ratingForm .rating > label:hover ~ label,
+        #ratingForm .rating > input:checked ~ label {
+            color: #ffd700;
         }
     </style>
 </head>
 <body>
+    <?php include 'NavBarPassenger.php'; ?>
+
     <h1>Your Ongoing Rides</h1>
     <div id="rides"></div>
 
-    <!-- Rating Popup -->
-    <div id="ratingPopup" style="display: none;">
+    <div id="ratingPopup">
         <div class="popup-content">
-            <h2>Rate the Driver</h2>
+            <h2>Rate Your Driver</h2>
             <form id="ratingForm" method="POST" action="rateDriver.php">
                 <input type="hidden" name="driverID" id="driverID">
-                <label for="rating">Rating:</label><br>
-                <input type="radio" name="rating" value="1"> 1
-                <input type="radio" name="rating" value="2"> 2
-                <input type="radio" name="rating" value="3"> 3
-                <input type="radio" name="rating" value="4"> 4
-                <input type="radio" name="rating" value="5" checked> 5
-                <br><br>
+                <label for="rating">How was your experience?</label>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excellent">★</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Very Good">★</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Good">★</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Fair">★</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Poor">★</label>
+                </div>
                 <button type="submit">Submit Rating</button>
             </form>
         </div>
