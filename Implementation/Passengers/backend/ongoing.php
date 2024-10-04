@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
@@ -17,6 +18,7 @@
             padding: 20px;
             color: #333;
         }
+        
         h1 {
             text-align: center;
             color: #2c3e50;
@@ -24,6 +26,7 @@
             font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
+        
         #rides {
             display: flex;
             flex-wrap: wrap;
@@ -59,7 +62,7 @@
             color: #2c3e50;
             font-weight: 600;
         }
-        button {
+         button {
             background-color: #2ecc71;
             color: #fff;
             border: none;
@@ -129,7 +132,7 @@
         #ratingForm .rating > label:hover ~ label,
         #ratingForm .rating > input:checked ~ label {
             color: #ffd700;
-        }
+        } 
     </style>
 </head>
 <body>
