@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["admin_logged_in"] = true;
         echo "Login successful!";
         // Redirect to admin dashboard
-       header("Location: NavBarHome.php");
+       header("Location: AdminHome.php");
        exit();
     } else {
         echo "Invalid email or password.";

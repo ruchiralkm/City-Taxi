@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
 
-    <!--Calloperator Ride scss file-->
-    <link rel="stylesheet" href="Sass/CalloperatorHome.min.css" />
+    <!--Admin Ride scss file-->
+    <link rel="stylesheet" href="Sass/AdminPassengers.min.css" />
 
   </head>
   <body>
@@ -38,27 +38,27 @@
 
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="AdminHome.php" class="sidebar-link">
               <i class="fas fa-home"></i>
               <span>Home</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="CalloperatorRide.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorPassenger.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorDriver.php" class="sidebar-link">
+            <a href="AdminDrivers.php" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
@@ -149,7 +149,83 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <h1 class="ee">Home Section</h1>
+        <h1 class="ee">Passenger Section</h1>
+
+
+        <!-- Registered Passenger -->
+        <div class="tableContent">
+            <h1>Registered Passenger</h1>
+            <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                    <th>Pickup Location</th>
+                    <th>Drop Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td data-label="#">S20</td>
+                    <td data-label="#">Tahani</td>
+                    <td data-label="#">Hareeth</td>
+                    <td data-label="#">119</td>
+                    <td data-label="#">tani@gmail.com</td>
+                    <td data-label="#">Badulla</td>
+                    <td data-label="#">Kandy</td>
+                </tr>
+
+                <tr>
+                    <td data-label="#">S20</td>
+                    <td data-label="#">Tahani</td>
+                    <td data-label="#">Hareeth</td>
+                    <td data-label="#">119</td>
+                    <td data-label="#">tani@gmail.com</td>
+                    <td data-label="#">Badulla</td>
+                    <td data-label="#">Kandy</td>
+                </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <!-- Unregistered Passenger -->
+        <div class="tableContent">
+            <h1>Unregistered Passenger</h1>
+            <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Frist Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile Number</th>
+                    <th>Pickup Location</th>
+                    <th>Drop Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td data-label="#">S20</td>
+                    <td data-label="#">Tahani</td>
+                    <td data-label="#">Hareeth</td>
+                    <td data-label="#">119</td>
+                    <td data-label="#">Badulla</td>
+                    <td data-label="#">Kandy</td>
+                </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
       </div>
     </div>
 

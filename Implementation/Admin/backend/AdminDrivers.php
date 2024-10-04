@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
 
-    <!--Calloperator Ride scss file-->
-    <link rel="stylesheet" href="Sass/CalloperatorHome.min.css" />
+    <!--Admin Ride scss file-->
+    <link rel="stylesheet" href="Sass/AdminDrivers.min.css" />
 
   </head>
   <body>
@@ -38,27 +38,27 @@
 
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="AdminHome.php" class="sidebar-link">
               <i class="fas fa-home"></i>
               <span>Home</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="CalloperatorRide.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorPassenger.php" class="sidebar-link">
+            <a href="AdminPassengers.php" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorDriver.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
@@ -148,8 +148,55 @@
       </aside>
 
       <div class="main p-4">
-        <!-- Home Section -->
-        <h1 class="ee">Home Section</h1>
+        <!-- Driver Section -->
+        <h1 class="ee">Driver Section</h1>
+
+
+        <!-- Driver List -->
+        <div class="tableContent">
+            <h1>Drivers List</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Frist Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile Number</th>
+                        <th>Licence Number</th>
+                        <th>Address</th>
+                        <th>Vehicle No</th>
+                        <th>Vehicle Brand</th>
+                        <th>Vehicle Model</th>
+                        <th>Vehicle Year</th>
+                        <th>Vehicle Color</th>
+                        <th>Profile Picture</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td data-label="#">S20</td>
+                    <td data-label="#">Tahani</td>
+                    <td data-label="#">Hareeth</td>
+                    <td data-label="#">119</td>
+                    <td data-label="#">123456</td>
+                    <td data-label="#">Badulla</td>
+                    <td data-label="#">ACB-1234</td>
+                    <td data-label="#">Nissan</td>
+                    <td data-label="#">GTR R35</td>
+                    <td data-label="#">2017</td>
+                    <td data-label="#">Red</td>
+                    <td data-label="#">Profile Pic</td>
+                    <td data-label="#">tani@gmail.com</td>
+                </tr>
+
+                
+                    
+                </tbody>
+            </table>
+        </div>
+
       </div>
     </div>
 

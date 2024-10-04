@@ -19,8 +19,8 @@
       rel="stylesheet"
     />
 
-    <!--Calloperator Ride scss file-->
-    <link rel="stylesheet" href="Sass/CalloperatorHome.min.css" />
+    <!--Admin Home scss file-->
+    <link rel="stylesheet" href="Sass/AdminHome.min.css" />
 
   </head>
   <body>
@@ -51,14 +51,14 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorPassenger.php" class="sidebar-link">
+            <a href="AdminPassengers.php" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="CalloperatorDriver.php" class="sidebar-link">
+            <a href="AdminDrivers.php" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
@@ -149,7 +149,7 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <h1 class="ee">Home Section</h1>
+        <h1 class="ss">Home Section</h1>
       </div>
     </div>
 

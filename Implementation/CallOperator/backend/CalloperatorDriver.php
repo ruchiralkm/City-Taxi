@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title section -->
+    <link rel="icon" href="../../City-Taxi.png" type="image/x-icon" />
     <title>City-Taxi</title>
 
     <!--font awesome(for icons)-->
@@ -17,11 +19,9 @@
       rel="stylesheet"
     />
 
-    <!--NavBarHome scss file-->
-    <link rel="stylesheet" href="Sass/NavBarHome.min.css" />
+    <!--Calloperator Ride scss file-->
+    <link rel="stylesheet" href="Sass/CalloperatorPassenger.min.css" />
 
-    <!--AdminHome scss file-->
-    <link rel="stylesheet" href="pages/Sass/adminHome.min.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -38,15 +38,29 @@
 
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorHome.php" class="sidebar-link">
               <i class="fas fa-home"></i>
               <span>Home</span>
             </a>
           </li>
           <li class="sidebar-item">
+            <a href="CalloperatorRide.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Rides</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
             <a href="#" class="sidebar-link">
-              <i class="fas fa-wallet"></i>
-              <span>Wallet</span>
+              <i class="fas fa-user"></i>
+              <span>Passengers</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+            <i class="fa-solid fa-user-nurse"></i>
+              <span>Drivers</span>
             </a>
           </li>
           <li class="sidebar-item">
@@ -126,7 +140,7 @@
         </ul>
 
         <div class="sidebar-footer">
-          <a href="../admin.html" class="sidebar-link">
+          <a href="../callOperator.html" class="sidebar-link">
             <i class="fas fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
@@ -134,8 +148,55 @@
       </aside>
 
       <div class="main p-4">
-        <!-- Home Section -->
-        <?php include 'pages/adminHome.php'; ?>
+        <!-- Driver Section -->
+        <h1 class="ee">Driver Section</h1>
+
+
+        <!-- Driver List -->
+        <div class="tableContent">
+            <h1>Drivers List</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Frist Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile Number</th>
+                        <th>Licence Number</th>
+                        <th>Address</th>
+                        <th>Vehicle No</th>
+                        <th>Vehicle Brand</th>
+                        <th>Vehicle Model</th>
+                        <th>Vehicle Year</th>
+                        <th>Vehicle Color</th>
+                        <th>Profile Picture</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td data-label="#">S20</td>
+                    <td data-label="#">Tahani</td>
+                    <td data-label="#">Hareeth</td>
+                    <td data-label="#">119</td>
+                    <td data-label="#">123456</td>
+                    <td data-label="#">Badulla</td>
+                    <td data-label="#">ACB-1234</td>
+                    <td data-label="#">Nissan</td>
+                    <td data-label="#">GTR R35</td>
+                    <td data-label="#">2017</td>
+                    <td data-label="#">Red</td>
+                    <td data-label="#">Profile Pic</td>
+                    <td data-label="#">tani@gmail.com</td>
+                </tr>
+
+                
+                    
+                </tbody>
+            </table>
+        </div>
+
       </div>
     </div>
 
