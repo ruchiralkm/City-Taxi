@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SCSS file -->
+     <link rel="stylesheet" href="../../Drivers/backend/ride/Sass/acceptRide.scss">
+</head>
+
+</html>
+
 <?php
 // Include the database connection file
 include 'dbConnection.php';
@@ -21,7 +33,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['driverID']) && isset(
         $stmt->bind_param("iiiii", $driverID, $rating, $rating, $rating, $rating);
 
         if ($stmt->execute()) {
-            echo "Thank you for rating the driver!";
+            // echo "Thank you for rating the driver!";
+            ?>
+            <!--=== Correct Content ===-->
+                    <!--* hero section *-->
+                    <div class="conn">
+                    
+                        <div class="container">
+                        <br><br><br><br><br><br><br><br><br><br>
+                            <div class="header">
+                                <img
+                                    src="https://img.icons8.com/?size=100&id=a4l6bA9mSmBh&format=png&color=40C057"
+                                    alt="Checkmark"
+                                    class="checkmark"
+                                />
+                                <h1>Thank you for rating the driver!</h1>
+                            </div>
+                            <p>
+                                You are successfully rate your driver. Thank you for your ratings
+                            </p>
+                            <br />
+                            <a href="HomePassenger.php"><button class="backbtn">Back</button></a>
+                            <br><br>
+                            <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
+                        </div>
+                    </div>
+            <?php
         } else {
             echo "Failed to submit rating.";
         }
