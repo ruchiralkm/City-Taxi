@@ -31,8 +31,8 @@
 
     <label for="status">Status</label>
     <select id="status" name="status">
-        <option value="available">Available</option>
-        <option value="not_available">Busy</option>
+        <option value="Available">Available</option>
+        <option value="Busy">Busy</option>
     </select>
 
     <input type="submit" value="Update Location">

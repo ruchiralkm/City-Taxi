@@ -19,9 +19,9 @@ $sql = "SELECT driver.*, driverstatuslist.status
 
 $stmt = $conn->prepare($sql);
 
-if (!$stmt) {
-    die("Prepare failed: " . $conn->error); // Debugging: Check if prepare failed
-}
+//if (!$stmt) {
+  //  die("Prepare failed: " . $conn->error); // Debugging: Check if prepare failed
+//}
 
 $stmt->bind_param("s", $vehicleType);
 $stmt->execute();

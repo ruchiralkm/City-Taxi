@@ -48,7 +48,7 @@ $result = $conn->query($sql);
         <div class="notification-list">
             <?php
             if ($result->num_rows > 0) {
-                // Output data of each notification
+                // Output of each notification
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="notification-item">';
                     echo '<p>' . htmlspecialchars($row['Message']) . '</p>';
@@ -66,7 +66,7 @@ $result = $conn->query($sql);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
-        // Animated entrance for notifications
+        
         $('.notification-item').each(function(index) {
             $(this).css({
                 'opacity': '0',
