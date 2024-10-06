@@ -166,13 +166,58 @@
           </div>
         </div>
 
-        <input
+        <!-- Vehicle Details -->
+        <div style="margin-top: -80px; margin-bottom: 20px">
+          <h4>Vehicle Details</h4>
+          <div style="display: flex">
+            <input
+              type="text"
+              id="Vehicle NO"
+              name="Vehicle NO"
+              placeholder="Vehicle NO"
+              required
+            />
+            <input
+              type="text"
+              id="Vehicle Brand"
+              name="Vehicle Brand"
+              placeholder="Vehicle Brand"
+              required
+            />
+            <input
+              type="text"
+              id="Vehicle Model"
+              name="Vehicle Model"
+              placeholder="Vehicle Model"
+              required
+            />
+          </div>
+
+          <div style="display: flex">
+            <input
+              type="text"
+              id="Vehicle Year"
+              name="Vehicle Year"
+              placeholder="Vehicle Year"
+              required
+            />
+            <input
+              type="text"
+              id="Vehicle Colour"
+              name="Vehicle Colour"
+              placeholder="Vehicle Colour"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- <input
           type="text"
           id="regNo"
           name="regNo"
           placeholder="Vehicle Registration Number"
           required
-        />
+        /> -->
 
         <!-- Toggle between Part Time and Full Time -->
         <h4 style="margin-bottom: 10px">Select your working type</h4>
@@ -225,9 +270,9 @@
         <!-- Hidden inputs for Step 2 (Vehicle Info) -->
         <input type="hidden" id="hiddenVehicle" name="vehicle" />
         <input type="hidden" id="hiddenEmployment" name="employment" />
-        <input type="hidden" id="hiddenRegNo" name="regNo" />
+        <!-- <input type="hidden" id="hiddenRegNo" name="regNo" /> -->
 
-        <!--form 3 -->
+        <!--*form 3 -->
         <h4 style="margin-bottom: 16px">Security Info</h4>
         <label style="font-weight: 500">Profile Picture </label>
         <input
@@ -381,8 +426,8 @@
           document.getElementById("address").value;
 
         // Transfer data from Step 2
-        document.getElementById("hiddenRegNo").value =
-          document.getElementById("regNo").value;
+        //document.getElementById("hiddenRegNo").value =
+        // document.getElementById("regNo").value;
 
         let vehicle = document.querySelector('input[name="vehicle"]:checked');
         if (vehicle) {
