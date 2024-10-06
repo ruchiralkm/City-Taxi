@@ -57,6 +57,12 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $confPassword = $_POST['confPassword'];
     $regNo = $_POST['regNo'];
+    $brand = $_POST['VehicleBrand'];
+    $model = $_POST['VehicleModel'];
+    $year = $_POST['VehicleYear'];
+    $color = $_POST['VehicleColour'];
+
+
 
     //password validation 
     $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/';
@@ -101,10 +107,9 @@ if (isset($_POST['submit'])) {
         }
 
 
-    // Rest of your file handling and SQL insertion...
-
-    $stmt = $conn->prepare("INSERT INTO driver (firstName, lastName, mobile, licenceNumber, address, vehicle, employment, profilePicture, email, password, regNo)
-     VALUES ('$firstName', '$lastName', '$mobile', '$licenceNumber', '$address', '$vehicleType', '$employmentType', '$picture', '$email', '$hashedPassword','$regNo')");
+// query to insert driver data
+    $stmt = $conn->prepare("INSERT INTO driver (firstName, lastName, mobile, licenceNumber, address, vehicle, employment, profilePicture, email, password, regNo,vehicleBrand, vehicleModel,vYear,vColor)
+     VALUES ('$firstName', '$lastName', '$mobile', '$licenceNumber', '$address', '$vehicleType', '$employmentType', '$picture', '$email', '$hashedPassword','$regNo','$brand','$model','$year','$color')");
 
     if ($stmt->execute()) {
 

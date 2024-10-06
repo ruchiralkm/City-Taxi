@@ -172,22 +172,22 @@
           <div style="display: flex">
             <input
               type="text"
-              id="Vehicle NO"
-              name="Vehicle NO"
+              id="regNo"
+              name="regNo"
               placeholder="Vehicle NO"
               required
             />
             <input
               type="text"
-              id="Vehicle Brand"
-              name="Vehicle Brand"
+              id="VehicleBrand"
+              name="VehicleBrand"
               placeholder="Vehicle Brand"
               required
             />
             <input
               type="text"
-              id="Vehicle Model"
-              name="Vehicle Model"
+              id="VehicleModel"
+              name="VehicleModel"
               placeholder="Vehicle Model"
               required
             />
@@ -196,15 +196,15 @@
           <div style="display: flex">
             <input
               type="text"
-              id="Vehicle Year"
-              name="Vehicle Year"
+              id="VehicleYear"
+              name="VehicleYear"
               placeholder="Vehicle Year"
               required
             />
             <input
               type="text"
-              id="Vehicle Colour"
-              name="Vehicle Colour"
+              id="VehicleColour"
+              name="VehicleColour"
               placeholder="Vehicle Colour"
               required
             />
@@ -270,6 +270,12 @@
         <!-- Hidden inputs for Step 2 (Vehicle Info) -->
         <input type="hidden" id="hiddenVehicle" name="vehicle" />
         <input type="hidden" id="hiddenEmployment" name="employment" />
+        <input type="hidden" id="hiddenVehicleNo" name="regNo">
+        <input type="hidden" id="hiddenVehicleBrand" name="VehicleBrand">
+        <input type="hidden" id="hiddenVehicleModel" name="VehicleModel">
+        <input type="hidden" id="hiddenVehicleYear" name="VehicleYear">
+        <input type="hidden" id="hiddenVehicleColour" name="VehicleColour">
+
         <!-- <input type="hidden" id="hiddenRegNo" name="regNo" /> -->
 
         <!--*form 3 -->
@@ -426,8 +432,23 @@
           document.getElementById("address").value;
 
         // Transfer data from Step 2
-        //document.getElementById("hiddenRegNo").value =
-        // document.getElementById("regNo").value;
+        document.getElementById("hiddenVehicleNo").value =
+          document.getElementById("regNo").value;
+        
+          document.getElementById("hiddenVehicleBrand").value =
+          document.getElementById("VehicleBrand").value;
+
+          document.getElementById("hiddenVehicleModel").value =
+          document.getElementById("VehicleModel").value;
+
+          document.getElementById("hiddenVehicleYear").value =
+          document.getElementById("VehicleYear").value;
+          
+          document.getElementById("hiddenVehicleColour").value =
+          document.getElementById("VehicleColour").value;
+
+
+        document.getElementById('hidden')
 
         let vehicle = document.querySelector('input[name="vehicle"]:checked');
         if (vehicle) {
