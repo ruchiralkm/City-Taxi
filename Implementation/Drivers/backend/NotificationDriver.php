@@ -26,7 +26,7 @@ $result = $conn->query($sql);
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     
     <!-- ===== SCSS File ===== -->
-    <link rel="stylesheet" href="#" />
+    <link rel="stylesheet" href="Sass/NotificationDriver.min.css" />
 
     <!--font awesome(for icons)-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -35,97 +35,7 @@ $result = $conn->query($sql);
     <link rel="icon" href="../../City-Taxi.png" type="image/x-icon" />
     <title>City-Taxi - Notifications</title>
 
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
 
-        h1 {
-            color: #333;
-            text-align: center;
-            margin: 2rem 0;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .notification-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-
-        .notification-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .notification-item {
-            background-color: #f8f9fa;
-            border-left: 5px solid #007bff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .notification-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .notification-item p {
-            margin: 0;
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .timestamp {
-            font-size: 0.85rem;
-            color: #6c757d;
-            margin-top: 0.75rem;
-            font-style: italic;
-        }
-
-        .mark-read-btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .mark-read-btn:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .notification-container {
-                margin: 1rem;
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation Bar -->

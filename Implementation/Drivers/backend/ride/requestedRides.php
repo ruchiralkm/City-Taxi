@@ -76,11 +76,11 @@
               </li>
 
               <li class="nav__item">
-                <a href="NotificationDriver.php" class="nav__link">Notifications</a>
+                <a href="../NotificationDriver.php" class="nav__link">Notifications</a>
               </li>
 
               <li class="nav__item" style="margin-left:70px">
-                <a href="ProfileDriver.php" class="nav__link">
+                <a href="../ProfileDriver.php" class="nav__link">
                   <?php
                     session_start();
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
     }
 
     
-    echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '">Show on Map</a>';
+    echo '<a href="mapShowLocationCus.php?rideID=' . $rideID . '" style="display: none;">Show on Map</a>';
     echo '</div>'; // Close the ride request list container
     echo '<button type="submit">Select Ride</button>'; // Submit button
     echo '</form>';
