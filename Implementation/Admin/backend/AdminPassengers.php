@@ -140,7 +140,7 @@
         </ul>
 
         <div class="sidebar-footer">
-          <a href="../callOperator.html" class="sidebar-link">
+          <a href="../admin.html" class="sidebar-link">
             <i class="fas fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
@@ -150,11 +150,35 @@
       <div class="main p-4">
         <!-- Home Section -->
         <h1 class="ee">Passenger Section</h1>
+        
+        <!-- Database connection -->
+        <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname="citytaxi";
+
+          $conn = mysqli_connect($servername,$username,$password,$dbname);
+
+          if(!$conn){
+            die("Connection Erro".mysqli_connect_error());
+          }else{
+            // echo "C";
+          }
+        ?>
 
 
         <!-- Registered Passenger -->
         <div class="tableContent">
             <h1>Registered Passenger</h1>
+
+            <?php
+                $sql="SELECT * FROM passenger";
+                $result=mysqli_query($conn,$sql);
+
+                if(mysqli_num_rows($result)>0){
+              ?>
+
             <table>
                 <thead>
                     <tr>
@@ -163,33 +187,38 @@
                     <th>Last Name</th>
                     <th>Mobile Number</th>
                     <th>Email</th>
-                    <th>Pickup Location</th>
-                    <th>Drop Location</th>
                     </tr>
+
+                    <?php
+                      $i=0;
+                      while($row=mysqli_fetch_array($result)){
+                    ?>
+
                 </thead>
                 <tbody>
                 <tr>
-                    <td data-label="#">S20</td>
-                    <td data-label="#">Tahani</td>
-                    <td data-label="#">Hareeth</td>
-                    <td data-label="#">119</td>
-                    <td data-label="#">tani@gmail.com</td>
-                    <td data-label="#">Badulla</td>
-                    <td data-label="#">Kandy</td>
+                    <td data-label="#"><?php echo $row["passengerID"];?></td>
+                    <td data-label="#"><?php echo $row["firstName"];?></td>
+                    <td data-label="#"><?php echo $row["lastName"];?></td>
+                    <td data-label="#"><?php echo $row["mobile"];?></td>
+                    <td data-label="#"><?php echo $row["email"];?></td>
                 </tr>
 
-                <tr>
-                    <td data-label="#">S20</td>
-                    <td data-label="#">Tahani</td>
-                    <td data-label="#">Hareeth</td>
-                    <td data-label="#">119</td>
-                    <td data-label="#">tani@gmail.com</td>
-                    <td data-label="#">Badulla</td>
-                    <td data-label="#">Kandy</td>
-                </tr>
+                <?php
+                  $i++;
+                  }
+                ?>
                     
                 </tbody>
             </table>
+
+            <?php
+              }
+              else{
+                echo "No Records Found";
+              }
+            ?>
+
         </div>
 
 
@@ -197,6 +226,14 @@
         <!-- Unregistered Passenger -->
         <div class="tableContent">
             <h1>Unregistered Passenger</h1>
+
+            <?php
+                $sql="SELECT * FROM unregpassengers";
+                $result=mysqli_query($conn,$sql);
+
+                if(mysqli_num_rows($result)>0){
+              ?>
+
             <table>
                 <thead>
                     <tr>
@@ -204,27 +241,38 @@
                     <th>Frist Name</th>
                     <th>Last Name</th>
                     <th>Mobile Number</th>
-                    <th>Pickup Location</th>
-                    <th>Drop Location</th>
                     </tr>
+
+                    <?php
+                      $i=0;
+                      while($row=mysqli_fetch_array($result)){
+                    ?>
+
                 </thead>
                 <tbody>
                 <tr>
-                    <td data-label="#">S20</td>
-                    <td data-label="#">Tahani</td>
-                    <td data-label="#">Hareeth</td>
-                    <td data-label="#">119</td>
-                    <td data-label="#">Badulla</td>
-                    <td data-label="#">Kandy</td>
+                    <td data-label="#"><?php echo $row["unregPassengerID"];?></td>
+                    <td data-label="#"><?php echo $row["firstName"];?></td>
+                    <td data-label="#"><?php echo $row["lastName"];?></td>
+                    <td data-label="#"><?php echo $row["mobilenumber"];?></td>
                 </tr>
                     
+                <?php
+                  $i++;
+                  }
+                ?>
+
                 </tbody>
             </table>
+
+            <?php
+              }
+              else{
+                echo "No Records Found";
+              }
+            ?>
+
         </div>
-
-
-
-
 
       </div>
     </div>

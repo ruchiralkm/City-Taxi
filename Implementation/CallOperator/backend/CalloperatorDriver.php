@@ -20,7 +20,7 @@
     />
 
     <!--Calloperator Ride scss file-->
-    <link rel="stylesheet" href="Sass/CalloperatorPassenger.min.css" />
+    <link rel="stylesheet" href="Sass/CalloperatorDriver.min.css" />
 
   </head>
   <body>
@@ -51,7 +51,7 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorPassenger.php" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
@@ -151,19 +151,45 @@
         <!-- Driver Section -->
         <h1 class="ee">Driver Section</h1>
 
+        <!-- Database connection -->
+        <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname="citytaxi";
+
+          $conn = mysqli_connect($servername,$username,$password,$dbname);
+
+          if(!$conn){
+            die("Connection Erro".mysqli_connect_error());
+          }else{
+            // echo "C";
+          }
+        ?>
+
 
         <!-- Driver List -->
         <div class="tableContent">
             <h1>Drivers List</h1>
+
+              <?php
+                $sql="SELECT * FROM driver";
+                $result=mysqli_query($conn,$sql);
+
+                if(mysqli_num_rows($result)>0){
+              ?>
+
             <table>
                 <thead>
-                    <tr>
+                <tr>
                         <th>ID</th>
                         <th>Frist Name</th>
                         <th>Last Name</th>
                         <th>Mobile Number</th>
                         <th>Licence Number</th>
                         <th>Address</th>
+                        <th>Vehicle</th>
+                        <th>Employement</th>
                         <th>Vehicle No</th>
                         <th>Vehicle Brand</th>
                         <th>Vehicle Model</th>
@@ -172,29 +198,48 @@
                         <th>Profile Picture</th>
                         <th>Email</th>
                     </tr>
+
+                    <?php
+                      $i=0;
+                      while($row=mysqli_fetch_array($result)){
+                    ?>
+
                 </thead>
                 <tbody>
                     
                 <tr>
-                    <td data-label="#">S20</td>
-                    <td data-label="#">Tahani</td>
-                    <td data-label="#">Hareeth</td>
-                    <td data-label="#">119</td>
-                    <td data-label="#">123456</td>
-                    <td data-label="#">Badulla</td>
-                    <td data-label="#">ACB-1234</td>
-                    <td data-label="#">Nissan</td>
-                    <td data-label="#">GTR R35</td>
-                    <td data-label="#">2017</td>
-                    <td data-label="#">Red</td>
+                    <td data-label="#"><?php echo $row["driverID"];?></td>
+                    <td data-label="#"><?php echo $row["firstName"];?></td>
+                    <td data-label="#"><?php echo $row["lastName"];?></td>
+                    <td data-label="#"><?php echo $row["mobile"];?></td>
+                    <td data-label="#"><?php echo $row["licenceNumber"];?></td>
+                    <td data-label="#"><?php echo $row["address"];?></td>
+                    <td data-label="#"><?php echo $row["vehicle"];?></td>
+                    <td data-label="#"><?php echo $row["employment"];?></td>
+                    <td data-label="#"><?php echo $row["regNo"];?></td>
+                    <td data-label="#"><?php echo $row["vehicleBrand"];?></td>
+                    <td data-label="#"><?php echo $row["vehicleModel"];?></td>
+                    <td data-label="#"><?php echo $row["vYear"];?></td>
+                    <td data-label="#"><?php echo $row["vColor"];?></td>
                     <td data-label="#">Profile Pic</td>
-                    <td data-label="#">tani@gmail.com</td>
+                    <td data-label="#"><?php echo $row["email"];?></td>
                 </tr>
 
-                
+                <?php
+                  $i++;
+                  }
+                ?>
                     
                 </tbody>
             </table>
+
+            <?php
+              }
+              else{
+                echo "No Records Found";
+              }
+            ?>
+
         </div>
 
       </div>
