@@ -205,8 +205,7 @@
                     const radioButtons = document.querySelectorAll('.driver-item input[type="radio"]');
                     radioButtons.forEach(radio => {
                         radio.addEventListener('change', function() {
-                            // This will trigger when a radio button is selected
-                            // The CSS will handle the background color change
+                            
                         });
                     });
                 });

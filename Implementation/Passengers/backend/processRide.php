@@ -21,10 +21,11 @@ include 'dbConnection.php';
 $pickup = ($_POST['pickupLocation']);
 $drop = ($_POST['dropLocation']);
 $distance = ($_POST['distance']);
-$fare = ($_POST['fare']);
+$fare = ($_POST['totalAmount']);
 $passengerID = ($_POST['passengerID']);
 $driverID = intval($_POST['driverID']);
 $passengerMobile = ($_POST['mobileNum']);
+
 
 // Validate input data
 if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($fare) && !empty($driverID)) {
