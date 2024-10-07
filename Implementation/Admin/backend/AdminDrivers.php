@@ -185,11 +185,13 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Profile Picture</th>
                         <th>Frist Name</th>
                         <th>Last Name</th>
                         <th>Mobile Number</th>
                         <th>Licence Number</th>
                         <th>Address</th>
+                        <th>Email</th>
                         <th>Vehicle</th>
                         <th>Employement</th>
                         <th>Vehicle No</th>
@@ -197,8 +199,6 @@
                         <th>Vehicle Model</th>
                         <th>Vehicle Year</th>
                         <th>Vehicle Color</th>
-                        <th>Profile Picture</th>
-                        <th>Email</th>
                     </tr>
 
                     <?php
@@ -211,11 +211,13 @@
                     
                 <tr>
                     <td data-label="#"><?php echo $row["driverID"];?></td>
+                    <td> <img style="border-radius: 50%; width:60px; height:60px; object-fit:cover;" src="../../Drivers/backend/<?php echo htmlspecialchars($row['profilePicture']); ?>"></td>
                     <td data-label="#"><?php echo $row["firstName"];?></td>
                     <td data-label="#"><?php echo $row["lastName"];?></td>
                     <td data-label="#"><?php echo $row["mobile"];?></td>
                     <td data-label="#"><?php echo $row["licenceNumber"];?></td>
                     <td data-label="#"><?php echo $row["address"];?></td>
+                    <td data-label="#"><?php echo $row["email"];?></td>
                     <td data-label="#"><?php echo $row["vehicle"];?></td>
                     <td data-label="#"><?php echo $row["employment"];?></td>
                     <td data-label="#"><?php echo $row["regNo"];?></td>
@@ -223,8 +225,6 @@
                     <td data-label="#"><?php echo $row["vehicleModel"];?></td>
                     <td data-label="#"><?php echo $row["vYear"];?></td>
                     <td data-label="#"><?php echo $row["vColor"];?></td>
-                    <td data-label="#">Profile Pic</td>
-                    <td data-label="#"><?php echo $row["email"];?></td>
                 </tr>
 
                 <?php
