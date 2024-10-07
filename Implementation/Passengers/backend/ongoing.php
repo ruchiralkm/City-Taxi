@@ -11,6 +11,17 @@
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+    <style>
+        .pbtn{
+            background-color: #1a242f;
+        }
+        .pbtn:hover{
+            background-color: #000;
+        }
+        .pbtn a{
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <?php include 'NavBarPassenger.php'; ?>
@@ -63,6 +74,9 @@
                                 <div class="ride-details"><strong>Vehicle:</strong> ${ride.vehicle}</div>
                                 <div class="ride-details"><strong>Reg No:</strong> ${ride.regNo}</div>
                                 <div class="ride-details"><strong>Driver's Contact:</strong> ${ride.mobile}</div>
+                                <button class="pbtn">
+                                    <a href="../../checkout.php?fare=${ride.fare}" class="payment-button">Make Payment</a>
+                                </button>
                                 <form action="completeRide.php" method="POST" class="complete-ride-form">
                                     <input type="hidden" name="rideID" value="${ride.rideID}">
                                     <input type="hidden" name="driverID" value="${ride.driverID}">

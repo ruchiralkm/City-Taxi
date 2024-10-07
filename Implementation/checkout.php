@@ -17,7 +17,11 @@
 
     $checkout_session = \Stripe\Checkout\Session::create([
         "mode" => "payment",
+<<<<<<< HEAD
         "success_url" => "http://localhost/SS/success.php",
+=======
+        "success_url" => "http://localhost/City-Taxi/Implementation/success.php",
+>>>>>>> 5482f90178809ca65bfd3e7d9ff6b983e6de94b4
         "cancel_url" => "http://localhost/SS/index.php",
         "locale" => "auto",
         "line_items" => [
