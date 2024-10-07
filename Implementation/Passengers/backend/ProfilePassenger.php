@@ -25,7 +25,28 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-    <?php include 'NavBarPassenger.php'; ?>
+    <?php include 'NavBarPassenger.php';
+     //fetch driver data
+     include 'dbConnection.php';
+      
+     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+     {
+     $passengerID = $_SESSION['passengerID']; 
+     }
+     $passengerData = [];
+
+     if ($passengerID)
+     {
+     $selectQuery = "SELECT * FROM passenger WHERE passengerID = '$passengerID'";
+     $stmt = $conn->prepare($selectQuery);
+     $stmt->execute();
+     $result = $stmt->get_result();
+     $passengerData = $result->fetch_assoc();
+
+     }
+   ?>
+
+  
 
     <div class="profile-section">
       <div class="profile-container">
@@ -41,37 +62,37 @@
             />
           </div>
         </div>
-        <h1 class="profile-name">Amila Bandara</h1>
-        <form class="profile-form">
+        <h1 class="profile-name"><?= $passengerData['firstName'] ?? 'Driver' ?> <?= $passengerData['lastName'] ?? '' ?></h1>
+        <form class="profile-form" method="POST" action="ProfilePassenger.php">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name</label>
-              <input type="text" id="firstName" value="Amila" />
+              <input type="text" id="firstName" name="firstName" value="<?= $passengerData['firstName'] ?? '' ?>" />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" value="Bandara" />
+              <input type="text" id="lastName" name="lastName" value="<?= $passengerData['lastName'] ?? '' ?>" />
             </div>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" value="amilabandara@gmail.com" />
+            <input type="email" id="email" name="email" value="<?= $passengerData['email'] ?? '' ?>" />
           </div>
           <div class="form-group">
             <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" value="0777123456" />
+            <input type="tel" id="mobile" name="mobile" value="<?= $passengerData['mobile'] ?? '' ?>" />
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" value="password" />
+              <input type="password" id="password" name="password" value="" />
             </div>
             <div class="form-group">
               <label for="password">Confirm Password</label>
-              <input type="password" id="password" value="password" />
+              <input type="password" id="password" name="conPass" value="" />
             </div>
           </div>
-          <button type="submit" class="update-button">Update details</button>
+          <button type="submit" name="submit" class="update-button">Update details</button>
         </form>
       </div>
     </div>
@@ -81,3 +102,54 @@
     <script src="Js/main.js"></script>
   </body>
 </html>
+
+<?php 
+
+
+
+if (isset($_POST['submit'])) {
+  $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $mobile = $_POST['mobile'];
+   $email = $_POST['email'];
+  $password = $_POST['password']; 
+  $conPassword = $_POST['conPass'];
+
+
+  if($password==$conPassword){
+  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+  $stmt = $conn->prepare("UPDATE passenger 
+                          SET firstName = '$firstName', 
+                              lastName = '$lastName', 
+                              mobile = '$mobile',
+                              email = '$email', 
+                              password = '$hashedPassword',
+                          WHERE passengerID = '$passengerID'");
+
+
+ if ($stmt === false) {
+  
+  die("Error preparing statement: " . $conn->error);
+}
+
+
+if ($stmt->execute()) {
+  
+  echo "<script>alert('Profile updated successfully!');</script>";
+} else {
+  echo "<script>alert('Error updating profile. Please try again.');</script>";
+}
+
+
+$stmt->close();
+}
+else
+{
+  
+  echo "<script>alert('Error updating profile. Please Enter correct Password.');</script>";
+}
+}
+
+
+?>

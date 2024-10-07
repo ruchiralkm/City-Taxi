@@ -210,11 +210,14 @@ if ($stmt->execute()) {
 
 // Close the statement
 $stmt->close();
-}}
+}
+
 else
 {
   
   echo "<script>alert('Error updating profile. Please Enter correct Password.');</script>";
 }
+}
+
 
 ?>
