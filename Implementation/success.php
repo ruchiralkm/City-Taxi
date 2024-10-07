@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
 <head>
     <title>Stripe Example</title>
@@ -11,7 +10,6 @@
     <p>Thank you for your payment!</p>
 </body>
 </html>
-=======
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,4 +44,3 @@
     </div>
   </body>
 </html>
->>>>>>> 5482f90178809ca65bfd3e7d9ff6b983e6de94b4
