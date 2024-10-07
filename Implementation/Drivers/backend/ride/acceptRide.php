@@ -46,13 +46,13 @@ if (isset($_POST['acceptRideBtn'])) {
                 // Insert a notification for the passenger
                 $notification_message = "Your ride with ID " . $rideID . " has been accepted.";
                 $recipientType = 'passenger'; // Set the recipient type
-                $status = 0; // Assuming 0 means unread based on your table structure
+                $status = 0; 
                 
                 $sql_notify = "INSERT INTO notifications (recipientType, recipientID, Message, status, timeStamp) 
                                VALUES ('$recipientType', '$passengerID', '$notification_message', '$status', CURRENT_TIMESTAMP)";
-                
+                  
                 if ($conn->query($sql_notify) === TRUE) {
-                    // 
+                        
                     ?>
                     <!--=== Correct Content ===-->
                     <!--* hero section *-->
@@ -78,9 +78,10 @@ if (isset($_POST['acceptRideBtn'])) {
                             <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
                         </div>
                     </div>
-
+                   
 
                     <?php
+                     include 'SMS.php';
                 } else {
                     echo "Error: " . $sql_notify . "<br>" . $conn->error;
                 }
