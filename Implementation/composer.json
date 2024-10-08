@@ -1,6 +1,7 @@
 {
     "require": {
         "infobip/infobip-api-php-client": "^3.2",
-        "stripe/stripe-php": "^16.1"
+        "stripe/stripe-php": "^16.1",
+        "tecnickcom/tcpdf": "^6.7"
     }
 }

@@ -221,6 +221,12 @@
 
         </div>
 
+        <center>
+          <div class="exportButton">
+            <button onclick="window.location.href='export_RP_pdf.php'" class="export_btn"><i class="fa-regular fa-file-pdf"></i> Export PDF</button>
+          </div>
+        </center>
+
 
 
         <!-- Unregistered Passenger -->
@@ -273,6 +279,12 @@
             ?>
 
         </div>
+
+        <center>
+          <div class="exportButton">
+            <button onclick="window.location.href='export_UNR_pdf.php'" class="export_btn"><i class="fa-regular fa-file-pdf"></i> Export PDF</button>
+          </div>
+        </center>
 
       </div>
     </div>

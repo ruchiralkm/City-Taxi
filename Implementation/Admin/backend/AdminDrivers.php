@@ -244,6 +244,9 @@
 
         </div>
 
+        <div class="exportButton">
+          <button onclick="window.location.href='export_Driver_pdf.php'" class="export_btn"><i class="fa-regular fa-file-pdf"></i> Export PDF</button>
+        </div>
       </div>
     </div>
 
