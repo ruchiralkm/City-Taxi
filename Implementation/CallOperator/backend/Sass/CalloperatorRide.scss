@@ -154,27 +154,15 @@ li {
   font-weight: 600;
 }
 
-.ee {
-  color: green;
-}
-
 //=================== Ride Section ===================//
-/* Google Fonts(Poppins) */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 h4 {
   color: black;
   font-weight: 600;
 }
 .content {
   display: flex;
-  height: 100vh;
+  height: 120vh;
 
   .left {
     flex: 2;
@@ -206,6 +194,7 @@ h4 {
 
 /* form */
 form {
+  margin-top: -10px;
   max-width: 500px;
   margin: 40px auto;
   padding: 30px;
@@ -283,6 +272,24 @@ select {
   background-position: right 12px center;
   padding-right: 30px;
   cursor: pointer;
+}
+
+.bookbtn {
+  margin-top: 20px;
+  margin-left: 15%;
+  padding: 10px 100px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 300ms ease;
+}
+
+.bookbtn:hover {
+  background-color: #1a242f;
 }
 
 /*============ Toggle Container ============*/
@@ -364,4 +371,144 @@ select {
   .half-width {
     width: 100%;
   }
+}
+
+/*======== Vehicles radio buttons ==========*/
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.container {
+  margin-top: -100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px; /* Adjust this height as needed */
+}
+
+.radio-tile-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between radio buttons */
+}
+
+.input-container {
+  position: relative;
+  height: 7rem;
+  width: 5rem;
+  margin: 0.5rem;
+
+  input {
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+  }
+}
+
+.input-container .radio-tile {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  transition: all 300ms ease;
+}
+
+.input-container ion-icon {
+  color: var(--primary-color);
+  font-size: 3rem;
+}
+
+.input-container label {
+  font-family: "Poppins", sans-serif;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+.gg {
+  width: 120px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background-color: #1a242f;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* When radio button is checked, change background color to green */
+input:checked + .radio-tile {
+  background-color: #009c4e; /* Green background color */
+  box-shadow: 0 0 12px #009c4e;
+  transform: scale(1.1);
+}
+
+input:hover + .radio-tile {
+  box-shadow: 0 0 12px var(--primary-color);
+}
+
+input:checked + .radio-tile ion-icon,
+input:checked + .radio-tile label {
+  color: white; /* Change icon and label color to white when selected */
+}
+
+//================ Driver List ===============//
+.driver-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.driver-item {
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.driver-item:hover {
+  border-color: rgb(0, 146, 56);
+}
+
+.driver-item input[type="radio"] {
+  display: none;
+}
+
+.driver-item input[type="radio"]:checked + label {
+  background-color: rgb(141, 255, 169);
+  color: #000;
+  border-color: green;
+}
+
+.driver-item label {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.driver-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.driver-item p {
+  margin: 5px 0;
 }
