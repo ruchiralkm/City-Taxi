@@ -1,21 +1,4 @@
-<?php
-session_start();
 
-// Check if the user is logged in
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    $passengerID = htmlspecialchars($_SESSION['passengerID']);
-} else {
-    echo 'Please login to view notifications.';
-    exit;
-}
-
-// Include the database connection
-include './dbConnection.php';
-
-// Fetch unread notifications for the passenger
-$sql = "SELECT * FROM notifications WHERE recipientType = 'passenger' AND recipientID = '$passengerID' AND status = 0 ORDER BY timeStamp DESC";
-$result = $conn->query($sql);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +23,24 @@ $result = $conn->query($sql);
 <body>
     <!-- Navigation Bar -->
     <?php include 'NavBarDriver.php'; ?>
+    <?php
+      //  session_start();
+
+        // Check if the user is logged in
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            $passengerID = htmlspecialchars($_SESSION['passengerID']);
+        } else {
+            echo 'Please login to view notifications.';
+            exit;
+        }
+
+        // Include the database connection
+        include './dbConnection.php';
+
+        // Fetch unread notifications for the passenger
+        $sql = "SELECT * FROM notifications WHERE recipientType = 'passenger' AND recipientID = '$passengerID' AND status = 0 ORDER BY timeStamp DESC";
+        $result = $conn->query($sql);
+        ?>
 
     <h1>Notification Section</h1>
 
