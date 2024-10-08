@@ -80,7 +80,7 @@
                                 <form action="completeRide.php" method="POST" class="complete-ride-form">
                                     <input type="hidden" name="rideID" value="${ride.rideID}">
                                     <input type="hidden" name="driverID" value="${ride.driverID}">
-                                    <button type="submit">Complete Ride</button>
+                                    <button type="submit">Rate Driver</button>
                                 </form>
                             `;
 
