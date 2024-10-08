@@ -104,11 +104,11 @@
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" value="password" value="<?= $driverData['password'] ?? '' ?>" />
+              <input type="password" id="password" name="password" value="password" value="password" />
             </div>
             <div class="form-group">
               <label for="password">Confirm Password</label>
-              <input type="password" id="password" name="conPass" value="password" value="<?= $driverData['password'] ?? '' ?>" />
+              <input type="password" id="password" name="conPass" value="password" value="password" />
             </div>
           </div>
           
@@ -165,16 +165,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $licence = $_POST['Licence'];
   $vehicleType = $_POST['Vehicle'];
   $email = $_POST['email'];
-  $password = $_POST['password']; 
-  $conPassword = $_POST['conPass'];
+  
+ 
   $vehicleNo = $_POST['no'];
   $brand = $_POST['Brand'];
   $model = $_POST['Model'];
   $year = $_POST['Year'];
   $colour = $_POST['Colour'];
 
-  if($password==$conPassword){
-  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+ 
 
   $stmt = $conn->prepare("UPDATE driver 
                           SET firstName = '$firstName', 
@@ -184,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                               licenceNumber = '$licence', 
                               vehicle = '$vehicleType', 
                               email = '$email', 
-                              password = '$hashedPassword', 
+                               
                               regNo = '$vehicleNo', 
                               vehicleBrand = '$brand', 
                               vehicleModel = '$model', 
@@ -210,13 +209,8 @@ if ($stmt->execute()) {
 
 // Close the statement
 $stmt->close();
-}
 
-else
-{
-  
-  echo "<script>alert('Error updating profile. Please Enter correct Password.');</script>";
-}
+
 }
 
 
