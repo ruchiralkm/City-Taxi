@@ -27,7 +27,11 @@
                     "currency" => "lkr",
                     "unit_amount" => $fareInCents, // Pass the fare amount in cents/paisa
                     "product_data" => [
-                        "name" => "Checkout your ride"
+                        "name" => "Checkout your ride",
+                        "images" => [
+                            "https://raw.githubusercontent.com/ruchiralkm/Small-Testing/refs/heads/main/ASEassets/City-Taxi.png",
+                            "City-Taxi.png"
+                        ],
                     ]
                 ]
             ],        
