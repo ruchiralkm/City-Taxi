@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="CalloperatorRide.php" class="sidebar-link">
+            <a href="AdminRides.php" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
@@ -63,44 +63,7 @@
               <span>Drivers</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".tools"
-              aria-expanded="false"
-              aria-controls="tools"
-            >
-              <i class="fas fa-wrench"></i>
-              <span>Tools</span>
-            </a>
-            <ul
-              class="tools sidebar-dropdown list-unstyled collapse"
-              data-bs-parent=".sidebar"
-            >
-              <li class="sidebar-item">
-                <a
-                  href="#"
-                  class="sidebar-link collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target=".drop-two"
-                  aria-expanded="false"
-                  aria-controls="drop-two"
-                >
-                  Guides
-                </a>
-                <ul class="drop-two sidebar-dropdown list-unstyled collapse">
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Blog</a>
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Website</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+          
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>
@@ -113,34 +76,10 @@
               <span>Settings</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".company"
-              aria-expanded="false"
-              aria-controls="company"
-            >
-              <i class="fas fa-building"></i>
-              <span>Company</span>
-            </a>
-            <ul
-              class="company sidebar-dropdown list-unstyled collapse"
-              data-bs-parent=".sidebar"
-            >
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">About</a>
-              </li>
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">Contact</a>
-              </li>
-            </ul>
-          </li>
         </ul>
 
         <div class="sidebar-footer">
-          <a href="../callOperator.html" class="sidebar-link">
+          <a href="../admin.html" class="sidebar-link">
             <i class="fas fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
@@ -149,12 +88,61 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <h1 class="ss">Home Section</h1>
+
+        <div class="mainBox">
+          <div class="left-Box">
+            <img src="../../Assets/dashboard.png" alt="">
+          </div>
+
+
+
+          <div class="right-Box">
+            <img src="../../Assets/dashboardui.png" alt="">
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- Counter -->
+        <div class="counters">
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=63397&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="24">000</span>
+            <span class="text" style="font-weight: 500;">Passengers</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=63392&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="16">000</span>
+            <span class="text" style="font-weight: 500;">Drivers</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=12684&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="25">000</span>
+            <span class="text" style="font-weight: 500;">Total Rides</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=85185&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="182">000</span>
+            <span class="text" style="font-weight: 500;">Total Stars</span>
+          </div>
+          
+        </div>
+        
       </div>
+      
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="Js/app.js"></script>
+    <script src="Js/counter.js"></script>
   </body>
 </html>

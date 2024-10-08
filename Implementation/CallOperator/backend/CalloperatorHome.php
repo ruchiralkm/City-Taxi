@@ -149,12 +149,53 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <h1 class="ee">Home Section</h1>
+
+        <div class="mainBox">
+          <div class="left-Box">
+            <img src="../../Assets/dashboard.png" alt="">
+          </div>
+
+          <div class="right-Box">
+            <img src="../../Assets/dashboardui.png" alt="">
+          </div>
+        </div>
+
+
+
+        <!-- Counter -->
+        <div class="counters">
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=63397&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="24">000</span>
+            <span class="text" style="font-weight: 500;">Passengers</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=63392&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="16">000</span>
+            <span class="text" style="font-weight: 500;">Drivers</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=12684&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="25">000</span>
+            <span class="text" style="font-weight: 500;">Total Rides</span>
+          </div>
+
+          <div class="container">
+            <center><img src="https://img.icons8.com/?size=100&id=85185&format=png&color=40C057" alt="" style="width:60px; height:60px;"></center>
+            <span class="num" data-val="182">000</span>
+            <span class="text" style="font-weight: 500;">Total Stars</span>
+          </div>
+          
+        </div>
+        
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="Js/app.js"></script>
+    <script src="Js/counter.js"></script>
   </body>
 </html>

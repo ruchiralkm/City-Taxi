@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="AdminRides.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
@@ -58,7 +58,7 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="AdminDrivers.php" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
@@ -86,10 +86,8 @@
         </div>
       </aside>
 
-
-
       <div class="main p-4">
-        <!-- Driver Section -->
+        <!-- Ride Section -->
 
         <!-- Database connection -->
         <?php
@@ -110,10 +108,10 @@
 
         <!-- Driver List -->
         <div class="tableContent">
-            <h1>Drivers List</h1>
+            <h1>Ride List</h1>
 
               <?php
-                $sql="SELECT * FROM driver";
+                $sql="SELECT * FROM ride";
                 $result=mysqli_query($conn,$sql);
 
                 if(mysqli_num_rows($result)>0){
@@ -122,21 +120,16 @@
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Profile Picture</th>
-                        <th>Frist Name</th>
-                        <th>Last Name</th>
-                        <th>Mobile Number</th>
-                        <th>Licence Number</th>
-                        <th>Address</th>
-                        <th>Email</th>
-                        <th>Vehicle</th>
-                        <th>Employement</th>
-                        <th>Vehicle No</th>
-                        <th>Vehicle Brand</th>
-                        <th>Vehicle Model</th>
-                        <th>Vehicle Year</th>
-                        <th>Vehicle Color</th>
+                        <th>Ride ID</th>
+                        <th>Driver ID</th>
+                        <th>Passenger ID</th>
+                        <th>Passenger Mobile</th>
+                        <th>Pickup Location</th>
+                        <th>Drop Location</th>
+                        <th>Distance</th>
+                        <th>Price(Rs)</th>
+                        <th>Request Time</th>
+                        <th>Ride Status</th>
                     </tr>
 
                     <?php
@@ -148,21 +141,16 @@
                 <tbody>
                     
                 <tr>
+                    <td data-label="#"><?php echo $row["rideID"];?></td>
                     <td data-label="#"><?php echo $row["driverID"];?></td>
-                    <td> <img style="border-radius: 50%; width:60px; height:60px; object-fit:cover;" src="../../Drivers/backend/<?php echo htmlspecialchars($row['profilePicture']); ?>"></td>
-                    <td data-label="#"><?php echo $row["firstName"];?></td>
-                    <td data-label="#"><?php echo $row["lastName"];?></td>
-                    <td data-label="#"><?php echo $row["mobile"];?></td>
-                    <td data-label="#"><?php echo $row["licenceNumber"];?></td>
-                    <td data-label="#"><?php echo $row["address"];?></td>
-                    <td data-label="#"><?php echo $row["email"];?></td>
-                    <td data-label="#"><?php echo $row["vehicle"];?></td>
-                    <td data-label="#"><?php echo $row["employment"];?></td>
-                    <td data-label="#"><?php echo $row["regNo"];?></td>
-                    <td data-label="#"><?php echo $row["vehicleBrand"];?></td>
-                    <td data-label="#"><?php echo $row["vehicleModel"];?></td>
-                    <td data-label="#"><?php echo $row["vYear"];?></td>
-                    <td data-label="#"><?php echo $row["vColor"];?></td>
+                    <td data-label="#"><?php echo $row["passengerID"];?></td>
+                    <td data-label="#"><?php echo $row["passengerMobile"];?></td>
+                    <td data-label="#"><?php echo $row["pickupLocation"];?></td>
+                    <td data-label="#"><?php echo $row["dropLocation"];?></td>
+                    <td data-label="#"><?php echo $row["distance"];?></td>
+                    <td data-label="#"><?php echo $row["fare"];?></td>
+                    <td data-label="#"><?php echo $row["requestAt"];?></td>
+                    <td data-label="#"><?php echo $row["rideStatus"];?></td>
                 </tr>
 
                 <?php
@@ -178,14 +166,16 @@
               else{
                 echo "No Records Found";
               }
-            ?>
+            ?>   
 
-        </div>
+
+      </div>
 
         <div class="exportButton">
-          <button onclick="window.location.href='export_Driver_pdf.php'" class="export_btn"><i class="fa-regular fa-file-pdf"></i> Export PDF</button>
+          <button onclick="window.location.href='export_Rides_pdf.php'" class="export_btn"><i class="fa-regular fa-file-pdf"></i> Export PDF</button>
         </div>
-      </div>
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

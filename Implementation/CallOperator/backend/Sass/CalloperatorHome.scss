@@ -154,6 +154,116 @@ li {
   font-weight: 600;
 }
 
-.ee {
-  color: red;
+//==================== Home Section =================//
+.mainBox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  height: 80vh;
+
+  .left-Box {
+    width: 60%;
+    height: 80%;
+    padding: 140px;
+    border-radius: 20px;
+    display: flex;
+    gap: 200px;
+
+    img {
+      border-radius: 20px;
+      margin-top: -130px;
+      margin-left: -100px;
+      width: 1000px;
+      height: 600px;
+    }
+  }
+
+  .right-Box {
+    width: 40%;
+    height: 80%;
+    border-radius: 20px;
+    padding: 140px;
+
+    img {
+      margin-top: -135px;
+      margin-left: -135px;
+      border-radius: 20px;
+      width: 710px;
+      height: 610px;
+    }
+  }
+}
+/*==================== Counter =======================*/
+.counters {
+  position: absolute;
+  width: 85vw;
+  transform: translate(-50%, -50%);
+  top: 85%;
+  left: 52%;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.container {
+  width: 80vmin;
+  height: 20vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  position: relative;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background-color: #e6e6e6;
+  border-bottom: 10px solid #18f98f;
+}
+span.num {
+  margin-top: -20px;
+  color: #000;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 3em;
+}
+span.text {
+  margin-top: -20px;
+  color: black;
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+  pad: 0.7em 0;
+  font-weight: 400;
+  line-height: 0;
+}
+@media screen and (max-width: 1024px) {
+  .counters {
+    width: 85vw;
+  }
+  .container {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .counters {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .container {
+    width: calc(50% - 40px);
+    height: 30vmin;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .counters {
+    gap: 15px;
+  }
+  .container {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
 }
