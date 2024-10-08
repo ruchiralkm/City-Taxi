@@ -167,10 +167,6 @@
               <input type="hidden" id="driverID" name="driverID">
               <input type="hidden" id="totalAmount" name ="totalAmount" value="0">
 
-              
-              
-
-
               <!-- Passenger Info -->
               <div class="name-row">
                 <div class="form-group half-width">
@@ -208,9 +204,15 @@
                   <div class="input-container">
                     <input id="bike" type="radio" name="vehicle" value="Bike" onclick="showDrivers('Bike')">
                     <div class="radio-tile">
-                      
+                    <img
+                        style="width: 120px"
+                        src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/bike.png"
+                        alt=""
+                      />
                       <label for="bike">Bike</label>
-                      
+                      <label for="bike"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                      </svg> 1</label>
 
                     </div>
                   </div>   
@@ -225,9 +227,15 @@
                       onclick="showDrivers('Threewheel')"
                     >
                     <div class="radio-tile">
-                      
+                    <img
+                        style="width: 90px"
+                        src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/threew.png"
+                        alt=""
+                      />
                       <label for="threewheel" style="margin-top:18px;">Threewheel</label>
-                   
+                      <label for="threewheel"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                      </svg> 3</label>
                     </div>
                   </div>
 
@@ -235,9 +243,15 @@
                   <div class="input-container">
                     <input id="car" type="radio" name="vehicle" value="Car" onclick="showDrivers('Car')" />
                     <div class="radio-tile">
-                      
+                    <img
+                        style="width: 110px"
+                        src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/car.png"
+                        alt=""
+                      />
                       <label for="car">Car</label>
-                      
+                      <label for="car"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                      </svg> 4</label>
                     </div>
                   </div>
 
@@ -245,9 +259,15 @@
                   <div class="input-container">
                     <input id="van" type="radio" name="vehicle" value="Van" onclick="showDrivers('Van')"/>
                     <div class="radio-tile">
-                     
+                    <img
+                        style="width: 100px"
+                        src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/van.png"
+                        alt=""
+                      />
                       <label for="van">Van</label>
-                      
+                      <label for="van"><svg data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18px">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                      </svg> 10</label>
                     </div>
                   </div>
 
