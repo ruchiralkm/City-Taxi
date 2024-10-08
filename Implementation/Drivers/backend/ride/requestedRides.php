@@ -137,6 +137,7 @@ if ($result->num_rows > 0) {
     // Loop through the results
     while ($row = $result->fetch_assoc()) {
       $rideID =  htmlspecialchars($row["rideID"]);
+      $passengerID =  htmlspecialchars($row["passengerID"]);
         echo '<div class="ride-request-item" onclick="selectRide(this)">';
         echo '<input type="radio" name="rideID" value="' . htmlspecialchars($row["rideID"]) . '">';
         echo '<span style="font-weight: 900;">Ride ID:</span> ' . htmlspecialchars($row["rideID"]) . '<br>';
@@ -144,6 +145,25 @@ if ($result->num_rows > 0) {
         echo '<span style="font-weight: 900;">Drop Location:</span> ' . htmlspecialchars($row["dropLocation"]) . '<br>';
         echo '<span style="font-weight: 900;">Distance:</span> ' . htmlspecialchars($row["distance"]) . ' km<br>';
         echo '<span style="font-weight: 900;">Requested At:</span> ' . htmlspecialchars($row["requestAt"]) . '<br>';
+        echo '<span style="font-weight: 900;">Passenger Mobile:</span> ' . htmlspecialchars($row["passengerMobile"]) . '<br>';
+
+        if(($row["passengerType"]=="Unregistered"))
+        {
+          $unRegQuery = "SELECT*FROM unregpassengers WHERE unregPassengerID ='$passengerID' ";
+          $result = $conn->query($unRegQuery);
+          while ($row = $result->fetch_assoc()){
+          echo '<span style="font-weight: 900;">Passenger Name:</span> ' . htmlspecialchars($row["firstName"]) . '<br>';
+          }
+        }
+        else
+        {
+          $unRegQuery = "SELECT*FROM passenger WHERE passengerID ='$passengerID' ";
+          $result = $conn->query($unRegQuery);
+          while ($row = $result->fetch_assoc()){
+          echo '<span style="font-weight: 900;">Passenger Name:</span> ' . htmlspecialchars($row["firstName"]) . '<br>';
+          }
+        }
+
         
         
         echo '</div>';
