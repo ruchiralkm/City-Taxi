@@ -85,14 +85,14 @@
           <div class="form-row">
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" value="" />
+              <input type="password" id="password" name="password" value="password@123" readonly />
             </div>
             <div class="form-group">
               <label for="password">Confirm Password</label>
-              <input type="password" id="password" name="conPass" value="" />
+              <input type="password" id="password" name="conPass" value="password@123" readonly/>
             </div>
           </div>
-          <button type="submit" name="submit" class="update-button">Update details</button>
+          <button type="submit" class="update-button">Update details</button>
         </form>
       </div>
     </div>
@@ -105,51 +105,37 @@
 
 <?php 
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Ensure passengerID is set
+  if (isset($passengerID)) {
+    // Get form data
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
 
+    // Prepare the SQL query
+    $stmt = $conn->prepare("UPDATE passenger 
+                            SET firstName = ?, lastName = ?, mobile = ?, email = ? 
+                            WHERE passengerID = ?");
+    $stmt->bind_param("ssssi", $firstName, $lastName, $mobile, $email, $passengerID);
 
-if (isset($_POST['submit'])) {
-  $firstName = $_POST['firstName'];
-  $lastName = $_POST['lastName'];
-  $mobile = $_POST['mobile'];
-   $email = $_POST['email'];
-  $password = $_POST['password']; 
-  $conPassword = $_POST['conPass'];
+    // Execute the query
+    if ($stmt->execute()) {
+      echo "<script>alert('Profile updated successfully!');</script>";
+    } else {
+      echo "<script>alert('Error updating profile. Please try again.');</script>";
+    }
 
-
-  if($password==$conPassword){
-  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-  $stmt = $conn->prepare("UPDATE passenger 
-                          SET firstName = '$firstName', 
-                              lastName = '$lastName', 
-                              mobile = '$mobile',
-                              email = '$email', 
-                              password = '$hashedPassword',
-                          WHERE passengerID = '$passengerID'");
-
-
- if ($stmt === false) {
-  
-  die("Error preparing statement: " . $conn->error);
+    // Close the statement
+    $stmt->close();
+  } else {
+    echo "<script>alert('Error: Passenger ID not found.');</script>";
+  }
 }
 
-
-if ($stmt->execute()) {
-  
-  echo "<script>alert('Profile updated successfully!');</script>";
-} else {
-  echo "<script>alert('Error updating profile. Please try again.');</script>";
-}
-
-
-$stmt->close();
-}
-else
-{
-  
-  echo "<script>alert('Error updating profile. Please Enter correct Password.');</script>";
-}
-}
+// Close the database connection
+$conn->close();
 
 
 ?>
