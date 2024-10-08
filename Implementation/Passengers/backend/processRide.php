@@ -36,6 +36,38 @@ if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($far
 
     if ($conn->query($sql) === TRUE) {
     // echo "New record created successfully";
+    $passengerQuery = "SELECT * FROM passenger WHERE passengerID='$passengerID'";
+    $resultpassenger = $conn->query($passengerQuery);
+
+            if ($resultpassenger->num_rows > 0) {
+                $rowPassenger = $resultpassenger->fetch_assoc();
+                
+                $passengerFirstName = $rowPassenger['firstName'];
+                $mobile = $rowPassenger['lastName'];
+            } else {
+                echo "No Passenger found with the given passenger ID .<br>";
+                exit;
+            }
+
+
+     // Notify the passenger
+            // Fetch the passenger Id
+            if (isset($_POST['driverID'])) {
+                $driverID = htmlspecialchars($_POST['driverID']);
+                
+                // Insert a notification for the passenger
+                $notification_message = "You have a ride request.Requested by ".$passengerFirstName."(".$passengerMobile.").";
+                $recipientType = 'driver'; // Set the recipient type
+                $status = 0; 
+                
+                $sql_notify = "INSERT INTO notifications (recipientType, recipientID, Message, status, timeStamp) 
+                               VALUES ('$recipientType', '$driverID', '$notification_message', '$status', CURRENT_TIMESTAMP)";
+                  
+                if ($conn->query($sql_notify) === TRUE) {
+                        
+                }
+            }
+
     ?>
 
     <!--=== Correct Content ===-->

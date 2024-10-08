@@ -52,7 +52,7 @@ if (isset($_POST['acceptRideBtn'])) {
             }
             
             // Notify the passenger
-            // Fetch the passenger details based on the ride ID
+            // Fetch the passenger Id
             if (isset($_POST['passengerID'])) {
                 $passengerID = htmlspecialchars($_POST['passengerID']);
                 

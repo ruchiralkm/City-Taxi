@@ -28,7 +28,7 @@
 
         // Check if the user is logged in
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-            $passengerID = htmlspecialchars($_SESSION['passengerID']);
+            $driverID = htmlspecialchars($_SESSION['driverID']);
         } else {
             echo 'Please login to view notifications.';
             exit;
@@ -38,7 +38,7 @@
         include './dbConnection.php';
 
         // Fetch unread notifications for the passenger
-        $sql = "SELECT * FROM notifications WHERE recipientType = 'passenger' AND recipientID = '$passengerID' AND status = 0 ORDER BY timeStamp DESC";
+        $sql = "SELECT * FROM notifications WHERE recipientType = 'driver' AND recipientID = '$driverID' AND status = 0 ORDER BY timeStamp DESC";
         $result = $conn->query($sql);
         ?>
 
@@ -54,7 +54,7 @@
                     echo '<div class="notification-item">';
                     echo '<p>' . htmlspecialchars($row['Message']) . '</p>';
                     echo '<p class="timestamp">' . htmlspecialchars($row['timeStamp']) . '</p>';
-                    echo '<button class="mark-read-btn" data-id="' . $row['id'] . '">Mark as Read</button>';
+                    echo '<button class="mark-read-btn" data-id="' . $row['notificationID'] . '">Mark as Read</button>';
                     echo '</div>';
                 }
             } else {
