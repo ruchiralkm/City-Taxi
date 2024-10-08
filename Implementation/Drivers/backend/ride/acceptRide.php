@@ -37,6 +37,19 @@ if (isset($_POST['acceptRideBtn'])) {
         
         if ($conn->query($sql) === TRUE) {
             // echo "Ride accepted successfully.";
+            // Fetch the driver details based on driverID
+            $queryDriver = "SELECT regNo, firstName, lastName FROM driver WHERE driverID = $driverID";
+            $resultDriver = $conn->query($queryDriver);
+
+            if ($resultDriver->num_rows > 0) {
+                $rowDriver = $resultDriver->fetch_assoc();
+                $regNo = $rowDriver['regNo'];
+                $driverFirstName = $rowDriver['firstName'];
+                $driverLastName = $rowDriver['lastName'];
+            } else {
+                echo "No driver found with the given driverID.<br>";
+                exit;
+            }
             
             // Notify the passenger
             // Fetch the passenger details based on the ride ID
@@ -44,7 +57,7 @@ if (isset($_POST['acceptRideBtn'])) {
                 $passengerID = htmlspecialchars($_POST['passengerID']);
                 
                 // Insert a notification for the passenger
-                $notification_message = "Your ride with ID " . $rideID . " has been accepted.";
+                $notification_message = "Your ride with ID " . $rideID . " has been accepted by".$driverFirstName ." with the vehicle No ".$regNo.".";
                 $recipientType = 'passenger'; // Set the recipient type
                 $status = 0; 
                 
