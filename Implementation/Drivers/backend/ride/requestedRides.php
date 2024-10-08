@@ -140,13 +140,6 @@ if ($result->num_rows > 0) {
       $passengerID =  htmlspecialchars($row["passengerID"]);
         echo '<div class="ride-request-item" onclick="selectRide(this)">';
         echo '<input type="radio" name="rideID" value="' . htmlspecialchars($row["rideID"]) . '">';
-        echo '<span style="font-weight: 900;">Ride ID:</span> ' . htmlspecialchars($row["rideID"]) . '<br>';
-        echo '<span style="font-weight: 900;">Pickup Location:</span> ' . htmlspecialchars($row["pickupLocation"]) . '<br>';
-        echo '<span style="font-weight: 900;">Drop Location:</span> ' . htmlspecialchars($row["dropLocation"]) . '<br>';
-        echo '<span style="font-weight: 900;">Distance:</span> ' . htmlspecialchars($row["distance"]) . ' km<br>';
-        echo '<span style="font-weight: 900;">Requested At:</span> ' . htmlspecialchars($row["requestAt"]) . '<br>';
-        echo '<span style="font-weight: 900;">Passenger Mobile:</span> ' . htmlspecialchars($row["passengerMobile"]) . '<br>';
-
         if(($row["passengerType"]=="Unregistered"))
         {
           $unRegQuery = "SELECT*FROM unregpassengers WHERE unregPassengerID ='$passengerID' ";
@@ -163,6 +156,15 @@ if ($result->num_rows > 0) {
           echo '<span style="font-weight: 900;">Passenger Name:</span> ' . htmlspecialchars($row["firstName"]) . '<br>';
           }
         }
+        
+        echo '<span style="font-weight: 900;">Passenger Mobile:</span> ' . htmlspecialchars($row["passengerMobile"]) . '<br>';
+        echo '<span style="font-weight: 900;">Ride ID:</span> ' . htmlspecialchars($row["rideID"]) . '<br>';
+        echo '<span style="font-weight: 900;">Pickup Location:</span> ' . htmlspecialchars($row["pickupLocation"]) . '<br>';
+        echo '<span style="font-weight: 900;">Drop Location:</span> ' . htmlspecialchars($row["dropLocation"]) . '<br>';
+        echo '<span style="font-weight: 900;">Distance:</span> ' . htmlspecialchars($row["distance"]) . ' km<br>';
+        echo '<span style="font-weight: 900;">Requested At:</span> ' . htmlspecialchars($row["requestAt"]) . '<br>';
+
+        
 
         
         
