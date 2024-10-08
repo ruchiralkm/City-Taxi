@@ -1,0 +1,147 @@
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+/*================= Image slider =============*/
+.slider-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  margin-top: -8px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+.slide.active {
+  opacity: 1;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: rgb(37, 37, 37);
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+/*==================== Cards =======================*/
+.card {
+  position: absolute;
+  width: 60vw;
+  transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.card .text {
+  font-weight: 600;
+}
+.card-con {
+  width: 40vmin;
+  height: 20vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  position: relative;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background: #e0e0e0;
+  box-shadow: 12px 12px 24px #bababa, -12px -12px 24px #ffffff;
+  border-bottom: 10px solid #303030;
+}
+.card :hover {
+  background-color: #ccc;
+  transition: 400ms;
+}
+/*==================== Counter =======================*/
+.wrapper {
+  position: absolute;
+  width: 50vw;
+  transform: translate(-50%, -50%);
+  top: 88%;
+  left: 50%;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.container {
+  width: 20vmin;
+  height: 20vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  position: relative;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background-color: #e6e6e6;
+  border-bottom: 10px solid #18f98f;
+}
+span.num {
+  margin-top: -20px;
+  color: #000;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 3em;
+}
+span.text {
+  margin-top: -20px;
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  pad: 0.7em 0;
+  font-weight: 400;
+  line-height: 0;
+}
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 85vw;
+  }
+  .container {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .container {
+    width: calc(50% - 40px);
+    height: 30vmin;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wrapper {
+    gap: 15px;
+  }
+  .container {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
+}
