@@ -154,10 +154,6 @@ li {
   font-weight: 600;
 }
 
-.ee {
-  color: blue;
-}
-
 //===================== Passenger Section ==================//
 .tableContent {
   font-family: Arial, sans-serif;
@@ -200,6 +196,25 @@ tr:nth-child(even) td {
 }
 tr:hover td {
   background-color: #f1f1f1;
+}
+
+.exportButton {
+  margin-left: 30px;
+
+  .export_btn {
+    background-color: #00a028;
+    border: none;
+    border-radius: 10px;
+    width: 130px;
+    padding: 8px;
+    color: #fff;
+    font-weight: 600;
+    transition: all 400ms;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
 }
 @media screen and (max-width: 600px) {
   table,

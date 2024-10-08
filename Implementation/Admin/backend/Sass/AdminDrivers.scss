@@ -154,16 +154,12 @@ li {
   font-weight: 600;
 }
 
-.ee {
-  color: red;
-}
-
-//===================== Passenger Section ==================//
+//===================== Driver Section ==================//
 .tableContent {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  max-width: 80%;
+  max-width: 85%;
   margin: 0 auto;
   padding: 20px;
   margin-left: 10px;
@@ -202,6 +198,25 @@ tr:nth-child(even) td {
 tr:hover td {
   background-color: #f1f1f1;
 }
+.exportButton {
+  margin-left: 30px;
+
+  .export_btn {
+    background-color: #00a028;
+    border: none;
+    border-radius: 10px;
+    width: 130px;
+    padding: 8px;
+    color: #fff;
+    font-weight: 600;
+    transition: all 400ms;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   table,
   thead,

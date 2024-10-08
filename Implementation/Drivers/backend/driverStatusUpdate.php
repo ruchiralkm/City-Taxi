@@ -64,7 +64,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       VALUES ('$driverID', '$latitude', '$longitude', '$status', NOW())";
 
         if ($conn->query($insertSql) === TRUE) {
-            echo "Driver's location and status inserted successfully!";
+            // echo "Driver's location and status inserted successfully!";
+            ?>
+            <!--=== Correct Content ===-->
+                    <!--* hero section *-->
+                    <div class="conn">
+                    
+                        <div class="container">
+                        <br><br><br><br><br><br><br><br><br><br>
+                            <div class="header">
+                                <img
+                                    src="https://img.icons8.com/?size=100&id=a4l6bA9mSmBh&format=png&color=40C057"
+                                    alt="Checkmark"
+                                    class="checkmark"
+                                />
+                                <h1>Your successfully set the status</h1>
+                            </div>
+                            <p>
+                                You are successfully change your driver status.
+                            </p>
+                            <br />
+                            <a href="statusDriver.php"><button class="backbtn">Back</button></a>
+                            <br><br>
+                            <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
+                        </div>
+                    </div>
+            <?php
+            
         } else {
             echo "Error inserting driver's location: " . $conn->error;
         }
