@@ -93,7 +93,7 @@
               </li>
 
               <li class="nav__item" style="margin-left:-20px">
-                <a href="../driversLogin.html" class="nav__link"> | <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                <a href="../../driversLogin.html" class="nav__link"> | <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
               </li>
 
             </ul>
