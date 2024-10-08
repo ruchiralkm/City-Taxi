@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,16 +22,19 @@
       rel="stylesheet"
     />
 
-    <!-- MapBox scripts and styles -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Linking MapBox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet">
 
     <!--Calloperator Home scss file-->
     <link rel="stylesheet" href="Sass/CalloperatorRide.min.css" />
+
   </head>
+
   <body>
+    
     <div class="wrapper">
       <aside class="sidebar">
         <div class="d-flex">
@@ -142,26 +148,28 @@
           </a>
         </div>
       </aside>
-
       <div class="main p-4">
         <!-- Home Section -->
         <h1 class="ee">Ride Section</h1>
         <div class="content">
 
-
-
-
           <!-- Left Section -->
           <div class="left">
             <!-- Form -->
-            <form method="POST" action="">
+            <form method="POST" action="RideProcess.php"  id="rideForm">
               <!-- Hidden Inputs to Store Ride Details -->
+
+              <p style="display: none;"><strong>Price:</strong> LKR<span id="fareDisplay"></span></p>
               <input type="hidden" id="distance" name="distance">
               <input type="hidden" id="fare" name="fare">
               <input type="hidden" id="pickupLocation" name="pickupLocation">
               <input type="hidden" id="dropLocation" name="dropLocation">
               <input type="hidden" id="driverID" name="driverID">
               <input type="hidden" id="totalAmount" name ="totalAmount" value="0">
+
+              
+              
+
 
               <!-- Passenger Info -->
               <div class="name-row">
@@ -191,75 +199,161 @@
                 </div>
               </div>
 
-              <!-- Vehicle Selection -->
-              <div class="form-group">
-                <label for="vehicle">Vehicle</label>
-                <select id="vehicle" name="vehicle" onchange="fetchDrivers()">
-                  <option value="">Select Vehicle</option>
-                  <option value="Bike">Bike</option>
-                  <option value="Car">Car</option>
-                  <option value="Van">Van</option>
-                  <option value="Threewheel">Threewheel</option>
-                </select>
+              <!-- select vehicle -->
+              <h2>Select your vehicle</h2>
+
+              <div class="container">
+                <div class="radio-tile-group">
+
+                  <div class="input-container">
+                    <input id="bike" type="radio" name="vehicle" value="Bike" onclick="showDrivers('Bike')">
+                    <div class="radio-tile">
+                      
+                      <label for="bike">Bike</label>
+                      
+
+                    </div>
+                  </div>   
+                  
+                  
+                  <div class="input-container">
+                    <input
+                      id="threewheel"
+                      type="radio"
+                      name="vehicle"
+                      value="Threewheel"
+                      onclick="showDrivers('Threewheel')"
+                    >
+                    <div class="radio-tile">
+                      
+                      <label for="threewheel" style="margin-top:18px;">Threewheel</label>
+                   
+                    </div>
+                  </div>
+
+
+                  <div class="input-container">
+                    <input id="car" type="radio" name="vehicle" value="Car" onclick="showDrivers('Car')" />
+                    <div class="radio-tile">
+                      
+                      <label for="car">Car</label>
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="input-container">
+                    <input id="van" type="radio" name="vehicle" value="Van" onclick="showDrivers('Van')"/>
+                    <div class="radio-tile">
+                     
+                      <label for="van">Van</label>
+                      
+                    </div>
+                  </div>
+
+                  
+                </div>
               </div>
 
-              <!-- Driver Selection -->
-              <div class="form-group">
-                <label for="driver">Drivers</label>
-                <select id="driver" name="driverID">
-                  <option value="">Select Driver</option>
-                </select>
-              </div>
 
-              <!-- Submit Button -->
-              <input type="submit" value="Book Ride">
-              <h2 class="distance">Total Distance : <span id="distanceDisplay"></span></h2>
+
+              <!-- Select Driver -->
+              <h2 style="margin-top:-70px;">Select your driver</h2>
+              <div class="driverList" id="driverList"> driver list</div>
+              <hr>
               <h2 class="totalPrice">Total Price: LKR 0</h2>
-              <p style="display: none;"><strong>Price:</strong> LKR<span id="fareDisplay"></span></p>
-            </form>
+              <h2 class="distance">Total Distance : <span id="distanceDisplay"></span></h2>
+
+              <button class="bookbtn" type="submit" name="submit" id="bookRideBtn">Book Ride</button>
+
+             
+             </form>
+             <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const radioButtons = document.querySelectorAll('.driver-item input[type="radio"]');
+                    radioButtons.forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            
+                        });
+                    });
+                });
+              </script>
           </div>
-
-
-
-
 
           <!-- Right Section -->
           <div class="right">
             <!-- Map Container -->
             <div id="map"></div>
+            <script src="Js/map.js"></script>
+
             <script>
-              mapboxgl.accessToken =
-                "pk.eyJ1IjoicnVjaGlyYWxrMjAwMiIsImEiOiJjbTE2bDZocmswbjBjMnZzOHFpYWhubDRyIn0.VR-eLFZQNviJBOVD_WfrmQ";
 
-              navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
-                enableHighAccuracy: true,
-              });
+            // Define vehicle prices
+            const vehiclePrices = {
+                'Bike': 200,
+                'Threewheel': 300,
+                'Car': 400,
+                'Van': 500
+            };
 
-              function successLocation(position) {
-                setupMap([position.coords.longitude, position.coords.latitude]);
+           // Function to calculate and display the total price
+            function calculateTotalPrice() {
+                // Get the selected vehicle type
+                const selectedVehicle = document.querySelector('input[name="vehicle"]:checked');
+                const vehiclePrice = selectedVehicle ? vehiclePrices[selectedVehicle.value] : 0;
+
+                // Get the fare value (ensure fare input is correctly populated)
+                const fare = parseFloat(document.getElementById('fare').value) || 0;
+
+                let totalAmount;
+                const tripType = document.querySelector('input[name="employment"]:checked')?.value;
+
+                if (tripType === 'Return Trip') {
+                    totalAmount = (vehiclePrice + fare) * 2;
+                    document.getElementById('totalAmount').value = totalAmount;
+                    document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+                } else {
+                    totalAmount = vehiclePrice + fare;
+                    document.getElementById('totalAmount').value = totalAmount;
+                    document.querySelector('h2.totalPrice').innerHTML = `Total Price: LKR ${totalAmount}`;
+                }
+
+
+                // Display the total amount on the page
+
               }
-
-              function errorLocation() {
-                setupMap([80.7718, 7.8731]);
-              }
-
-              function setupMap(center) {
-                const map = new mapboxgl.Map({
-                  container: "map",
-                  style: "mapbox://styles/mapbox/streets-v11",
-                  center: center,
-                  zoom: 15,
+                document.querySelectorAll('input[name="vehicle"]').forEach(vehicleRadio => {
+                    vehicleRadio.addEventListener('change', calculateTotalPrice);
                 });
 
-                const nav = new mapboxgl.NavigationControl();
-                map.addControl(nav);
-
-                const directions = new MapboxDirections({
-                  accessToken: mapboxgl.accessToken,
+                document.querySelectorAll('input[name="employment"]').forEach(tripRadio => {
+                    tripRadio.addEventListener('change', calculateTotalPrice);
                 });
-                map.addControl(directions, "top-left");
-              }
-            </script>
+              
+
+                function showDrivers(filter) 
+                {
+                    const driverList = document.getElementById('driverList');
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'fetchDrivers.php?filter=' + filter, true);
+                    xhr.onload = function () {
+                        if (this.status === 200) {
+                          driverList.innerHTML = this.responseText;
+                          driverList.style.display = 'block';
+
+                          //event listner for selecting a driver
+                          const driverRadios = document.querySelectorAll('input[name="selectedDriver"]');
+                          driverRadios.forEach(radio => {
+                            radio.addEventListener('change', function () {
+                            document.getElementById('driverID').value = this.value;
+                        });
+                    });
+                    calculateTotalPrice();
+                        }
+                    }
+                    xhr.send();
+                }
+          </script>
           </div>
         </div>
       </div>
