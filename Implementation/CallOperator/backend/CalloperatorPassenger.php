@@ -63,44 +63,7 @@
               <span>Drivers</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".tools"
-              aria-expanded="false"
-              aria-controls="tools"
-            >
-              <i class="fas fa-wrench"></i>
-              <span>Tools</span>
-            </a>
-            <ul
-              class="tools sidebar-dropdown list-unstyled collapse"
-              data-bs-parent=".sidebar"
-            >
-              <li class="sidebar-item">
-                <a
-                  href="#"
-                  class="sidebar-link collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target=".drop-two"
-                  aria-expanded="false"
-                  aria-controls="drop-two"
-                >
-                  Guides
-                </a>
-                <ul class="drop-two sidebar-dropdown list-unstyled collapse">
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Blog</a>
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Website</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+      
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>
@@ -112,30 +75,6 @@
               <i class="fas fa-cog"></i>
               <span>Settings</span>
             </a>
-          </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".company"
-              aria-expanded="false"
-              aria-controls="company"
-            >
-              <i class="fas fa-building"></i>
-              <span>Company</span>
-            </a>
-            <ul
-              class="company sidebar-dropdown list-unstyled collapse"
-              data-bs-parent=".sidebar"
-            >
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">About</a>
-              </li>
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">Contact</a>
-              </li>
-            </ul>
           </li>
         </ul>
 

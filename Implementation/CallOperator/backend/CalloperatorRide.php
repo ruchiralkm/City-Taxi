@@ -71,41 +71,7 @@
               <span>Drivers</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".tools"
-              aria-expanded="false"
-              aria-controls="tools"
-            >
-              <i class="fas fa-wrench"></i>
-              <span>Tools</span>
-            </a>
-            <ul class="tools sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
-              <li class="sidebar-item">
-                <a
-                  href="#"
-                  class="sidebar-link collapsed"
-                  data-bs-toggle="collapse"
-                  data-bs-target=".drop-two"
-                  aria-expanded="false"
-                  aria-controls="drop-two"
-                >
-                  Guides
-                </a>
-                <ul class="drop-two sidebar-dropdown list-unstyled collapse">
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Blog</a>
-                  </li>
-                  <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Start a Website</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+          
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>
@@ -118,27 +84,6 @@
               <span>Settings</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a
-              href="#"
-              class="sidebar-link collapsed has-dropdown"
-              data-bs-toggle="collapse"
-              data-bs-target=".company"
-              aria-expanded="false"
-              aria-controls="company"
-            >
-              <i class="fas fa-building"></i>
-              <span>Company</span>
-            </a>
-            <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">About</a>
-              </li>
-              <li class="sidebar-item">
-                <a href="#" class="sidebar-link">Contact</a>
-              </li>
-            </ul>
-          </li>
         </ul>
 
         <div class="sidebar-footer">
@@ -149,8 +94,8 @@
         </div>
       </aside>
       <div class="main p-4">
-        <!-- Home Section -->
-        <h1 class="ee">Ride Section</h1>
+
+        <!-- Ride Section -->
         <div class="content">
 
           <!-- Left Section -->
@@ -205,7 +150,7 @@
                     <input id="bike" type="radio" name="vehicle" value="Bike" onclick="showDrivers('Bike')">
                     <div class="radio-tile">
                     <img
-                        style="width: 120px"
+                        style="width: 80px"
                         src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/bike.png"
                         alt=""
                       />
@@ -228,7 +173,7 @@
                     >
                     <div class="radio-tile">
                     <img
-                        style="width: 90px"
+                        style="width: 60px; margin-bottom: -10px;"
                         src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/threew.png"
                         alt=""
                       />
@@ -244,7 +189,7 @@
                     <input id="car" type="radio" name="vehicle" value="Car" onclick="showDrivers('Car')" />
                     <div class="radio-tile">
                     <img
-                        style="width: 110px"
+                        style="width: 80px"
                         src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/car.png"
                         alt=""
                       />
@@ -260,7 +205,7 @@
                     <input id="van" type="radio" name="vehicle" value="Van" onclick="showDrivers('Van')"/>
                     <div class="radio-tile">
                     <img
-                        style="width: 100px"
+                        style="width: 80px"
                         src="https://raw.githubusercontent.com/ruchiralkm/Small-Testing/main/ASEassets/van.png"
                         alt=""
                       />
