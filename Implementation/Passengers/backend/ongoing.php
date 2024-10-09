@@ -21,6 +21,33 @@
         .pbtn a{
             color: white;
         }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            resize: vertical;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+            background-color: #fff;
+        }
+
+        textarea::placeholder {
+            color: #95a5a6;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +69,7 @@
                     <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Fair">★</label>
                     <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Poor">★</label>
                 </div>
+                <textarea name="" id=""></textarea>
                 <button type="submit">Submit Rating</button>
             </form>
         </div>
