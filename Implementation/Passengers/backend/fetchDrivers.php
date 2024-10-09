@@ -85,6 +85,7 @@ if ($result->num_rows > 0) {
         echo '<p><strong>Distance:</strong> ' . round($driver["distance"], 2) . ' km</p>'; // Display distance
         echo '<p><strong></strong><span style="color: yellow; font-size: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>';
         echo '</label>';
+        echo    '<button>viewDriver</button>';
         echo '</div>';
     }
     echo '</div>';
