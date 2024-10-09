@@ -25,14 +25,14 @@ FROM
 INNER JOIN 
     passenger p ON r.passengerID = p.passengerID
 WHERE 
-    r.passengerID = ? 
+    r.driverID = ? 
 AND 
     r.rideStatus = 'Accepted'
 AND 
     r.passengerType='Registered' ";
 
     $stmtReg = $conn->prepare($queryReg);
-    $stmtReg->bind_param('i', $passengerID);
+    $stmtReg->bind_param('i', $driverID);
     $stmtReg->execute();
     $resultReg = $stmtReg->get_result();
 
@@ -50,16 +50,16 @@ AND
     FROM 
         ride r
     INNER JOIN 
-        passenger p ON r.passengerID = p.passengerID
+        unregpassengers p ON r.passengerID = urp.unregPassengerID
     WHERE 
-        r.passengerID = ? 
+        r.driverID = ? 
     AND 
         r.rideStatus = 'Accepted'
     AND 
         r.passengerType='Unregistered' ";
 
         $stmtUnReg = $conn->prepare($queryUnReg);
-        $stmtUnReg->bind_param('i', $passengerID);
+        $stmtUnReg->bind_param('i', $driverID);
         $stmtUnReg->execute();
         $resultUnReg = $stmtUnReg->get_result();
 
