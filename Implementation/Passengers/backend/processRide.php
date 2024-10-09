@@ -13,7 +13,7 @@
 
 
 
-if (isset($_POST['submit'])) {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
 // Connect to the database
 include 'dbConnection.php';
 
