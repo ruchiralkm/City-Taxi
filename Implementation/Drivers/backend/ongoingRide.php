@@ -1,4 +1,5 @@
 <?php
+include 'NavBarDriver.php';
 include('dbConnection.php'); // Include database connection
 session_start();
 
@@ -31,38 +32,49 @@ AND
 AND 
     r.passengerType='Registered' ";
 
-    $stmtReg = $conn->prepare($queryReg);
-    $stmtReg->bind_param('i', $driverID);
-    $stmtReg->execute();
-    $resultReg = $stmtReg->get_result();
+$stmtReg = $conn->prepare($queryReg);
+
+// Check if statement preparation was successful
+if ($stmtReg === false) {
+    die("Error preparing statement for registered passengers: " . $conn->error);
+}
+
+$stmtReg->bind_param('i', $driverID);
+$stmtReg->execute();
+$resultReg = $stmtReg->get_result();
 
 
-    $queryUnReg = "
-    SELECT 
-        r.rideID, 
-        r.pickupLocation, 
-        r.dropLocation, 
-        r.fare, 
-        r.distance, 
-        urp.firstName, 
-        urp.lastName, 
-        urp.mobile
-    FROM 
-        ride r
-    INNER JOIN 
-        unregpassengers p ON r.passengerID = urp.unregPassengerID
-    WHERE 
-        r.driverID = ? 
-    AND 
-        r.rideStatus = 'Accepted'
-    AND 
-        r.passengerType='Unregistered' ";
+$queryUnReg = "
+SELECT 
+    r.rideID, 
+    r.pickupLocation, 
+    r.dropLocation, 
+    r.fare, 
+    r.distance, 
+    urp.firstName, 
+    urp.lastName, 
+    urp.mobilenumber
+FROM 
+    ride r
+INNER JOIN 
+    unregpassengers urp ON r.passengerID = urp.unregPassengerID
+WHERE 
+    r.driverID = ? 
+AND 
+    r.rideStatus = 'Accepted'
+AND 
+    r.passengerType='Unregistered' ";
 
-        $stmtUnReg = $conn->prepare($queryUnReg);
-        $stmtUnReg->bind_param('i', $driverID);
-        $stmtUnReg->execute();
-        $resultUnReg = $stmtUnReg->get_result();
+$stmtUnReg = $conn->prepare($queryUnReg);
 
+// Check if statement preparation was successful
+if ($stmtUnReg === false) {
+    die("Error preparing statement for unregistered passengers: " . $conn->error);
+}
+
+$stmtUnReg->bind_param('i', $driverID);
+$stmtUnReg->execute();
+$resultUnReg = $stmtUnReg->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -135,7 +147,7 @@ AND
             <td><?php echo htmlspecialchars($row['fare']); ?></td>
             <td><?php echo htmlspecialchars($row['distance']); ?></td>
             <td><?php echo htmlspecialchars($row['firstName'] . ' ' . $row['lastName']); ?></td>
-            <td><?php echo htmlspecialchars($row['mobile']); ?></td>
+            <td><?php echo htmlspecialchars($row['mobilenumber']); ?></td>
         </tr>
         <?php endwhile; ?>
     </table>
