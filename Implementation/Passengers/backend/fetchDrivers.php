@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .viewDriverBtn{
+            padding: 5px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .viewDriverBtn img{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 // Include database connection
 include 'dbConnection.php';
@@ -85,7 +108,7 @@ if ($result->num_rows > 0) {
         echo '<p><strong>Distance:</strong> ' . round($driver["distance"], 2) . ' km</p>'; // Display distance
         echo '<p><strong></strong><span style="color: yellow; font-size: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>';
         echo '</label>';
-        echo    '<button>viewDriver</button>';
+        echo '<button class="viewDriverBtn"><a href="ViewDriver.php"><img src="https://img.icons8.com/?size=100&id=63308&format=png&color=000000"></a></button>';
         echo '</div>';
     }
     echo '</div>';
