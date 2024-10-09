@@ -49,6 +49,9 @@ function setupMap(center) {
     const drop =
       route.legs[0].steps[route.legs[0].steps.length - 1].maneuver.location; // End point
 
+      const pickupLng = pickup[0];
+      const pickupLat = pickup[1];
+
     // Display Distance
     document.getElementById("distanceDisplay").innerText =
       distance.toFixed(2) + " km";
@@ -83,6 +86,9 @@ function calculateFare(distance) {
   // Update Hidden Inputs with Distance and Fare
   document.getElementById("distance").value = distance.toFixed(2);
   document.getElementById("fare").value = totalFare.toFixed(2);
+  document.getElementById("pickupLng").value = pickupLng;
+  document.getElementById("pickupLat").value = pickupLat;
+
 }
 
 // Book Ride on Button Click
