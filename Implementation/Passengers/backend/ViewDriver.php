@@ -90,6 +90,21 @@ $conn->close();
             font-size: 20px;
             color: #555;
         }
+        /*--------- Animation ---------*/
+        .container {
+        position: relative;
+        opacity: 0;
+        transform: translateY(20%);
+        animation: slideIn 500ms forwards;
+        animation-delay: 600ms;
+        }
+
+        @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        }
         @media (max-width: 768px) {
             .driver-details {
                 flex-direction: column;
