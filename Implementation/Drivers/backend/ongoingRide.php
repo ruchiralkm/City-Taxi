@@ -1,7 +1,7 @@
 <?php
 include 'NavBarDriver.php';
 include('dbConnection.php'); // Include database connection
-session_start();
+
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     $driverID = htmlspecialchars($_SESSION['driverID']);
