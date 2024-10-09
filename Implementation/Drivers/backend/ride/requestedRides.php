@@ -125,7 +125,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     exit;
 }
 // SQL query to select all rides by driver ID
-$sql = "SELECT * FROM ride WHERE driverID = '$driverID'";
+$sql = "SELECT * FROM ride WHERE driverID = '$driverID' and ridestatus = 'Pending'";
 $result = $conn->query($sql);
 
 // List ride requests
