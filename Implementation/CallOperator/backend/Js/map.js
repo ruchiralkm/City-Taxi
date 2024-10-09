@@ -48,6 +48,10 @@ function setupMap(center) {
     const pickup = route.legs[0].steps[0].maneuver.location; // Start point
     const drop =
       route.legs[0].steps[route.legs[0].steps.length - 1].maneuver.location; // End point
+// Extract latitude and longitude
+      const pickup_lng = pickup[0];
+      const pickup_lat = pickup[1];
+
 
     // Display Distance
     document.getElementById("distanceDisplay").innerText =

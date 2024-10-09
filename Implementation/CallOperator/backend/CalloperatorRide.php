@@ -111,6 +111,8 @@
               <input type="hidden" id="dropLocation" name="dropLocation">
               <input type="hidden" id="driverID" name="driverID">
               <input type="hidden" id="totalAmount" name ="totalAmount" value="0">
+              <input type="hidden" id="pickupLat" name="pickupLat">
+              <input type="hidden" id="pickupLng" name="pickupLng">
 
               <!-- Passenger Info -->
               <div class="name-row">
@@ -299,8 +301,16 @@
                 function showDrivers(filter) 
                 {
                     const driverList = document.getElementById('driverList');
+                    // Get the pickupLat and pickupLng values
+                    const pickupLat = document.getElementById('pickupLat').value;
+                    const pickupLng = document.getElementById('pickupLng').value;
+
+                    // Create the query string with the filter, pickupLat, and pickupLng values
+                    const queryString = `filter=${filter}&pickupLat=${encodeURIComponent(pickupLat)}&pickupLng=${encodeURIComponent(pickupLng)}`;
+
+
                     const xhr = new XMLHttpRequest();
-                    xhr.open('GET', 'fetchDrivers.php?filter=' + filter, true);
+                    xhr.open('GET', 'fetchDrivers.php?' + queryString, true);
                     xhr.onload = function () {
                         if (this.status === 200) {
                           driverList.innerHTML = this.responseText;
