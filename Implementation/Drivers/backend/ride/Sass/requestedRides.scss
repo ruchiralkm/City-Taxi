@@ -16,6 +16,18 @@
   }
 }
 
+/*--------- Animation ---------*/
+.ride-request-list {
+  opacity: 0;
+  animation: slideIn 600ms forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .ride-request-item {
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
@@ -90,4 +102,19 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #000;
+}
+
+/*--------- Animation ---------*/
+button {
+  position: relative;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideIn 600ms forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }

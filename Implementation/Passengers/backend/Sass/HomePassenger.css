@@ -40,6 +40,17 @@
   font-family: Arial, sans-serif;
 }
 
+/*--------- Animation ---------*/
+.slider-container {
+  opacity: 0;
+  animation: slideIn 400ms forwards;
+  animation-delay: 0.2s;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+  }
+}
 /*==================== Cards =======================*/
 .card {
   position: absolute;
@@ -71,6 +82,18 @@
 .card :hover {
   background-color: #ccc;
   transition: 400ms;
+}
+
+/*--------- Animation ---------*/
+.card {
+  opacity: 0;
+  animation: slideIn 600ms forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+  }
 }
 /*==================== Counter =======================*/
 .wrapper {

@@ -84,16 +84,89 @@ $resultUnReg = $stmtUnReg->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ongoing Rides</title>
     <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #0b8c4c;
+            padding-bottom: 10px;
+        }
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
-        table, th, td {
-            border: 1px solid black;
+
+        /*--------- Animation ---------*/
+        table {
+            position: relative;
+            opacity: 0;
+            transform: translateY(40%);
+            animation: slideIn 600ms forwards;
+            animation-delay: 0.3s;
+        }
+        @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        }
+
+        h2{
+            position: relative;
+            opacity: 0;
+            transform: translateY(-40%);
+            animation: slideIn 600ms forwards;
+            animation-delay: 0.3s;
+        }
+        @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
         }
         th, td {
-            padding: 10px;
+            padding: 15px;
             text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #1a242f;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #ddffe6;
+            transition: background-color 0.3s ease;
+        }
+        p {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
         }
     </style>
 </head>
