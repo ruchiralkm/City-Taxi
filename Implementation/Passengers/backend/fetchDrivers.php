@@ -108,11 +108,13 @@ if ($result->num_rows > 0) {
         echo '<p><strong>Distance:</strong> ' . round($driver["distance"], 2) . ' km</p>'; // Display distance
         echo '<p><strong></strong><span style="color: yellow; font-size: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>';
         echo '</label>';
-        echo '<button class="viewDriverBtn"><a href="ViewDriver.php"><img src="https://img.icons8.com/?size=100&id=63308&format=png&color=000000"></a></button>';
+        echo '<a href="viewdriver.php?driverID=' . $driverId . '" class="viewDriverBtn"><img src="https://img.icons8.com/?size=100&id=63308&format=png&color=000000"></a>';
         echo '</div>';
     }
     echo '</div>';
-} else {
+}
+else
+{
     echo "No Drivers found for this vehicle type.";
 }
 
