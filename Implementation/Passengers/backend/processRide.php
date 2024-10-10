@@ -88,7 +88,7 @@ if (!empty($pickup) && !empty($drop) && is_numeric($distance) && is_numeric($far
                     Your successfully booked your ride. Now you can connect with driver.
                 </p>
                 <br />
-                <a href="requestedRides.php"><button class="backbtn">Back</button></a>
+                <a href="HomePassenger.php"><button class="backbtn">Back</button></a>
                 <br><br>
                 <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
             </div>
