@@ -25,13 +25,14 @@
     <title>City-Taxi</title>
     <style>
         .driverList {
-            margin-top: 20px;
+            margin-top: -20px;
             display: none;
         }
         .driver-item {
-            padding: 5px 0;
+            padding: 0px;
             border-bottom: 1px solid #ddd;
         }
+        
     </style>
 </head>
 <body>
@@ -52,7 +53,7 @@
             <!-- Ride Booking Form -->
             <form action="processRide.php" method="post" id="rideForm">
                 <div id="fareDetails" class="fareDetails">
-                    <h2 class="distance">Total Distance : <span id="distanceDisplay"></span></h2>
+                    <h2 class="distance" style="margin-top:-25px;">Total Distance : <span id="distanceDisplay"></span></h2>
                     <p style="display: none;"><strong>Price:</strong> LKR<span id="fareDisplay"></span></p>
 
                     <!-- Hidden Inputs to Store Ride Details -->
@@ -195,7 +196,7 @@
 
 
                 <!-- Select Driver -->
-                <h2 style="margin-top:-70px;">Select your driver</h2>
+                <h2 style="margin-top:-100px;">Select your driver</h2>
                 <div class="driverList" id="driverList"> driver list</div>
                 <hr>
                 <h2 class="totalPrice">Total Price: LKR 0</h2>

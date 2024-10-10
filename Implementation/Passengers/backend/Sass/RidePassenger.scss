@@ -16,7 +16,7 @@
   flex: 2;
   border: 2px solid black;
   border-radius: 8px;
-  height: 100vh;
+  height: 110vh;
 
   h2 {
     margin-left: 20px;
@@ -46,7 +46,7 @@
 
   border: 1px solid black;
   border-radius: 8px;
-  height: 100vh;
+  height: 110vh;
 }
 
 #fareDetails {
@@ -79,6 +79,7 @@ hr {
 /*============ Toggle Container ============*/
 /* Toggle Switch Base Styles */
 .toggle-container {
+  margin-top: -15px;
   margin-left: 30%;
   position: relative;
   display: inline-block;

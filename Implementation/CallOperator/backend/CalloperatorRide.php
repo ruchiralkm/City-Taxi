@@ -31,6 +31,17 @@
     <!--Calloperator Home scss file-->
     <link rel="stylesheet" href="Sass/CalloperatorRide.min.css" />
 
+    <style>
+      .driverList {
+            margin-top: -20px;
+            display: none;
+        }
+        .driver-item {
+            padding: 0px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+
   </head>
 
   <body>
@@ -99,7 +110,7 @@
         <div class="content">
 
           <!-- Left Section -->
-          <div class="left">
+          <div class="left" style="margin-top:-40px;">
             <!-- Form -->
             <form method="POST" action="RideProcess.php"  id="rideForm">
               <!-- Hidden Inputs to Store Ride Details -->

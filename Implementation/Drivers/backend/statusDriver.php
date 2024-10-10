@@ -35,7 +35,7 @@
         <option value="Busy">Busy</option>
     </select>
 
-    <input type="submit" value="Update Location">
+    <input type="submit" value="Update Status">
 </form>
 
 <script>
