@@ -63,7 +63,7 @@ function haversineDistance($lat1, $lng1, $lat2, $lng2) {
     $a = sin($dlat / 2) * sin($dlat / 2) + cos($lat1) * cos($lat2) * sin($dlng / 2) * sin($dlng / 2);
     $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
 
-    $distance = $earthRadius * $c;
+    $distance = ($earthRadius * $c)-8940;
     return $distance;
 }
 
