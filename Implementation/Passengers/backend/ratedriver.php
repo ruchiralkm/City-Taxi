@@ -1,81 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SCSS file -->
-     <link rel="stylesheet" href="../../Drivers/backend/ride/Sass/acceptRide.scss">
-</head>
-
-</html>
-
 <?php
-// Include the database connection file
+// ratedriver.php
+
+// Include database connection
 include 'dbConnection.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['driverID']) && isset($_POST['rating'])) {
-    // Get the driverID and rating from the POST data
-    $driverID = $_POST['driverID'];
-    $rating = $_POST['rating'];
+// Check if form is submitted with POST method
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $driverID = isset($_POST['driverID']) ? intval($_POST['driverID']) : null;
+    $rating = isset($_POST['rating']) ? intval($_POST['rating']) : null;
+    $comment = isset($_POST['comments']) ? htmlspecialchars($_POST['comments']) : null;
 
-    // Begin transaction to ensure data consistency
-    $conn->begin_transaction();
+    // Validate if driverID, rating, and comment are set
+    if ($driverID && $rating && $rating >= 1 && $rating <= 5 && $comment) {
 
-    try {
-        // Update total ratings, rating sum, and last rating
-        $stmt = $conn->prepare("INSERT INTO driverRatings (driverID, total_ratings, rating_sum, last_rating) 
-                                VALUES (?, 1, ?, ?) 
-                                ON DUPLICATE KEY UPDATE 
-                                    total_ratings = total_ratings + 1, 
-                                    rating_sum = rating_sum + ?, 
-                                    last_rating = ?");
-        $stmt->bind_param("iiiii", $driverID, $rating, $rating, $rating, $rating);
+        // First, insert the comment into the driverfeedback table
+        $sqlComment = "INSERT INTO driverfeedback (driverID, comment) VALUES (?, ?)";
+        $stmtComment = $conn->prepare($sqlComment);
+        $stmtComment->bind_param("is", $driverID, $comment);
 
-        if ($stmt->execute()) {
-            // echo "Thank you for rating the driver!";
-            ?>
-            <!--=== Correct Content ===-->
-                    <!--* hero section *-->
-                    <div class="conn">
-                    
-                        <div class="container">
-                        <br><br><br><br><br><br><br><br><br><br>
-                            <div class="header">
-                                <img
-                                    src="https://img.icons8.com/?size=100&id=a4l6bA9mSmBh&format=png&color=40C057"
-                                    alt="Checkmark"
-                                    class="checkmark"
-                                />
-                                <h1>Thank you for rating the driver!</h1>
-                            </div>
-                            <p>
-                                You are successfully rate your driver. Thank you for your ratings
-                            </p>
-                            <br />
-                            <a href="HomePassenger.php"><button class="backbtn">Back</button></a>
-                            <br><br>
-                            <img src="https://www.gifcen.com/wp-content/uploads/2021/05/car-gif-7.gif" alt="" style="width: 300px; height:300px; border-radius:10px; object-fit:cover;">
-                        </div>
-                    </div>
-            <?php
+        if ($stmtComment->execute()) {
+            // Comment successfully added, proceed with rating
+
+            // Check if this driver already has ratings
+            $sql = "SELECT * FROM driverratings WHERE driverID = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $driverID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $currentDate = date('Y-m-d H:i:s'); // Get the current date and time
+
+            if ($result->num_rows > 0) {
+                // Driver has previous ratings, update them
+                $row = $result->fetch_assoc();
+                $total_ratings = $row['total_ratings'] + 1;
+                $rating_sum = $row['rating_sum'] + $rating;
+                $rating_avg = $rating_sum / $total_ratings;
+
+                // Update driver rating
+                $updateSql = "UPDATE driverratings 
+                              SET total_ratings = ?, rating_sum = ?, rating_avg = ?, last_rating = ?, last_rating_date = ? 
+                              WHERE driverID = ?";
+                $updateStmt = $conn->prepare($updateSql);
+                $updateStmt->bind_param("iidisi", $total_ratings, $rating_sum, $rating_avg, $rating, $currentDate, $driverID);
+
+                // Execute update query
+                if ($updateStmt->execute()) {
+                    echo 'message=rating_comment_success';
+                    exit();
+                } else {
+                    echo 'message=rating_error';
+                    exit();
+                }
+
+            } else {
+                // No ratings found for this driver, insert a new record
+                $total_ratings = 1;
+                $rating_sum = $rating;
+                $rating_avg = $rating;
+
+                // Insert new driver rating record
+                $insertSql = "INSERT INTO driverratings (driverID, total_ratings, rating_sum, rating_avg, last_rating, last_rating_date) 
+                              VALUES (?, ?, ?, ?, ?, ?)";
+                $insertStmt = $conn->prepare($insertSql);
+                $insertStmt->bind_param("iiidis", $driverID, $total_ratings, $rating_sum, $rating_avg, $rating, $currentDate);
+
+                // Execute insert query
+                if ($insertStmt->execute()) {
+                    echo 'message=rating_comment_success';
+                    exit();
+                } else {
+                    echo 'message=rating_error';
+                    exit();
+                }
+            }
+
         } else {
-            echo "Failed to submit rating.";
+            // Comment insertion failed
+            echo 'message=comment_error';
+            exit();
         }
-
-        // Commit transaction
-        $conn->commit();
-
-        // Close the statement
-        $stmt->close();
-    } catch (Exception $e) {
-        // Rollback in case of error
-        $conn->rollback();
-        echo "Failed to submit rating: " . $e->getMessage();
+    } else {
+        // Invalid input or missing data
+        echo 'message=invalid_input';
+        exit();
     }
-
+} else {
+    // Redirect if the page is accessed without submitting the form
+    header("Location: ongoingRides.php");
+    exit();
 }
-
-// Close the database connection
-$conn->close();
 ?>

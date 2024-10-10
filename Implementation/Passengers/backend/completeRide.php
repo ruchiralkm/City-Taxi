@@ -3,8 +3,8 @@
 include 'dbConnection.php';
 
 // Check if rideID is posted
-if (isset($_POST['rideID'])) {
-    $rideID = $_POST['rideID'];
+if (isset($_GET['rideID'])) {
+    $rideID = intval($_GET['rideID']);
 
     // Update the ride status to 'completed'
     $sql = "UPDATE ride SET rideStatus = 'Completed' WHERE rideID = ?";

@@ -20,6 +20,18 @@ if ($driverID > 0) {
         $driver = $result->fetch_assoc();
     }
 
+    $sqlComments = "SELECT * FROM driverFeedback WHERE driverID = ?";
+    if ($stmt = $conn->prepare($sqlComments)) {
+        $stmt->bind_param("i", $driverID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $comments[] = $row['comment'];
+            }
+        }
+    }
+
     $stmt->close();
 }
 
@@ -90,6 +102,25 @@ $conn->close();
             font-size: 20px;
             color: #555;
         }
+        .comments-section {
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+        .comments-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .comment {
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 18px;
+        }
+
+
         /*--------- Animation ---------*/
         .container {
         position: relative;
@@ -168,6 +199,18 @@ $conn->close();
                     </div>
                 </div>
             </div>
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h2>Driver Comments</h2>
+                <?php if (!empty($comments)): ?>
+                    <?php foreach ($comments as $comment): ?>
+                        <div class="comment"><?php echo htmlspecialchars($comment); ?></div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No comments available for this driver.</p>
+                <?php endif; ?>
+            </div>
+
         <?php else: ?>
             <p>Driver not found or no driver selected.</p>
         <?php endif; ?>

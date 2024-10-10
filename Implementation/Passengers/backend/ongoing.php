@@ -12,41 +12,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <style>
-        .pbtn{
+        .pbtn {
             background-color: #1a242f;
+            padding: 10px;
+            margin-top: 10px;
         }
-        .pbtn:hover{
+        .pbtn:hover {
             background-color: #000;
         }
-        .pbtn a{
+        .pbtn a {
             color: white;
-        }
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            padding: 12px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            border: 2px solid #3498db;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            color: #333;
-            resize: vertical;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #2980b9;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-            background-color: #fff;
-        }
-
-        textarea::placeholder {
-            color: #95a5a6;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -54,110 +30,9 @@
     <?php include 'NavBarPassenger.php'; ?>
 
     <h1>Your Ongoing Rides</h1>
-    <div id="rides"></div>
 
-    <div id="ratingPopup">
-        <div class="popup-content">
-            <h2>Rate Your Driver</h2>
-            <form id="ratingForm" method="POST" action="rateDriver.php">
-                <input type="hidden" name="driverID" id="driverID">
-                <label for="rating">How was your experience?</label>
-                <div class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excellent">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Very Good">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Good">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Fair">★</label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Poor">★</label>
-                </div>
-                <textarea name="" id=""></textarea>
-                <button type="submit">Submit Rating</button>
-            </form>
-        </div>
+    <div id="rides">
+        <?php include 'ongoingRide.php'; ?>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Fetch the ongoing rides from the server
-            fetch('ongoingRide.php')
-                .then(response => response.json())
-                .then(data => {
-                    // Get the container element
-                    const ridesContainer = document.getElementById('rides');
-
-                    if (data.length > 0) {
-                        // Loop through the rides and display them
-                        data.forEach(ride => {
-                            // Create a div for each ride
-                            const rideDiv = document.createElement('div');
-                            rideDiv.classList.add('ride-container');
-
-                            // Add the ride details to the div
-                            rideDiv.innerHTML = `
-                                <h2>Ride ID: ${ride.rideID}</h2>
-                                <div class="ride-details"><strong>Pickup Location:</strong> ${ride.pickupLocation}</div>
-                                <div class="ride-details"><strong>Drop Location:</strong> ${ride.dropLocation}</div>
-                                <div class="ride-details"><strong>Fare:</strong> Rs. ${ride.fare}</div>
-                                <div class="ride-details"><strong>Distance:</strong> ${ride.distance} km</div>
-                                <div class="ride-details"><strong>Driver Name:</strong> ${ride.firstName} ${ride.lastName}</div>
-                                <div class="ride-details"><strong>Vehicle:</strong> ${ride.vehicle}</div>
-                                <div class="ride-details"><strong>Reg No:</strong> ${ride.regNo}</div>
-                                <div class="ride-details"><strong>Driver's Contact:</strong> ${ride.mobile}</div>
-                                <button class="pbtn">
-                                    <a href="../../checkout.php?fare=${ride.fare}" class="payment-button">Make Payment</a>
-                                </button>
-                                <form action="completeRide.php" method="POST" class="complete-ride-form">
-                                    <input type="hidden" name="rideID" value="${ride.rideID}">
-                                    <input type="hidden" name="driverID" value="${ride.driverID}">
-                                    <button type="submit">Rate Driver</button>
-                                </form>
-                            `;
-
-                            // Append the ride div to the container
-                            ridesContainer.appendChild(rideDiv);
-                        });
-
-                        // Attach event listeners to complete the ride
-                        document.querySelectorAll('.complete-ride-form').forEach(form => {
-                            form.addEventListener('submit', function(e) {
-                                e.preventDefault();
-
-                                const formData = new FormData(this);
-                                const rideID = formData.get('rideID');
-                                const driverID = formData.get('driverID');
-                                
-                                // Submit the ride completion form using POST
-                                fetch('completeRide.php', {
-                                    method: 'POST',
-                                    body: formData
-                                })
-                                .then(response => response.text())
-                                .then(data => {
-                                    alert('Ride completed successfully!');
-                                    // Open rating popup
-                                    openRatingPopup(driverID);
-                                    this.closest('.ride-container').remove();
-                                })
-                                .catch(error => {
-                                    alert('Error completing the ride. Please try again.');
-                                });
-                            });
-                        });
-                    } else {
-                        // If no rides are ongoing, show a message
-                        ridesContainer.innerHTML = '<p>No ongoing rides at the moment.</p>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching ongoing rides:', error);
-                });
-        });
-
-        // Function to open the rating popup
-        function openRatingPopup(driverID) {
-            const ratingPopup = document.getElementById('ratingPopup');
-            ratingPopup.style.display = 'flex';
-            document.getElementById('driverID').value = driverID;
-        }
-    </script>
 </body>
 </html>
