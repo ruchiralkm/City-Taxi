@@ -64,6 +64,8 @@ function haversineDistance($lat1, $lng1, $lat2, $lng2) {
     $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
 
     $distance = ($earthRadius * $c)-8940;
+    $distance = abs($distance);
+
     return $distance;
 }
 
