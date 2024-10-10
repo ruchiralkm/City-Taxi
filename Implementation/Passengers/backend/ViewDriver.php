@@ -32,6 +32,16 @@ if ($driverID > 0) {
         }
     }
 
+    $sqlRatings = "SELECT * FROM driverratings WHERE driverID = ?";
+    if ($stmt = $conn->prepare($sqlRatings)) {
+        $stmt->bind_param("i", $driverID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $ratings = $result->fetch_assoc();
+        }
+    }
+
     $stmt->close();
 }
 
@@ -157,6 +167,17 @@ $conn->close();
                         <span class="info-value" style="font-weight:600; font-size:24px;"><?php echo htmlspecialchars($driver['firstName']); ?></span>
                         <span class="info-value" style="font-weight:600; font-size:24px;"><?php echo htmlspecialchars($driver['lastName']); ?></span><br><br>
                         <img style="width: 80px; height:80px;" src="https://img.icons8.com/?size=100&id=YUnLyRLAKDTW&format=png&color=000000" alt="">
+                        <?php if ($ratings): ?>
+                        <div class="ratings-section">
+                            <h2>Driver Ratings</h2>
+                            <div class="info-item">
+                                <span class="info-label">Average Rating:</span>
+                                <span class="info-value"><?php echo htmlspecialchars($ratings['rating_avg']); ?></span>
+                            </div>
+                        </div>
+                            <?php else: ?>
+                            <p>Driver not found or no driver selected.</p>
+                        <?php endif; ?>
                     </center>
                 </div>
                 <div class="details">
@@ -198,7 +219,7 @@ $conn->close();
                         <span class="info-value"><?php echo '<p><strong></strong><span style="color: yellow; font-size: 40px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>'; ?></span>
                     </div>
                 </div>
-            </div>
+            
             <!-- Comments Section -->
             <div class="comments-section">
                 <h2>Driver Comments</h2>
