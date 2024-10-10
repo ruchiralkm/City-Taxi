@@ -56,105 +56,168 @@ $conn->close();
     <title>Driver Details</title>
     <style>
         /* POPPINS FONT */
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-        body {
-            font-family: "Poppins", sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 90%;
-            max-width: 800px;
-            height: 600px;
-        }
-        .driver-details {
-            display: flex;
-            flex-direction: row;
-            padding: 2rem;
-        }
-        .profile-picture {
-            flex: 0 0 40%;
-            padding-right: 2rem;
-        }
-        .profile-picture img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .details {
-            flex: 1;
-        }
-        h1 {
-            color: #333;
-            margin-top: 0;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        .info-item {
-            margin-bottom: 1rem;
-        }
-        .info-label {
-            font-size: 20px;
-            font-weight: bold;
-            color: #3498db;
-        }
-        .info-value {
-            font-size: 20px;
-            color: #555;
-        }
-        .comments-section {
-            padding: 2rem;
-            background-color: #f9f9f9;
-            border-top: 1px solid #ddd;
-        }
-        .comments-section h2 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-        .comment {
-            padding: 1rem;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            font-size: 18px;
-        }
+        /* POPPINS FONT */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        /*--------- Animation ---------*/
-        .container {
-        position: relative;
+.container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.driver-details {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+}
+
+.profile-picture {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.profile-picture img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.driver-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.rating-badge {
+    background-color: #ffd700;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.details {
+    flex: 1;
+}
+
+h1 {
+    color: #3498db;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.info-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.comments-section {
+    border-radius: 10px;
+    margin-left: 30px;
+    padding: 30px;
+    height: auto;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+.comments-section h2 {
+    color: #3498db;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.comment {
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.comment:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
         opacity: 0;
-        transform: translateY(20%);
-        animation: slideIn 500ms forwards;
-        animation-delay: 600ms;
-        }
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        @keyframes slideIn {
-        to {
-            opacity: 1;
-            transform: translateX(0%);
-        }
-        }
-        @media (max-width: 768px) {
-            .driver-details {
-                flex-direction: column;
-            }
-            .profile-picture {
-                padding-right: 0;
-                padding-bottom: 1rem;
-            }
-        }
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .driver-details {
+        flex-direction: column;
+    }
+    .profile-picture {
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .info-label {
+        margin-bottom: 0.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -174,6 +237,9 @@ $conn->close();
                                 <span class="info-label">Average Rating:</span>
                                 <span class="info-value"><?php echo htmlspecialchars($ratings['rating_avg']); ?></span>
                             </div>
+                            <div style="margin-top: -40px; margin-left:15px;" class="info-item">
+                                <span class="info-value"><?php echo '<p><strong></strong><span style="color: yellow; font-size: 40px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>'; ?></span>
+                            </div>
                         </div>
                             <?php else: ?>
                             <p>Driver not found or no driver selected.</p>
@@ -185,6 +251,7 @@ $conn->close();
                     <div class="info-item">
                         <span class="info-label">Name:</span>
                         <span class="info-value"><?php echo htmlspecialchars($driver['firstName']); ?></span>
+                        <span>&nbsp;</span> <!-- Add space here -->
                         <span class="info-value"><?php echo htmlspecialchars($driver['lastName']); ?></span>
                     </div>
                     <div class="info-item">
@@ -214,9 +281,6 @@ $conn->close();
                     <div class="info-item">
                         <span class="info-label">Color:</span>
                         <span class="info-value"><?php echo htmlspecialchars($driver['vColor']); ?></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-value"><?php echo '<p><strong></strong><span style="color: yellow; font-size: 40px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>'; ?></span>
                     </div>
                 </div>
             
