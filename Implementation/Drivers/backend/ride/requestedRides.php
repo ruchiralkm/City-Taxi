@@ -68,7 +68,7 @@
                   </li>
 
                   <li class="dropdown__item">
-                    <a href="#" class="nav__link">Completed</a>
+                    <a href="../completedRides.php" class="nav__link">Completed</a>
                   </li>
 
 

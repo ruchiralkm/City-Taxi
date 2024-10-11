@@ -94,7 +94,7 @@
 
       <div class="main p-4">
         <!-- Home Section -->
-        <h1 class="ee">Passenger Section</h1>
+        <br><br>
 
         <!-- Database connection -->
         <?php

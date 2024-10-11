@@ -108,14 +108,14 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorDriver.php" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
           </li>
           
           <li class="sidebar-item">
-            <a href="CalloperatorRide.php" class="sidebar-link">
+            <a href="#" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
@@ -159,12 +159,13 @@
                                 <th>Ride ID</th>
                                 <th>Pickup Location</th>
                                 <th>Drop Location</th>
-                                <th>Fare (Rs.)</th>
+                                <th>Price(LKR)</th>
                                 <th>Distance (km)</th>
                                 <th>Passenger Name</th>
                                 <th>Mobile</th>
                                 <th>Driver ID</th>
                                 <th>Ride Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

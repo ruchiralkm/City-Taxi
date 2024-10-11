@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Drivers/backend/ride/Sass/acceptRide.min.css">
+
+</head>
+
+</html>
 <?php
 include('dbConnection.php');
 
@@ -11,7 +21,33 @@ if (isset($_POST['completeRide'])) {
     if ($stmt) {
         $stmt->bind_param("i", $rideID);
         if ($stmt->execute()) {
-            echo "Ride status updated successfully.";
+            // echo "Ride status updated successfully.";
+            ?>
+            <!--* hero section *-->
+            <div class="conn">
+                <div class="container">
+                    <div class="header">
+                    <img
+                        src="https://img.icons8.com/?size=100&id=a4l6bA9mSmBh&format=png&color=40C057"
+                        alt="Checkmark"
+                        class="checkmark"
+                    />
+                    <h1>Your ride is successfully completed</h1>
+                    </div>
+                    <p>
+                        Your Your ride is successfully completed. Thank you for joining with City-Taxi.
+                    </p>
+                    <p>
+                    For further information, please go to the
+                    <a href="../../About/about.html">documentation</a>.
+                    </p>
+                    <br />
+                    <a href="RideStatusUpdate.php"><button class="backbtn">Back</button></a>
+                </div>
+            </div>
+
+            <?php
+
         } else {
             echo "Error updating ride status.";
         }

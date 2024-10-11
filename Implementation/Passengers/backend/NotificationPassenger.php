@@ -65,7 +65,7 @@
     <!-- Navigation Bar -->
     <?php include 'NavBarPassenger.php'; ?>
 
-    <h1>Notifications Section</h1>
+    <br><br><br>
     
     <?php
 
