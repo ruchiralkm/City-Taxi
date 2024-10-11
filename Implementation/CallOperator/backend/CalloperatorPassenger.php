@@ -51,7 +51,7 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorPassenger.php" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
@@ -63,7 +63,13 @@
               <span>Drivers</span>
             </a>
           </li>
-      
+
+          <li class="sidebar-item">
+            <a href="RideStatusUpdate.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Ride status</span>
+            </a>
+          </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>
@@ -105,62 +111,6 @@
             // echo "C";
           }
         ?>
-
-
-        <!-- Registered Passenger -->
-        <div class="tableContent">
-            <h1>Registered Passenger</h1>
-
-            <?php
-                $sql="SELECT * FROM passenger";
-                $result=mysqli_query($conn,$sql);
-
-                if(mysqli_num_rows($result)>0){
-              ?>
-
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Frist Name</th>
-                    <th>Last Name</th>
-                    <th>Mobile Number</th>
-                    <th>Email</th>
-                    </tr>
-
-                    <?php
-                      $i=0;
-                      while($row=mysqli_fetch_array($result)){
-                    ?>
-
-                </thead>
-                <tbody>
-                <tr>
-                    <td data-label="#"><?php echo $row["passengerID"];?></td>
-                    <td data-label="#"><?php echo $row["firstName"];?></td>
-                    <td data-label="#"><?php echo $row["lastName"];?></td>
-                    <td data-label="#"><?php echo $row["mobile"];?></td>
-                    <td data-label="#"><?php echo $row["email"];?></td>
-                </tr>
-
-                <?php
-                  $i++;
-                  }
-                ?>
-                    
-                </tbody>
-            </table>
-
-            <?php
-              }
-              else{
-                echo "No Records Found";
-              }
-            ?>
-
-        </div>
-
-
 
         <!-- Unregistered Passenger -->
         <div class="tableContent">

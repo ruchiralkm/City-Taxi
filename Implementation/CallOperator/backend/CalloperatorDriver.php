@@ -58,12 +58,18 @@
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorDriver.php" class="sidebar-link">
             <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
           </li>
 
+          <li class="sidebar-item">
+            <a href="RideStatusUpdate.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Ride status</span>
+            </a>
+          </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>

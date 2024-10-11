@@ -52,6 +52,7 @@
           <button class="toggle-btn" type="button">
             <i class="fas fa-bars"></i>
           </button>
+
           <div class="sidebar-logo">
             <a href="#"><img src="../../City-Taxi.png" alt="" style="width: 85px; height: 60px" /></a>
           </div>
@@ -65,24 +66,32 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorRide.php" class="sidebar-link">
               <i class="fas fa-car"></i>
               <span>Rides</span>
             </a>
           </li>
+
           <li class="sidebar-item">
             <a href="CalloperatorPassenger.php" class="sidebar-link">
               <i class="fas fa-user"></i>
               <span>Passengers</span>
             </a>
           </li>
+
           <li class="sidebar-item">
             <a href="CalloperatorDriver.php" class="sidebar-link">
-              <i class="fa-solid fa-user-nurse"></i>
+            <i class="fa-solid fa-user-nurse"></i>
               <span>Drivers</span>
             </a>
           </li>
-          
+
+          <li class="sidebar-item">
+            <a href="RideStatusUpdate.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Ride status</span>
+            </a>
+          </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>

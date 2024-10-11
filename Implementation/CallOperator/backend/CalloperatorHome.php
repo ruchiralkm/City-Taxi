@@ -38,7 +38,7 @@
 
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="CalloperatorHome.php" class="sidebar-link">
               <i class="fas fa-home"></i>
               <span>Home</span>
             </a>
@@ -63,7 +63,13 @@
               <span>Drivers</span>
             </a>
           </li>
-          
+
+          <li class="sidebar-item">
+            <a href="RideStatusUpdate.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Ride status</span>
+            </a>
+          </li>
           <li class="sidebar-item">
             <a href="#" class="sidebar-link">
               <i class="fas fa-bell"></i>
