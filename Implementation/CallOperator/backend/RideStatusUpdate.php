@@ -113,6 +113,13 @@
               <span>Drivers</span>
             </a>
           </li>
+          
+          <li class="sidebar-item">
+            <a href="CalloperatorRide.php" class="sidebar-link">
+              <i class="fas fa-car"></i>
+              <span>Rides</span>
+            </a>
+          </li>
 
           <li class="sidebar-item">
             <a href="RideStatusUpdate.php" class="sidebar-link">
