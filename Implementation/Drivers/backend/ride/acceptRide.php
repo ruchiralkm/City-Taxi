@@ -94,7 +94,7 @@ if (isset($_POST['acceptRideBtn'])) {
                    
 
                     <?php
-//********************// include 'SMS.php';
+                 include 'SMS.php';
                 } else {
                     echo "Error: " . $sql_notify . "<br>" . $conn->error;
                 }
